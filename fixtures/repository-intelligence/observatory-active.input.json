@@ -1,0 +1,582 @@
+{
+  "schema": "egohygiene.repository-intelligence/v1",
+  "contract_version": "1.0.0-alpha.1",
+  "projection_id": "egohygiene/observatory@cccccccccccccccccccccccccccccccccccccccc",
+  "repository": "egohygiene/observatory",
+  "represented_commit": "cccccccccccccccccccccccccccccccccccccccc",
+  "visibility": "public",
+  "observed_at": "2026-08-25T18:00:00Z",
+  "generator": {
+    "name": "egohygiene/observatory:fixture",
+    "version": "0.1.0",
+    "contract": "egohygiene.repository-intelligence/v1"
+  },
+  "sources": [
+    {
+      "id": "source:check-901",
+      "kind": "check_provider",
+      "url": "https://github.com/egohygiene/observatory/actions/runs/901",
+      "repository": "egohygiene/observatory",
+      "revision": null,
+      "observed_at": "2026-08-25T18:00:00Z",
+      "visibility": "public",
+      "assertion": "authoritative",
+      "freshness": "current"
+    },
+    {
+      "id": "source:hygiene",
+      "kind": "manual",
+      "url": "https://github.com/egohygiene/hygiene/tree/5e0602265b6ac5e5165b89f418e55a3fd12f8a64",
+      "repository": "egohygiene/hygiene",
+      "revision": "5e0602265b6ac5e5165b89f418e55a3fd12f8a64",
+      "observed_at": "2026-08-25T18:00:00Z",
+      "visibility": "public",
+      "assertion": "authoritative",
+      "freshness": "current"
+    },
+    {
+      "id": "source:issue-1",
+      "kind": "github_issue",
+      "url": "https://github.com/egohygiene/observatory/issues/1",
+      "repository": "egohygiene/observatory",
+      "revision": null,
+      "observed_at": "2026-08-20T12:00:00Z",
+      "visibility": "public",
+      "assertion": "authoritative",
+      "freshness": "stale"
+    },
+    {
+      "id": "source:issue-5",
+      "kind": "github_issue",
+      "url": "https://github.com/egohygiene/observatory/issues/5",
+      "repository": "egohygiene/observatory",
+      "revision": null,
+      "observed_at": "2026-08-25T18:00:00Z",
+      "visibility": "public",
+      "assertion": "authoritative",
+      "freshness": "current"
+    },
+    {
+      "id": "source:issue-7",
+      "kind": "github_issue",
+      "url": "https://github.com/egohygiene/observatory/issues/7",
+      "repository": "egohygiene/observatory",
+      "revision": null,
+      "observed_at": "2026-08-25T18:00:00Z",
+      "visibility": "public",
+      "assertion": "authoritative",
+      "freshness": "current"
+    },
+    {
+      "id": "source:roadmap",
+      "kind": "roadmap",
+      "url": "https://github.com/egohygiene/observatory/blob/cccccccccccccccccccccccccccccccccccccccc/ROADMAP.md",
+      "repository": "egohygiene/observatory",
+      "revision": "cccccccccccccccccccccccccccccccccccccccc",
+      "observed_at": "2026-08-25T18:00:00Z",
+      "visibility": "public",
+      "assertion": "authoritative",
+      "freshness": "current"
+    }
+  ],
+  "entities": [
+    {
+      "id": "ri:egohygiene/hygiene:repository:egohygiene/hygiene",
+      "kind": "repository",
+      "repository": "egohygiene/hygiene",
+      "key": "egohygiene/hygiene",
+      "title": "Hygiene",
+      "canonical_url": "https://github.com/egohygiene/hygiene",
+      "visibility": "public",
+      "state": {
+        "value": "active",
+        "assertion": "authoritative"
+      },
+      "freshness": "current",
+      "provenance": [
+        "source:hygiene"
+      ],
+      "attributes": {
+        "default_branch": "main",
+        "lifecycle": "active"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "ri:egohygiene/observatory:check:contracts-901",
+      "kind": "check",
+      "repository": "egohygiene/observatory",
+      "key": "contracts-901",
+      "title": "Repository Intelligence contract tests",
+      "canonical_url": "https://github.com/egohygiene/observatory/actions/runs/901",
+      "visibility": "public",
+      "state": {
+        "value": "failure",
+        "assertion": "authoritative"
+      },
+      "freshness": "current",
+      "provenance": [
+        "source:check-901"
+      ],
+      "attributes": {
+        "name": "repository-intelligence-contracts",
+        "status": "completed",
+        "conclusion": "failure"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "ri:egohygiene/observatory:issue:1",
+      "kind": "issue",
+      "repository": "egohygiene/observatory",
+      "key": "1",
+      "title": "Ingest the catalog and report repository maturity and conformance",
+      "canonical_url": "https://github.com/egohygiene/observatory/issues/1",
+      "visibility": "public",
+      "state": {
+        "value": "open",
+        "assertion": "authoritative"
+      },
+      "freshness": "stale",
+      "provenance": [
+        "source:issue-1"
+      ],
+      "attributes": {
+        "number": 1
+      },
+      "extensions": {}
+    },
+    {
+      "id": "ri:egohygiene/observatory:issue:5",
+      "kind": "issue",
+      "repository": "egohygiene/observatory",
+      "key": "5",
+      "title": "Publish a Hygiene conformance dashboard for every repository",
+      "canonical_url": "https://github.com/egohygiene/observatory/issues/5",
+      "visibility": "public",
+      "state": {
+        "value": "open",
+        "assertion": "authoritative"
+      },
+      "freshness": "current",
+      "provenance": [
+        "source:issue-5"
+      ],
+      "attributes": {
+        "number": 5
+      },
+      "extensions": {}
+    },
+    {
+      "id": "ri:egohygiene/observatory:issue:7",
+      "kind": "issue",
+      "repository": "egohygiene/observatory",
+      "key": "7",
+      "title": "Build the normalized Repository Intelligence graph and query snapshots",
+      "canonical_url": "https://github.com/egohygiene/observatory/issues/7",
+      "visibility": "public",
+      "state": {
+        "value": "open",
+        "assertion": "authoritative"
+      },
+      "freshness": "current",
+      "provenance": [
+        "source:issue-7"
+      ],
+      "attributes": {
+        "number": 7
+      },
+      "extensions": {}
+    },
+    {
+      "id": "ri:egohygiene/observatory:repository:egohygiene/observatory",
+      "kind": "repository",
+      "repository": "egohygiene/observatory",
+      "key": "egohygiene/observatory",
+      "title": "Observatory",
+      "canonical_url": "https://github.com/egohygiene/observatory",
+      "visibility": "public",
+      "state": {
+        "value": "active",
+        "assertion": "authoritative"
+      },
+      "freshness": "current",
+      "provenance": [
+        "source:roadmap"
+      ],
+      "attributes": {
+        "default_branch": "main",
+        "lifecycle": "active"
+      },
+      "extensions": {}
+    },
+    {
+      "id": "ri:egohygiene/observatory:roadmap-step:OBS-Q01",
+      "kind": "roadmap_step",
+      "repository": "egohygiene/observatory",
+      "key": "OBS-Q01",
+      "title": "Define the observability architecture",
+      "canonical_url": "https://github.com/egohygiene/observatory/blob/cccccccccccccccccccccccccccccccccccccccc/ROADMAP.md#obs-q01",
+      "visibility": "public",
+      "state": {
+        "value": "complete",
+        "assertion": "authoritative"
+      },
+      "freshness": "current",
+      "provenance": [
+        "source:roadmap"
+      ],
+      "attributes": {
+        "outcome": "The repository documents its intended portfolio-observability role.",
+        "exit_criteria": [
+          {
+            "text": "Architecture and ownership boundaries are recorded.",
+            "complete": true
+          }
+        ]
+      },
+      "extensions": {}
+    },
+    {
+      "id": "ri:egohygiene/observatory:roadmap-step:OBS-Q02",
+      "kind": "roadmap_step",
+      "repository": "egohygiene/observatory",
+      "key": "OBS-Q02",
+      "title": "Build the executable foundation",
+      "canonical_url": "https://github.com/egohygiene/observatory/blob/cccccccccccccccccccccccccccccccccccccccc/ROADMAP.md#obs-q02",
+      "visibility": "public",
+      "state": {
+        "value": "active",
+        "assertion": "authoritative"
+      },
+      "freshness": "current",
+      "provenance": [
+        "source:roadmap"
+      ],
+      "attributes": {
+        "outcome": "Runnable ingestion produces a deterministic evidence read model.",
+        "exit_criteria": [
+          {
+            "text": "A command ingests a deterministic fixture.",
+            "complete": true
+          },
+          {
+            "text": "Live provider ingestion remains an explicit later boundary.",
+            "complete": false
+          }
+        ]
+      },
+      "extensions": {}
+    },
+    {
+      "id": "ri:egohygiene/observatory:roadmap-step:OBS-Q03",
+      "kind": "roadmap_step",
+      "repository": "egohygiene/observatory",
+      "key": "OBS-Q03",
+      "title": "Ingest live GitHub evidence safely",
+      "canonical_url": "https://github.com/egohygiene/observatory/blob/cccccccccccccccccccccccccccccccccccccccc/ROADMAP.md#obs-q03",
+      "visibility": "public",
+      "state": {
+        "value": "planned",
+        "assertion": "authoritative"
+      },
+      "freshness": "unknown",
+      "provenance": [
+        "source:roadmap"
+      ],
+      "attributes": {
+        "outcome": "Provider records become normalized without hiding unavailable evidence.",
+        "exit_criteria": [
+          {
+            "text": "Pagination and provider failure states remain explicit.",
+            "complete": false
+          }
+        ]
+      },
+      "extensions": {}
+    }
+  ],
+  "relationships": [
+    {
+      "id": "relationship:check-verifies-foundation",
+      "type": "verifies",
+      "source": "ri:egohygiene/observatory:check:contracts-901",
+      "target": "ri:egohygiene/observatory:roadmap-step:OBS-Q02",
+      "direction": "directed",
+      "assertion": "authoritative",
+      "freshness": "current",
+      "provenance": [
+        "source:check-901",
+        "source:roadmap"
+      ],
+      "extensions": {}
+    },
+    {
+      "id": "relationship:foundation-depends-architecture",
+      "type": "depends-on",
+      "source": "ri:egohygiene/observatory:roadmap-step:OBS-Q02",
+      "target": "ri:egohygiene/observatory:roadmap-step:OBS-Q01",
+      "direction": "directed",
+      "assertion": "authoritative",
+      "freshness": "current",
+      "provenance": [
+        "source:roadmap"
+      ],
+      "extensions": {}
+    },
+    {
+      "id": "relationship:foundation-tracks-issue-1",
+      "type": "tracks",
+      "source": "ri:egohygiene/observatory:roadmap-step:OBS-Q02",
+      "target": "ri:egohygiene/observatory:issue:1",
+      "direction": "directed",
+      "assertion": "authoritative",
+      "freshness": "stale",
+      "provenance": [
+        "source:roadmap",
+        "source:issue-1"
+      ],
+      "extensions": {}
+    },
+    {
+      "id": "relationship:foundation-tracks-issue-7",
+      "type": "tracks",
+      "source": "ri:egohygiene/observatory:roadmap-step:OBS-Q02",
+      "target": "ri:egohygiene/observatory:issue:7",
+      "direction": "directed",
+      "assertion": "authoritative",
+      "freshness": "current",
+      "provenance": [
+        "source:roadmap",
+        "source:issue-7"
+      ],
+      "extensions": {}
+    },
+    {
+      "id": "relationship:github-ingestion-depends-foundation",
+      "type": "depends-on",
+      "source": "ri:egohygiene/observatory:roadmap-step:OBS-Q03",
+      "target": "ri:egohygiene/observatory:roadmap-step:OBS-Q02",
+      "direction": "directed",
+      "assertion": "authoritative",
+      "freshness": "unknown",
+      "provenance": [
+        "source:roadmap"
+      ],
+      "extensions": {}
+    },
+    {
+      "id": "relationship:github-ingestion-tracks-conformance",
+      "type": "tracks",
+      "source": "ri:egohygiene/observatory:roadmap-step:OBS-Q03",
+      "target": "ri:egohygiene/observatory:issue:5",
+      "direction": "directed",
+      "assertion": "authoritative",
+      "freshness": "current",
+      "provenance": [
+        "source:roadmap",
+        "source:issue-5"
+      ],
+      "extensions": {}
+    },
+    {
+      "id": "relationship:hygiene-contract-dependency",
+      "type": "depends-on",
+      "source": "ri:egohygiene/observatory:repository:egohygiene/observatory",
+      "target": "ri:egohygiene/hygiene:repository:egohygiene/hygiene",
+      "direction": "directed",
+      "assertion": "authoritative",
+      "freshness": "current",
+      "provenance": [
+        "source:hygiene",
+        "source:roadmap"
+      ],
+      "extensions": {}
+    },
+    {
+      "id": "relationship:issue-1-blocks-foundation",
+      "type": "blocks",
+      "source": "ri:egohygiene/observatory:issue:1",
+      "target": "ri:egohygiene/observatory:roadmap-step:OBS-Q02",
+      "direction": "directed",
+      "assertion": "authoritative",
+      "freshness": "stale",
+      "provenance": [
+        "source:issue-1",
+        "source:roadmap"
+      ],
+      "extensions": {}
+    },
+    {
+      "id": "relationship:issue-7-implements-foundation",
+      "type": "implements",
+      "source": "ri:egohygiene/observatory:issue:7",
+      "target": "ri:egohygiene/observatory:roadmap-step:OBS-Q02",
+      "direction": "directed",
+      "assertion": "inferred",
+      "freshness": "current",
+      "provenance": [
+        "source:issue-7",
+        "source:roadmap"
+      ],
+      "extensions": {}
+    }
+  ],
+  "events": [
+    {
+      "id": "event:issue-1-opened",
+      "type": "issue.opened",
+      "subject": "ri:egohygiene/observatory:issue:1",
+      "occurred_at": "2026-08-18T12:00:00Z",
+      "recorded_at": "2026-08-20T12:00:00Z",
+      "actor": null,
+      "changes": [
+        {
+          "field": "state.value",
+          "from": null,
+          "to": "open"
+        }
+      ],
+      "visibility": "public",
+      "assertion": "authoritative",
+      "freshness": "stale",
+      "provenance": [
+        "source:issue-1"
+      ],
+      "extensions": {}
+    },
+    {
+      "id": "event:architecture-complete",
+      "type": "roadmap_step.status_changed",
+      "subject": "ri:egohygiene/observatory:roadmap-step:OBS-Q01",
+      "occurred_at": "2026-08-19T12:00:00Z",
+      "recorded_at": "2026-08-25T18:00:00Z",
+      "actor": null,
+      "changes": [
+        {
+          "field": "state.value",
+          "from": "active",
+          "to": "complete"
+        }
+      ],
+      "visibility": "public",
+      "assertion": "authoritative",
+      "freshness": "current",
+      "provenance": [
+        "source:roadmap"
+      ],
+      "extensions": {}
+    },
+    {
+      "id": "event:issue-5-opened",
+      "type": "issue.opened",
+      "subject": "ri:egohygiene/observatory:issue:5",
+      "occurred_at": "2026-08-24T15:00:00Z",
+      "recorded_at": "2026-08-25T18:00:00Z",
+      "actor": null,
+      "changes": [
+        {
+          "field": "state.value",
+          "from": null,
+          "to": "open"
+        }
+      ],
+      "visibility": "public",
+      "assertion": "authoritative",
+      "freshness": "current",
+      "provenance": [
+        "source:issue-5"
+      ],
+      "extensions": {}
+    },
+    {
+      "id": "event:foundation-active",
+      "type": "roadmap_step.status_changed",
+      "subject": "ri:egohygiene/observatory:roadmap-step:OBS-Q02",
+      "occurred_at": "2026-08-25T11:24:40Z",
+      "recorded_at": "2026-08-25T18:00:00Z",
+      "actor": null,
+      "changes": [
+        {
+          "field": "state.value",
+          "from": "planned",
+          "to": "active"
+        }
+      ],
+      "visibility": "public",
+      "assertion": "authoritative",
+      "freshness": "current",
+      "provenance": [
+        "source:roadmap"
+      ],
+      "extensions": {}
+    },
+    {
+      "id": "event:issue-7-opened",
+      "type": "issue.opened",
+      "subject": "ri:egohygiene/observatory:issue:7",
+      "occurred_at": "2026-08-25T11:24:40Z",
+      "recorded_at": "2026-08-25T18:00:00Z",
+      "actor": null,
+      "changes": [
+        {
+          "field": "state.value",
+          "from": null,
+          "to": "open"
+        }
+      ],
+      "visibility": "public",
+      "assertion": "authoritative",
+      "freshness": "current",
+      "provenance": [
+        "source:issue-7"
+      ],
+      "extensions": {}
+    },
+    {
+      "id": "event:check-failed",
+      "type": "check.completed",
+      "subject": "ri:egohygiene/observatory:check:contracts-901",
+      "occurred_at": "2026-08-25T17:55:00Z",
+      "recorded_at": "2026-08-25T18:00:00Z",
+      "actor": {
+        "kind": "bot",
+        "id": "github-actions",
+        "url": "https://github.com/features/actions",
+        "assertion": "authoritative"
+      },
+      "changes": [
+        {
+          "field": "attributes.conclusion",
+          "from": null,
+          "to": "failure"
+        }
+      ],
+      "visibility": "public",
+      "assertion": "authoritative",
+      "freshness": "current",
+      "provenance": [
+        "source:check-901"
+      ],
+      "extensions": {}
+    },
+    {
+      "id": "event:repository-observed",
+      "type": "repository.observed",
+      "subject": "ri:egohygiene/observatory:repository:egohygiene/observatory",
+      "occurred_at": "2026-08-25T18:00:00Z",
+      "recorded_at": "2026-08-25T18:00:00Z",
+      "actor": null,
+      "changes": [],
+      "visibility": "public",
+      "assertion": "authoritative",
+      "freshness": "current",
+      "provenance": [
+        "source:roadmap"
+      ],
+      "extensions": {}
+    }
+  ],
+  "redactions": [],
+  "extensions": {}
+}

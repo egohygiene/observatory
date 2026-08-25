@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://egohygiene.io/schemas/observatory/repository-intelligence-view.v1.schema.json",
+  "title": "Observatory Repository Intelligence page view v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "contract_version",
+    "view",
+    "scope",
+    "subject",
+    "snapshot_id",
+    "data"
+  ],
+  "properties": {
+    "schema": {
+      "const": "egohygiene.observatory.repository-intelligence-view/v1"
+    },
+    "contract_version": {
+      "const": "1.0.0-alpha.1"
+    },
+    "view": {
+      "enum": [
+        "roadmap",
+        "decisions",
+        "journey",
+        "now",
+        "dependencies",
+        "health",
+        "releases",
+        "work",
+        "search"
+      ]
+    },
+    "scope": {
+      "enum": ["repository", "fleet"]
+    },
+    "subject": {
+      "type": "string",
+      "minLength": 1
+    },
+    "snapshot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "data": {
+      "type": "object"
+    }
+  }
+}

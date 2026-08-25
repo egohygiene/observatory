@@ -34,11 +34,11 @@ This document identifies Observatory's logical systems and responsibilities. It 
 | --- | --- | --- |
 | Repository registry adapter | Target | Owns its bounded portion of the organization-wide visibility, maturity, health, and platform-observability system; exposes explicit inputs, outputs, failure states, and evidence. |
 | Evidence collectors | Target | Owns its bounded portion of the organization-wide visibility, maturity, health, and platform-observability system; exposes explicit inputs, outputs, failure states, and evidence. |
-| Normalization pipeline | Target | Owns its bounded portion of the organization-wide visibility, maturity, health, and platform-observability system; exposes explicit inputs, outputs, failure states, and evidence. |
+| Normalization pipeline | Alpha | Consumes pinned Hygiene Repository Intelligence projections, rejects unsafe graph inputs, and emits deterministic repository and fleet snapshots. |
 | Metric and maturity engine | Target | Owns its bounded portion of the organization-wide visibility, maturity, health, and platform-observability system; exposes explicit inputs, outputs, failure states, and evidence. |
 | Time-series store | Target | Owns its bounded portion of the organization-wide visibility, maturity, health, and platform-observability system; exposes explicit inputs, outputs, failure states, and evidence. |
 | Dashboard and architecture landscape | Target | Owns its bounded portion of the organization-wide visibility, maturity, health, and platform-observability system; exposes explicit inputs, outputs, failure states, and evidence. |
-| Report API | Target | Owns its bounded portion of the organization-wide visibility, maturity, health, and platform-observability system; exposes explicit inputs, outputs, failure states, and evidence. |
+| Report API | Alpha, static | Exposes versioned Roadmap, Decisions, Journey, Now, Dependencies, Health, Releases, Work, Search, and Compare JSON projections through the CLI and checked artifacts. |
 
 ## External systems
 
@@ -54,6 +54,18 @@ External systems are integrations, not hidden implementation units. Each require
 ## System interactions
 
 Inputs enter through an adapter or validated contract, move through domain systems, produce artifacts and diagnostics, and leave through a stable interface. Evidence flows back to validation, review, and future decisions.
+
+The current executable path is intentionally narrower:
+
+```text
+validated Hygiene projection
+  → defensive consumer boundary
+  → deterministic graph index
+  → repository page queries
+  → repository and fleet JSON artifacts
+```
+
+Live GitHub collection, time-series persistence, metric policy, dashboard rendering, and network service delivery remain target systems.
 
 ## Failure model
 

@@ -44,6 +44,14 @@ Observatory models the concepts needed for turn repository and ecosystem evidenc
 | Conformance | A canonical concept in the Observatory domain whose exact fields belong to specifications or schemas, not this ontology. |
 | Trend | A canonical concept in the Observatory domain whose exact fields belong to specifications or schemas, not this ontology. |
 | Alert | A canonical concept in the Observatory domain whose exact fields belong to specifications or schemas, not this ontology. |
+| Repository Intelligence projection | A generated, repository-rooted graph whose vocabulary and authority semantics are owned by Hygiene. |
+| Source | A provenance record identifying where and when a claim was observed and how current and authoritative it is. |
+| Entity | A stable reference to a repository, roadmap step, decision, issue, pull request, commit, check, release, or deployment. |
+| Relationship | A provenance-backed directed statement connecting two entities through the Hygiene vocabulary. |
+| Event | A source-recorded lifecycle observation; it is not an immutable blockchain or canonical audit replacement. |
+| Repository snapshot | Observatory's deterministic graph plus renderer-ready queries for one represented repository commit. |
+| Fleet snapshot | A deterministic index of repository snapshots that preserves local context and observation windows. |
+| View projection | A disposable query result for one Repository Intelligence page, derived from a pinned snapshot. |
 
 ## Core relationships
 
@@ -53,6 +61,8 @@ Observatory models the concepts needed for turn repository and ecosystem evidenc
 - Evidence supports a claim; a decision authorizes a durable direction.
 - Provenance connects derived artifacts to their inputs and processing context.
 - A consumer integrates through an explicit interface rather than internal structure.
+- A Repository Intelligence projection is normalized into repository and fleet snapshots.
+- A view projection references stable entities and never replaces their canonical sources.
 
 ## Boundaries
 

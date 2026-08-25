@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: observatory-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  contracts:
+    name: Contracts and snapshots
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+
+      - name: Install Observatory
+        run: python -m pip install --editable .
+
+      - name: Run contract and query tests
+        run: python -m unittest discover --start-directory tests --pattern "test_*.py" --verbose
+
+      - name: Verify checked-in fixture snapshots
+        run: python scripts/verify_fixtures.py
+
+      - name: Smoke-test the CLI
+        run: |
+          temporary_directory="$(mktemp -d)"
+          trap 'rm -rf "${temporary_directory}"' EXIT
+          observatory-intelligence build \
+            --input fixtures/repository-intelligence/relay-complete-quest.input.json \
+            --input fixtures/repository-intelligence/observatory-active.input.json \
+            --output "${temporary_directory}"
+          observatory-intelligence query \
+            --snapshot "${temporary_directory}/repositories/egohygiene--relay.json" \
+            --view now \
+            --output "${temporary_directory}/now.json"
+          observatory-intelligence compare \
+            --before fixtures/expected/egohygiene--relay.repository.json \
+            --after "${temporary_directory}/repositories/egohygiene--relay.json" \
+            --output "${temporary_directory}/compare.json"
