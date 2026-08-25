@@ -8,7 +8,7 @@ status: provisional
 owners:
   - egohygiene
 created: 2026-08-19
-updated: 2026-08-19
+updated: 2026-08-24
 governed_by:
   - architecture-roadmap
 depends_on:
@@ -25,6 +25,154 @@ supersedes: []
 ---
 
 # Observatory Roadmap
+
+<!-- BEGIN ROADMAP EXECUTION SNAPSHOT -->
+<!-- roadmap-manifest
+schema: hygiene.roadmap/v1alpha1
+repository: egohygiene/observatory
+visibility: public
+publication: central
+route: /roadmap/observatory/
+updated: 2026-08-24
+-->
+## 2026-08-24 execution snapshot
+
+> This evidence-reconciled snapshot is the issue-generation and visual-roadmap handoff. The longer-horizon strategy below remains canonical context; generated HTML, JSON, progress, issue plans, and commit lists are projections.
+
+**Lifecycle:** seed, documentation-only  
+**Current gate:** Deliver the executable foundation in issue #1 before presenting portfolio status as computed.  
+**North-star outcome:** Evidence-linked portfolio, maturity, dependency, and roadmap views across the organization.
+
+### Visual roadmap publication
+
+**Mode:** `central`  
+**Route:** `/roadmap/observatory/`  
+**Current publication evidence:** Documentation only; no application, CI, Pages, or release publication observed.
+
+Publish the public-safe projection through egohygiene.io at /roadmap/observatory/. This repository owns intent and acceptance evidence; it does not add a second site deployment.
+
+### Quest line
+
+<!-- roadmap-step
+id: OBS-Q01
+status: complete
+depends_on: []
+issues: []
+-->
+#### OBS-Q01 — Define the observability architecture
+
+**State:** `complete`  
+**Depends on:** None
+
+**Outcome:** The repository documents its intended portfolio-observability role.
+
+**Exit criteria:**
+
+- [x] Architecture and ownership boundaries are recorded.
+- [x] The intended inputs and views are named.
+
+**Current evidence:**
+
+- Architecture merge 1d97773d5169 was observed.
+
+<!-- roadmap-step
+id: OBS-Q02
+status: active
+depends_on: [OBS-Q01]
+issues: [1]
+-->
+#### OBS-Q02 — Build the executable foundation
+
+**State:** `active`  
+**Depends on:** `OBS-Q01`
+
+**Outcome:** Issue #1 produces runnable ingestion and a minimal evidence model.
+
+**Exit criteria:**
+
+- [ ] A command or service ingests a deterministic fixture.
+- [ ] Tests validate the normalized result.
+
+**Current evidence:**
+
+- Issue #1 is critical.
+- No implementation or CI was observed.
+
+<!-- roadmap-step
+id: OBS-Q03
+status: planned
+depends_on: [OBS-Q02]
+issues: []
+-->
+#### OBS-Q03 — Ingest live GitHub evidence safely
+
+**State:** `planned`  
+**Depends on:** `OBS-Q02`
+
+**Outcome:** Issues, PRs, commits, releases, workflows, and publication state become normalized evidence records.
+
+**Exit criteria:**
+
+- [ ] Pagination, rate limits, and unavailable private evidence are handled explicitly.
+- [ ] Every record retains repository, timestamp, and immutable source identity where available.
+
+**Current evidence:**
+
+- No GitHub ingestion implementation was observed.
+
+<!-- roadmap-step
+id: OBS-Q04
+status: planned
+depends_on: [OBS-Q03]
+issues: []
+-->
+#### OBS-Q04 — Compute gates without commit-count progress
+
+**State:** `planned`  
+**Depends on:** `OBS-Q03`
+
+**Outcome:** Lifecycle and quest state derive from acceptance evidence and declared rules.
+
+**Exit criteria:**
+
+- [ ] State transitions cite the evidence and rule used.
+- [ ] Commit volume is never treated as completion percentage.
+
+**Current evidence:**
+
+- The audit identified the need for evidence-linked rather than activity-linked maturity.
+
+<!-- roadmap-step
+id: OBS-Q05
+status: planned
+depends_on: [OBS-Q04]
+issues: []
+-->
+#### OBS-Q05 — Publish portfolio and quest views
+
+**State:** `planned`  
+**Depends on:** `OBS-Q04`
+
+**Outcome:** A tested static or web surface provides portfolio, dependency, maturity, and quest-line views.
+
+**Exit criteria:**
+
+- [ ] The view deep-links to public evidence and sanitizes private entries.
+- [ ] CI and Pages or equivalent publication are green.
+
+**Current evidence:**
+
+- No UI, CI, or Pages deployment was observed.
+
+### Roadmap-to-issue handoff
+
+- A step is complete only when its exit criteria and required evidence are satisfied; commit count never determines progress.
+- Ready steps without an issue are candidates for the private, duplicate-aware roadmap.issue-plan.json dry run. Planned steps remain preview-only unless a reviewer explicitly opts them in with issue_policy: propose.
+- Issue creation or reconciliation requires human approval or an explicitly authorized Pace operation and returns issue references through a reviewable roadmap pull request.
+- Pull requests and commits should include Roadmap-Step: <ID>; historical evidence may be linked through existing issue and pull-request relationships.
+- Public rendering uses only allowlisted build-time evidence and never places a GitHub token or private issue plan in the browser artifact.
+
+<!-- END ROADMAP EXECUTION SNAPSHOT -->
 
 ## Strategic context
 
