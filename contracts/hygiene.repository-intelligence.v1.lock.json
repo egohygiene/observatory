@@ -1,0 +1,19 @@
+{
+  "lock_schema": "egohygiene.observatory.contract-lock/v1",
+  "upstream_contract": "egohygiene.repository-intelligence/v1",
+  "upstream_contract_version": "1.0.0-alpha.1",
+  "upstream_repository": "egohygiene/hygiene",
+  "upstream_revision": "5e0602265b6ac5e5165b89f418e55a3fd12f8a64",
+  "schema": {
+    "path": "schemas/repository-intelligence.v1.schema.json",
+    "sha256": "b1cbb66638d650d4aaa97a022c89454289fe7ccc1aff1a9153fcc3999bf225ae"
+  },
+  "vocabulary": {
+    "path": "catalog/repository-intelligence-vocabulary.json",
+    "sha256": "e61ac19d7907b80d3e1d3e9158d34039a5da43208c309b81919105a9450f8cd7"
+  },
+  "compatibility_fixture": {
+    "path": "fixtures/repository-intelligence/complete-quest.json",
+    "sha256": "7571348da763a9ec60aa8af60e2290fbf6d153da39ef9760d8c71ab90651c8db"
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://egohygiene.io/schemas/observatory/repository-intelligence-read-model.v1.schema.json",
+  "title": "Observatory Repository Intelligence repository read model v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "contract_version",
+    "snapshot_id",
+    "repository",
+    "represented_commit",
+    "observed_at",
+    "visibility",
+    "generator",
+    "upstream",
+    "coverage",
+    "graph",
+    "views",
+    "extensions"
+  ],
+  "properties": {
+    "schema": {
+      "const": "egohygiene.observatory.repository-intelligence-read-model/v1"
+    },
+    "contract_version": {
+      "const": "1.0.0-alpha.1"
+    },
+    "snapshot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "repository": {
+      "$ref": "#/$defs/entityReference"
+    },
+    "represented_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "visibility": {
+      "enum": ["public", "internal", "private"]
+    },
+    "generator": {
+      "$ref": "#/$defs/generator"
+    },
+    "upstream": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "contract_version", "projection_id", "digest"],
+      "properties": {
+        "schema": {
+          "const": "egohygiene.repository-intelligence/v1"
+        },
+        "contract_version": {
+          "const": "1.0.0-alpha.1"
+        },
+        "projection_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "digest": {
+          "$ref": "#/$defs/digest"
+        }
+      }
+    },
+    "coverage": {
+      "$ref": "#/$defs/coverage"
+    },
+    "graph": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sources",
+        "entities",
+        "relationships",
+        "events",
+        "redactions",
+        "extensions"
+      ],
+      "properties": {
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "entities": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "relationships": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "redactions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "extensions": {
+          "type": "object"
+        }
+      }
+    },
+    "views": {
+      "$ref": "#/$defs/views"
+    },
+    "extensions": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "assertion": {
+      "enum": ["authoritative", "inferred", "unknown"]
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "counts", "freshness", "assertions"],
+      "properties": {
+        "status": {
+          "enum": ["current", "stale", "unknown", "not_applicable"]
+        },
+        "counts": {
+          "type": "object"
+        },
+        "freshness": {
+          "type": "object"
+        },
+        "assertions": {
+          "type": "object"
+        }
+      }
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "entityReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "repository",
+        "key",
+        "title",
+        "canonical_url",
+        "visibility",
+        "state",
+        "assertion",
+        "confidence",
+        "freshness"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repository": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9.-]*/(\\.github|[a-z0-9][a-z0-9.-]*)$"
+        },
+        "key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": ["string", "null"]
+        },
+        "canonical_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "visibility": {
+          "enum": ["public", "internal", "private"]
+        },
+        "state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "assertion": {
+          "$ref": "#/$defs/assertion"
+        },
+        "confidence": {
+          "$ref": "#/$defs/assertion"
+        },
+        "freshness": {
+          "enum": ["current", "stale", "unknown", "not_applicable"]
+        }
+      }
+    },
+    "generator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {
+        "name": {
+          "const": "egohygiene/observatory:repository-intelligence"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "views": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "roadmap",
+        "decisions",
+        "journey",
+        "now",
+        "dependencies",
+        "health",
+        "releases",
+        "work",
+        "search"
+      ],
+      "properties": {
+        "roadmap": {
+          "type": "object"
+        },
+        "decisions": {
+          "type": "object"
+        },
+        "journey": {
+          "type": "object"
+        },
+        "now": {
+          "type": "object"
+        },
+        "dependencies": {
+          "type": "object"
+        },
+        "health": {
+          "type": "object"
+        },
+        "releases": {
+          "type": "object"
+        },
+        "work": {
+          "type": "object"
+        },
+        "search": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://egohygiene.io/schemas/observatory/repository-intelligence-compare.v1.schema.json",
+  "title": "Observatory Repository Intelligence comparison v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "contract_version",
+    "repository",
+    "before",
+    "after",
+    "entities",
+    "relationships",
+    "events",
+    "views"
+  ],
+  "properties": {
+    "schema": {
+      "const": "egohygiene.observatory.repository-intelligence-compare/v1"
+    },
+    "contract_version": {
+      "const": "1.0.0-alpha.1"
+    },
+    "repository": {
+      "type": "string",
+      "minLength": 1
+    },
+    "before": {
+      "$ref": "#/$defs/boundary"
+    },
+    "after": {
+      "$ref": "#/$defs/boundary"
+    },
+    "entities": {
+      "$ref": "#/$defs/delta"
+    },
+    "relationships": {
+      "$ref": "#/$defs/delta"
+    },
+    "events": {
+      "$ref": "#/$defs/delta"
+    },
+    "views": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "$defs": {
+    "boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["snapshot_id", "represented_commit", "observed_at"],
+      "properties": {
+        "snapshot_id": {
+          "type": "string"
+        },
+        "represented_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "delta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["added", "removed", "changed"],
+      "properties": {
+        "added": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "removed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "changed": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

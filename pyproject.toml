@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "egohygiene-observatory"
+version = "0.1.0"
+description = "Deterministic Repository Intelligence graph and query snapshots"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Ego Hygiene" }]
+dependencies = []
+
+[project.scripts]
+observatory-intelligence = "observatory.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]

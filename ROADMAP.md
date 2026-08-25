@@ -8,7 +8,7 @@ status: provisional
 owners:
   - egohygiene
 created: 2026-08-19
-updated: 2026-08-24
+updated: 2026-08-25
 governed_by:
   - architecture-roadmap
 depends_on:
@@ -33,21 +33,21 @@ repository: egohygiene/observatory
 visibility: public
 publication: central
 route: /roadmap/observatory/
-updated: 2026-08-24
+updated: 2026-08-25
 -->
-## 2026-08-24 execution snapshot
+## 2026-08-25 execution snapshot
 
 > This evidence-reconciled snapshot is the issue-generation and visual-roadmap handoff. The longer-horizon strategy below remains canonical context; generated HTML, JSON, progress, issue plans, and commit lists are projections.
 
-**Lifecycle:** seed, documentation-only  
-**Current gate:** Deliver the executable foundation in issue #1 before presenting portfolio status as computed.  
+**Lifecycle:** seed, executable alpha
+**Current gate:** Merge and release the deterministic read model from issue #7, then connect issue #1 to real collected evidence without weakening the offline boundary.
 **North-star outcome:** Evidence-linked portfolio, maturity, dependency, and roadmap views across the organization.
 
 ### Visual roadmap publication
 
 **Mode:** `central`  
 **Route:** `/roadmap/observatory/`  
-**Current publication evidence:** Documentation only; no application, CI, Pages, or release publication observed.
+**Current publication evidence:** Versioned static artifacts and CI exist; no Pages route or release publication is claimed.
 
 Publish the public-safe projection through egohygiene.io at /roadmap/observatory/. This repository owns intent and acceptance evidence; it does not add a second site deployment.
 
@@ -79,24 +79,25 @@ issues: []
 id: OBS-Q02
 status: active
 depends_on: [OBS-Q01]
-issues: [1]
+issues: [1, 7]
 -->
 #### OBS-Q02 — Build the executable foundation
 
 **State:** `active`  
 **Depends on:** `OBS-Q01`
 
-**Outcome:** Issue #1 produces runnable ingestion and a minimal evidence model.
+**Outcome:** Issues #1 and #7 produce runnable ingestion and a minimal evidence/read model without live provider coupling.
 
 **Exit criteria:**
 
-- [ ] A command or service ingests a deterministic fixture.
-- [ ] Tests validate the normalized result.
+- [x] A command ingests deterministic Repository Intelligence fixtures.
+- [x] Tests validate repository, fleet, query, and comparison results.
+- [ ] Issue #1 connects the model to the first approved real evidence collection path.
 
 **Current evidence:**
 
-- Issue #1 is critical.
-- No implementation or CI was observed.
+- Issue #7 provides the versioned graph/read model, nine page queries, comparison, offline fixtures, and CI contract checks.
+- Issue #1 remains the gate for real catalog and repository evidence ingestion.
 
 <!-- roadmap-step
 id: OBS-Q03

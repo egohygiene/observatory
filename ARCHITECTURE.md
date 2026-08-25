@@ -77,6 +77,26 @@ The diagram is conceptual. [SYSTEM.md](SYSTEM.md) remains authoritative for resp
 - Relay job summaries
 - repository intelligence surfaces
 
+## Current executable slice
+
+Issue #7 implements the first provider-neutral data path under `src/observatory`:
+
+```mermaid
+flowchart LR
+  H[Hygiene v1 projection] --> B[Defensive consumer boundary]
+  B --> N[Deterministic graph normalization]
+  N --> R[Repository read model]
+  R --> V[Page query projections]
+  R --> F[Fleet snapshot]
+  R --> C[Before/after comparison]
+  V --> X[Relay and Holon fixtures]
+  F --> X
+```
+
+The implementation has no provider or database dependency. Filesystem I/O and CLI parsing remain adapters around pure transformation functions. The graph and query contracts are JSON, so a later storage engine or service can replace the Python process without changing identity or authority semantics.
+
+Full Hygiene/Egolint validation precedes this boundary. Observatory performs only the defensive checks required to index safely; it does not import the validation implementation or vocabulary ownership.
+
 ## Deployment and portability
 
 The architecture favors independently usable local and self-hosted operation. Optional managed services may add availability, collaboration, support, and hosted infrastructure without becoming the canonical holder of portable state.

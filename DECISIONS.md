@@ -40,6 +40,7 @@ Do not rewrite historical context to fit current understanding. Amend a record f
 - ADR-001: Keep observation separate from enforcement
 - ADR-002: Link every health signal to source evidence
 - ADR-003: Represent unknown and unavailable states explicitly
+- ADR-004: Derive read models from pinned Repository Intelligence projections
 
 ## ADR-001: Keep observation separate from enforcement
 
@@ -67,6 +68,15 @@ Do not rewrite historical context to fit current understanding. Amend a record f
 - **Decision:** Represent unknown and unavailable states explicitly.
 - **Consequences:** The choice improves ownership and predictability while requiring maintained contracts, validation, and migration discipline.
 - **Reconsider when:** New evidence shows that the boundary prevents standalone usefulness, safety, portability, or maintainability.
+
+## ADR-004: Derive read models from pinned Repository Intelligence projections
+
+- **Status:** Proposed for acceptance with issue #7
+- **Date:** 2026-08-25
+- **Context:** Roadmap, decision, journey, health, and delivery views need shared identity and provenance semantics, while Hygiene and Egolint already own the contract and validation boundary.
+- **Decision:** Consume exact, validated Hygiene Repository Intelligence projections and derive deterministic repository, fleet, page, and comparison read models without live provider access. Keep the implementation dependency-free and the JSON interfaces framework-neutral for the alpha slice.
+- **Consequences:** Relay and Holon can develop from offline fixtures and one stable query model. Observatory must maintain compatibility fixtures and explicit input pins, and it must not absorb collection, validation policy, rendering, or canonical source ownership.
+- **Reconsider when:** Measured fleet scale requires a storage/query backend, the Hygiene contract changes incompatibly, or a second implementation can prove equivalent deterministic artifacts with a safer maintenance profile.
 
 ## Open decisions
 
