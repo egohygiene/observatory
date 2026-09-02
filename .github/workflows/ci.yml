@@ -35,7 +35,9 @@ jobs:
         run: python -m unittest discover --start-directory tests --pattern "test_*.py" --verbose
 
       - name: Verify checked-in fixture snapshots
-        run: python scripts/verify_fixtures.py
+        run: |
+          python scripts/verify_fixtures.py
+          python scripts/verify_health_fixtures.py
 
       - name: Smoke-test the CLI
         run: |
@@ -53,3 +55,18 @@ jobs:
             --before fixtures/expected/egohygiene--relay.repository.json \
             --after "${temporary_directory}/repositories/egohygiene--relay.json" \
             --output "${temporary_directory}/compare.json"
+          observatory-health adapt-egolint \
+            --report fixtures/health/egolint.report.v1.input.json \
+            --repository egohygiene/empathy \
+            --represented-commit aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa \
+            --valid-until 2027-01-01T00:00:00Z \
+            --source-url https://example.com/egolint-report.json \
+            --producer-version 0.1.0-alpha.1 \
+            --output "${temporary_directory}/egolint-evidence.json"
+          observatory-health build \
+            --catalog fixtures/health/hygiene.repositories.v1.input.yaml \
+            --catalog-url https://github.com/egohygiene/hygiene/blob/28f9d6c7519d820644572634ba4476614f418d83/catalog/repositories.yaml \
+            --catalog-commit 28f9d6c7519d820644572634ba4476614f418d83 \
+            --evidence fixtures/health/observatory.repository-evidence.input.json \
+            --as-of 2026-09-02T12:00:00Z \
+            --output "${temporary_directory}/organization-health"

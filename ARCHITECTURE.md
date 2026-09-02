@@ -77,7 +77,7 @@ The diagram is conceptual. [SYSTEM.md](SYSTEM.md) remains authoritative for resp
 - Relay job summaries
 - repository intelligence surfaces
 
-## Current executable slice
+## Current executable slices
 
 Issue #7 implements the first provider-neutral data path under `src/observatory`:
 
@@ -96,6 +96,24 @@ flowchart LR
 The implementation has no provider or database dependency. Filesystem I/O and CLI parsing remain adapters around pure transformation functions. The graph and query contracts are JSON, so a later storage engine or service can replace the Python process without changing identity or authority semantics.
 
 Full Hygiene/Egolint validation precedes this boundary. Observatory performs only the defensive checks required to index safely; it does not import the validation implementation or vocabulary ownership.
+
+Issue #1 adds the first organization-health path alongside that graph:
+
+```mermaid
+flowchart LR
+  C[Hygiene catalog v1] --> J[Evidence join]
+  E[Versioned repository evidence] --> J
+  G[Egolint report v1] --> A[Egolint adapter]
+  A --> E
+  J --> M[Categorical rollups]
+  M --> O[JSON and Markdown snapshots]
+```
+
+The collector supplies explicit source pins, evidence validity, and evaluation
+time. Observatory never reads the ambient clock, picks among competing check
+identities, reruns validator policy, or mutates a repository. The future #5
+dashboard consumes this boundary rather than defining another conformance
+model.
 
 ## Deployment and portability
 

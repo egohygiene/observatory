@@ -1,0 +1,842 @@
+{
+  "schema_version": "1.0.0",
+  "architecture_release": "architecture-v0.1.0",
+  "observed_at": "2026-08-21",
+  "organization": "egohygiene",
+  "canonical_repository": "hygiene",
+  "repositories": [
+    {
+      "name": ".github",
+      "plane": "architecture-control",
+      "owns": [
+        "organization profile",
+        "funding",
+        "public defaults",
+        "default community health"
+      ],
+      "excludes": [
+        "reusable CI workflows",
+        "lint policy"
+      ],
+      "outputs": [
+        "organization-facing defaults"
+      ],
+      "full_name": "egohygiene/.github",
+      "visibility": "public",
+      "lifecycle": "incubating",
+      "maturity": "light-foundation",
+      "source_url": "https://github.com/egohygiene/.github",
+      "consumes": [],
+      "domains": []
+    },
+    {
+      "name": "aether",
+      "plane": "architecture-control",
+      "owns": [
+        "first-party AI specifications",
+        "skills",
+        "agents",
+        "catalogs",
+        "validators",
+        "release projections"
+      ],
+      "excludes": [
+        "general repository policy",
+        "environment provisioning",
+        "CI orchestration"
+      ],
+      "outputs": [
+        "versioned AI artifact distributions",
+        "provenance catalogs"
+      ],
+      "full_name": "egohygiene/aether",
+      "visibility": "public",
+      "lifecycle": "active",
+      "maturity": "active",
+      "source_url": "https://github.com/egohygiene/aether",
+      "consumes": [],
+      "domains": []
+    },
+    {
+      "name": "holon",
+      "plane": "architecture-control",
+      "owns": [
+        "repository and organization bootstrap",
+        "versioned blueprints"
+      ],
+      "excludes": [
+        "ongoing fleet reconciliation"
+      ],
+      "consumes": [
+        "hygiene architecture release",
+        "aether projections"
+      ],
+      "outputs": [
+        "generated repository trees",
+        "bootstrap provenance"
+      ],
+      "full_name": "egohygiene/holon",
+      "visibility": "public",
+      "lifecycle": "seed",
+      "maturity": "seed",
+      "source_url": "https://github.com/egohygiene/holon",
+      "domains": []
+    },
+    {
+      "name": "hygiene",
+      "plane": "architecture-control",
+      "owns": [
+        "ecosystem architecture",
+        "repository registry",
+        "platform policy",
+        "cross-repository ADRs",
+        "maturity model",
+        "migration ledger"
+      ],
+      "excludes": [
+        "tool implementations",
+        "reusable workflows",
+        "product domain logic"
+      ],
+      "outputs": [
+        "architecture releases",
+        "repository context projections",
+        "policy schemas"
+      ],
+      "full_name": "egohygiene/hygiene",
+      "visibility": "public",
+      "lifecycle": "seed",
+      "maturity": "seed",
+      "source_url": "https://github.com/egohygiene/hygiene",
+      "consumes": [],
+      "domains": []
+    },
+    {
+      "name": "observatory",
+      "plane": "architecture-control",
+      "owns": [
+        "portfolio inventory",
+        "maturity tracking",
+        "dependency visibility",
+        "conformance evidence",
+        "telemetry"
+      ],
+      "excludes": [
+        "policy definition",
+        "silent remediation"
+      ],
+      "consumes": [
+        "hygiene registry",
+        "relay evidence",
+        "egolint reports"
+      ],
+      "outputs": [
+        "dashboards",
+        "maturity reports",
+        "dependency maps"
+      ],
+      "full_name": "egohygiene/observatory",
+      "visibility": "public",
+      "lifecycle": "seed",
+      "maturity": "seed",
+      "source_url": "https://github.com/egohygiene/observatory",
+      "domains": []
+    },
+    {
+      "name": "pace",
+      "plane": "architecture-control",
+      "owns": [
+        "fleet adoption",
+        "migrations",
+        "reconciliation",
+        "synchronization",
+        "pull request generation"
+      ],
+      "excludes": [
+        "new repository bootstrap",
+        "direct default-branch mutation",
+        "CI primitives"
+      ],
+      "consumes": [
+        "hygiene registry",
+        "holon blueprints",
+        "aether projections"
+      ],
+      "outputs": [
+        "projection diffs",
+        "upgrade pull requests",
+        "migration evidence"
+      ],
+      "full_name": "egohygiene/pace",
+      "visibility": "public",
+      "lifecycle": "seed",
+      "maturity": "seed",
+      "source_url": "https://github.com/egohygiene/pace",
+      "domains": []
+    },
+    {
+      "name": "sanctuary",
+      "plane": "architecture-control",
+      "owns": [
+        "bounded incubation of unfinished or ownerless public work",
+        "incubation provenance and lifecycle evidence",
+        "graduation, archival, and rejection proposals"
+      ],
+      "excludes": [
+        "canonical repository templates",
+        "organization-wide policy and canonical lifecycle semantics",
+        "durable specialist implementations after ownership decisions",
+        "stable repository dependencies",
+        "credentials, private data, production state, and generic artifact archives"
+      ],
+      "consumes": [
+        "hygiene architecture release",
+        "organization issue intake"
+      ],
+      "outputs": [
+        "provisional incubation manifests",
+        "provenance and lifecycle records",
+        "reviewed ownership-decision evidence"
+      ],
+      "full_name": "egohygiene/sanctuary",
+      "visibility": "public",
+      "lifecycle": "incubating",
+      "maturity": "provisional-contract",
+      "source_url": "https://github.com/egohygiene/sanctuary",
+      "domains": []
+    },
+    {
+      "name": "egolint",
+      "plane": "developer-runtime",
+      "owns": [
+        "lint CLI",
+        "lint profiles",
+        "rules",
+        "MegaLinter integration",
+        "report normalization",
+        "safe autofix policy"
+      ],
+      "excludes": [
+        "workflow fleet distribution",
+        "unrelated project templates"
+      ],
+      "outputs": [
+        "quality reports",
+        "SARIF",
+        "bounded autofix patches"
+      ],
+      "full_name": "egohygiene/egolint",
+      "visibility": "public",
+      "lifecycle": "incubating",
+      "maturity": "early-implementation",
+      "source_url": "https://github.com/egohygiene/egolint",
+      "consumes": [],
+      "domains": []
+    },
+    {
+      "name": "empathy",
+      "plane": "developer-runtime",
+      "owns": [
+        "golden consumer",
+        "integration testbed",
+        "humane repository reference",
+        "strict baseline composition"
+      ],
+      "excludes": [
+        "permanent sibling component source",
+        "untracked staging",
+        "general incubation"
+      ],
+      "consumes": [
+        "realm environments",
+        "mantle runtime",
+        "relay workflows",
+        "egolint profiles"
+      ],
+      "outputs": [
+        "integration evidence",
+        "reference-consumer feedback"
+      ],
+      "full_name": "egohygiene/empathy",
+      "visibility": "public",
+      "lifecycle": "transition",
+      "maturity": "transition",
+      "source_url": "https://github.com/egohygiene/empathy",
+      "domains": []
+    },
+    {
+      "name": "mantle",
+      "plane": "developer-runtime",
+      "owns": [
+        "portable shell framework",
+        "startup integration",
+        "environment management",
+        "tool installers",
+        "shell compatibility tests"
+      ],
+      "excludes": [
+        "OS image lifecycle",
+        "Dev Container metadata",
+        "cloud infrastructure"
+      ],
+      "outputs": [
+        "checksummed release bundle",
+        "installer",
+        "compatibility evidence"
+      ],
+      "full_name": "egohygiene/mantle",
+      "visibility": "public",
+      "lifecycle": "active",
+      "maturity": "active",
+      "source_url": "https://github.com/egohygiene/mantle",
+      "consumes": [],
+      "domains": []
+    },
+    {
+      "name": "realm",
+      "plane": "developer-runtime",
+      "owns": [
+        "OCI image family",
+        "Dev Container templates and features",
+        "Nix modules and profiles",
+        "workstation projections",
+        "optional local runtime profiles"
+      ],
+      "excludes": [
+        "shell semantics",
+        "CI workflows",
+        "cloud resource provisioning"
+      ],
+      "consumes": [
+        "mantle release"
+      ],
+      "outputs": [
+        "OCI images",
+        "SBOMs",
+        "provenance",
+        "Nix flake",
+        "Dev Container artifacts",
+        "capability manifest"
+      ],
+      "full_name": "egohygiene/realm",
+      "visibility": "public",
+      "lifecycle": "seed",
+      "maturity": "seed-with-staged-source",
+      "source_url": "https://github.com/egohygiene/realm",
+      "domains": []
+    },
+    {
+      "name": "relay",
+      "plane": "developer-runtime",
+      "owns": [
+        "reusable GitHub workflows",
+        "composite actions",
+        "CI and release mechanics"
+      ],
+      "excludes": [
+        "lint semantics",
+        "ecosystem architecture",
+        "product release policy"
+      ],
+      "consumes": [
+        "egolint CLI and profiles"
+      ],
+      "outputs": [
+        "reusable workflow contracts",
+        "run evidence"
+      ],
+      "full_name": "egohygiene/relay",
+      "visibility": "public",
+      "lifecycle": "seed",
+      "maturity": "seed",
+      "source_url": "https://github.com/egohygiene/relay",
+      "domains": []
+    },
+    {
+      "name": "filament",
+      "plane": "infrastructure-deployment",
+      "owns": [
+        "reusable infrastructure-as-code modules",
+        "reusable infrastructure stack contracts",
+        "infrastructure module metadata and schemas",
+        "provider and engine adapters",
+        "infrastructure validation semantics and examples"
+      ],
+      "excludes": [
+        "product-specific deployment intent",
+        "credentials and secret custody",
+        "deployment approvals and budgets",
+        "production state backends",
+        "developer environment projections",
+        "CI and release workflow orchestration"
+      ],
+      "consumes": [
+        "hygiene architecture release",
+        "realm environments",
+        "relay workflows"
+      ],
+      "outputs": [
+        "versioned infrastructure modules",
+        "stack contracts",
+        "provider adapters",
+        "validation and compatibility evidence"
+      ],
+      "full_name": "egohygiene/filament",
+      "visibility": "public",
+      "lifecycle": "architecture-first",
+      "maturity": "provisional-architecture",
+      "source_url": "https://github.com/egohygiene/filament",
+      "domains": []
+    },
+    {
+      "name": "aniflow",
+      "plane": "content-publishing",
+      "owns": [
+        "temporal video decomposition",
+        "ordered media processing",
+        "reconstruction",
+        "checkpoints",
+        "temporal validation"
+      ],
+      "excludes": [
+        "collection optimization",
+        "document transforms",
+        "suite-wide orchestration"
+      ],
+      "outputs": [
+        "standalone CLI and library",
+        "capability contract",
+        "run evidence"
+      ],
+      "full_name": "egohygiene/aniflow",
+      "visibility": "public",
+      "lifecycle": "active",
+      "maturity": "active",
+      "source_url": "https://github.com/egohygiene/aniflow",
+      "consumes": [],
+      "domains": []
+    },
+    {
+      "name": "beacon",
+      "plane": "content-publishing",
+      "owns": [
+        "release assembly",
+        "validation",
+        "packaging",
+        "channel adapters",
+        "publication",
+        "distribution"
+      ],
+      "excludes": [
+        "rendering engines",
+        "knowledge storage"
+      ],
+      "consumes": [
+        "renderflow or flow artifact manifests",
+        "identity packages"
+      ],
+      "outputs": [
+        "publication manifests",
+        "distributed releases",
+        "channel receipts"
+      ],
+      "full_name": "egohygiene/beacon",
+      "visibility": "public",
+      "lifecycle": "seed",
+      "maturity": "seed",
+      "source_url": "https://github.com/egohygiene/beacon",
+      "domains": []
+    },
+    {
+      "name": "flow",
+      "plane": "content-publishing",
+      "owns": [
+        "cross-holon planning",
+        "compatibility",
+        "execution state",
+        "provenance",
+        "validation",
+        "recovery",
+        "progress",
+        "suite experience"
+      ],
+      "excludes": [
+        "specialized engine reimplementation"
+      ],
+      "consumes": [
+        "aniflow contract",
+        "optiflow contract",
+        "renderflow contract"
+      ],
+      "outputs": [
+        "suite plans",
+        "execution manifests",
+        "diagnostics",
+        "provenance"
+      ],
+      "full_name": "egohygiene/flow",
+      "visibility": "public",
+      "lifecycle": "architecture-first",
+      "maturity": "architecture-first",
+      "source_url": "https://github.com/egohygiene/flow",
+      "domains": []
+    },
+    {
+      "name": "optiflow",
+      "plane": "content-publishing",
+      "owns": [
+        "safe inventory",
+        "evidence-backed media relationships",
+        "immutable optimization plans",
+        "collection normalization"
+      ],
+      "excludes": [
+        "temporal reconstruction",
+        "transform graphs",
+        "suite-wide orchestration"
+      ],
+      "outputs": [
+        "standalone CLI and library",
+        "plan schema",
+        "inventory evidence"
+      ],
+      "full_name": "egohygiene/optiflow",
+      "visibility": "public",
+      "lifecycle": "active",
+      "maturity": "active-read-only",
+      "source_url": "https://github.com/egohygiene/optiflow",
+      "consumes": [],
+      "domains": [
+        "optiflow.egohygiene.io"
+      ]
+    },
+    {
+      "name": "renderflow",
+      "plane": "content-publishing",
+      "owns": [
+        "spec-driven transform graphs",
+        "document derivatives",
+        "image derivatives",
+        "audio derivatives"
+      ],
+      "excludes": [
+        "collection policy",
+        "temporal reconstruction",
+        "release distribution"
+      ],
+      "outputs": [
+        "standalone CLI and library",
+        "derivative manifests",
+        "rendered artifacts"
+      ],
+      "full_name": "egohygiene/renderflow",
+      "visibility": "public",
+      "lifecycle": "active",
+      "maturity": "active",
+      "source_url": "https://github.com/egohygiene/renderflow",
+      "consumes": [],
+      "domains": []
+    },
+    {
+      "name": "akashic",
+      "plane": "knowledge-research",
+      "owns": [
+        "curated public knowledge lists",
+        "collection exploration site"
+      ],
+      "excludes": [
+        "raw archives",
+        "private personal knowledge"
+      ],
+      "outputs": [
+        "curated datasets",
+        "public knowledge site"
+      ],
+      "full_name": "egohygiene/akashic",
+      "visibility": "public",
+      "lifecycle": "active",
+      "maturity": "active",
+      "source_url": "https://github.com/egohygiene/akashic",
+      "consumes": [],
+      "domains": []
+    },
+    {
+      "name": "athena",
+      "plane": "knowledge-research",
+      "owns": [
+        "preserved assets",
+        "raw references",
+        "external resources",
+        "large archival collections"
+      ],
+      "excludes": [
+        "canonical architecture",
+        "runtime dependencies",
+        "opinionated knowledge products"
+      ],
+      "outputs": [
+        "inventoried archives",
+        "provenance and licensing metadata"
+      ],
+      "full_name": "egohygiene/athena",
+      "visibility": "public",
+      "lifecycle": "active",
+      "maturity": "active-collection",
+      "source_url": "https://github.com/egohygiene/athena",
+      "consumes": [],
+      "domains": []
+    },
+    {
+      "name": "mindcap",
+      "plane": "knowledge-research",
+      "owns": [
+        "capture plugins",
+        "verified archives",
+        "canonical ingestion records",
+        "capture provenance"
+      ],
+      "excludes": [
+        "semantic knowledge modeling",
+        "publication"
+      ],
+      "outputs": [
+        "capture manifest",
+        "verified source archive"
+      ],
+      "full_name": "egohygiene/mindcap",
+      "visibility": "public",
+      "lifecycle": "active",
+      "maturity": "active",
+      "source_url": "https://github.com/egohygiene/mindcap",
+      "consumes": [],
+      "domains": []
+    },
+    {
+      "name": "mindgarden",
+      "plane": "knowledge-research",
+      "owns": [
+        "versioned semantic knowledge",
+        "relationships",
+        "query",
+        "curation",
+        "second-brain workflows"
+      ],
+      "excludes": [
+        "source capture mechanics",
+        "raw archival storage"
+      ],
+      "consumes": [
+        "mindcap capture manifest"
+      ],
+      "outputs": [
+        "knowledge graph or store",
+        "query and export contracts"
+      ],
+      "full_name": "egohygiene/mindgarden",
+      "visibility": "public",
+      "lifecycle": "seed",
+      "maturity": "seed",
+      "source_url": "https://github.com/egohygiene/mindgarden",
+      "domains": []
+    },
+    {
+      "name": "reflector",
+      "plane": "knowledge-research",
+      "owns": [
+        "reflective synchronization research",
+        "recursive engineering CLI",
+        "research publication evidence"
+      ],
+      "excludes": [
+        "generic fleet reconciliation",
+        "canonical platform policy"
+      ],
+      "outputs": [
+        "research publications",
+        "synchronization evidence",
+        "CLI releases"
+      ],
+      "full_name": "egohygiene/reflector",
+      "visibility": "public",
+      "lifecycle": "active",
+      "maturity": "active",
+      "source_url": "https://github.com/egohygiene/reflector",
+      "consumes": [],
+      "domains": []
+    },
+    {
+      "name": "egohygiene",
+      "plane": "identity-product-experience",
+      "owns": [
+        "Flutter cognition and reflection product",
+        "product domain model"
+      ],
+      "excludes": [
+        "ecosystem control plane",
+        "generic repository foundation"
+      ],
+      "consumes": [
+        "identity packages",
+        "realm environment",
+        "relay workflows"
+      ],
+      "outputs": [
+        "application releases",
+        "product-domain contracts"
+      ],
+      "full_name": "egohygiene/egohygiene",
+      "visibility": "private",
+      "lifecycle": "active",
+      "maturity": "active-private",
+      "source_url": "https://github.com/egohygiene/egohygiene",
+      "domains": []
+    },
+    {
+      "name": "identity",
+      "plane": "identity-product-experience",
+      "owns": [
+        "brand systems",
+        "design tokens",
+        "voice",
+        "public metadata",
+        "generated creative assets"
+      ],
+      "excludes": [
+        "product UI implementation",
+        "raw asset archives"
+      ],
+      "outputs": [
+        "token packages",
+        "brand assets",
+        "metadata and voice packages"
+      ],
+      "full_name": "egohygiene/identity",
+      "visibility": "public",
+      "lifecycle": "seed",
+      "maturity": "seed",
+      "source_url": "https://github.com/egohygiene/identity",
+      "consumes": [],
+      "domains": []
+    },
+    {
+      "name": "store",
+      "plane": "identity-product-experience",
+      "owns": [
+        "provider-neutral storefront",
+        "commerce ports and adapters",
+        "store deployment"
+      ],
+      "excludes": [
+        "main website content",
+        "fulfillment",
+        "manufacturing",
+        "hosted checkout"
+      ],
+      "consumes": [
+        "identity packages",
+        "commerce provider API"
+      ],
+      "outputs": [
+        "storefront application",
+        "route and deployment contract"
+      ],
+      "full_name": "egohygiene/store",
+      "visibility": "public",
+      "lifecycle": "active",
+      "maturity": "active",
+      "source_url": "https://github.com/egohygiene/store",
+      "domains": [
+        "egohygiene.io/store"
+      ]
+    },
+    {
+      "name": "website",
+      "target_name": "egohygiene.io",
+      "plane": "identity-product-experience",
+      "owns": [
+        "public website",
+        "documentation application",
+        "playground",
+        "shared web packages"
+      ],
+      "excludes": [
+        "store commerce logic",
+        "generic publishing engine"
+      ],
+      "consumes": [
+        "identity packages",
+        "store route and deployment contract"
+      ],
+      "outputs": [
+        "public website",
+        "documentation site",
+        "shared web packages"
+      ],
+      "full_name": "egohygiene/website",
+      "visibility": "public",
+      "lifecycle": "transition",
+      "maturity": "active-rename-pending",
+      "source_url": "https://github.com/egohygiene/website",
+      "domains": [
+        "egohygiene.io"
+      ]
+    }
+  ],
+  "proposed_repositories": [
+    {
+      "name": "firmament",
+      "plane": "infrastructure-deployment",
+      "status": "deferred",
+      "create_after": "realm-and-filament-artifact-contracts-stable",
+      "owns": [
+        "organization-operated infrastructure compositions",
+        "cloud and local deployment topology",
+        "networking",
+        "clusters",
+        "deployment environments",
+        "operational infrastructure state and lifecycle"
+      ],
+      "excludes": [
+        "reusable infrastructure modules and provider adapters",
+        "developer image construction",
+        "shell configuration",
+        "repository fleet automation"
+      ],
+      "consumes": [
+        "filament modules and stack contracts",
+        "realm images",
+        "application and publication artifacts"
+      ],
+      "target_full_name": "egohygiene/firmament",
+      "outputs": [],
+      "domains": []
+    }
+  ],
+  "planes": [
+    {
+      "id": "architecture-control",
+      "title": "Architecture and control"
+    },
+    {
+      "id": "developer-runtime",
+      "title": "Developer and runtime platform"
+    },
+    {
+      "id": "infrastructure-deployment",
+      "title": "Infrastructure and deployment"
+    },
+    {
+      "id": "content-publishing",
+      "title": "Content transformation and publishing"
+    },
+    {
+      "id": "knowledge-research",
+      "title": "Knowledge and research"
+    },
+    {
+      "id": "identity-product-experience",
+      "title": "Identity, product, and experience"
+    }
+  ],
+  "repository_count": 27
+}

@@ -4,6 +4,40 @@
 
 Observatory turns validated repository evidence into deterministic, provenance-aware read models. It answers Repository Intelligence questions without becoming the source of roadmap intent, decision authority, Git history, GitHub state, validation policy, or release truth.
 
+## Organization health alpha
+
+The health slice consumes Hygiene's JSON-compatible repository catalog plus
+versioned repository evidence and publishes deterministic JSON and Markdown
+snapshots. It keeps Hygiene's declared maturity separate from evidence support,
+preserves stale and unknown states, and exposes every categorical rollup rule
+without manufacturing a score.
+
+```bash
+python3 -m pip install --editable .
+
+observatory-health adapt-egolint \
+  --report ".reports/egolint/run.json" \
+  --repository "egohygiene/example" \
+  --represented-commit "0123456789abcdef0123456789abcdef01234567" \
+  --valid-until "2026-09-09T12:00:00Z" \
+  --source-url "https://github.com/egohygiene/example/actions/runs/123/artifacts/456" \
+  --producer-version "0.1.0-alpha.1" \
+  --output "build/evidence/egolint.json"
+
+observatory-health build \
+  --catalog "catalog/repositories.yaml" \
+  --catalog-url "https://github.com/egohygiene/hygiene/blob/<commit>/catalog/repositories.yaml" \
+  --catalog-commit "0123456789abcdef0123456789abcdef01234567" \
+  --evidence "build/evidence/egolint.json" \
+  --as-of "2026-09-02T12:00:00Z" \
+  --output "build/organization-health"
+```
+
+The collector or workflow supplies the catalog pin, evidence validity window,
+and explicit evaluation time. Observatory performs no network access and no
+repository mutation. See the
+[organization-health contract](docs/organization-health-read-model.md).
+
 ## Repository Intelligence alpha
 
 The first executable slice consumes the pinned Hygiene `egohygiene.repository-intelligence/v1` projection and produces:
@@ -51,6 +85,12 @@ observatory-intelligence compare \
 - [Compare schema](schemas/repository-intelligence-compare.v1.schema.json)
 - [Pinned Hygiene contract lock](contracts/hygiene.repository-intelligence.v1.lock.json)
 - [Offline fixture provenance](fixtures/repository-intelligence/README.md)
+- [Organization-health read model](docs/organization-health-read-model.md)
+- [Repository evidence schema](schemas/repository-evidence.v1.schema.json)
+- [Organization-health schema](schemas/organization-health.v1.schema.json)
+- [Pinned Hygiene catalog lock](contracts/hygiene.repository-catalog.v1.lock.json)
+- [Pinned Egolint report lock](contracts/egolint.report.v1.lock.json)
+- [Organization-health fixture provenance](fixtures/health/README.md)
 
 ## Verification
 
@@ -61,6 +101,7 @@ python3 -m unittest discover \
   --verbose
 
 python3 "scripts/verify_fixtures.py"
+python3 "scripts/verify_health_fixtures.py"
 ```
 
 The checked-in snapshots are intentional consumer fixtures. Any semantic change must update the contract version or remain demonstrably compatible, update the golden artifacts, and explain its downstream impact.

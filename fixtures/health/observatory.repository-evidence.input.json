@@ -1,0 +1,57 @@
+{
+  "checks": [
+    {
+      "assesses": [
+        "conformance",
+        "maturity"
+      ],
+      "contract": {
+        "id": "egohygiene.repository-intelligence/v1",
+        "url": "https://github.com/egohygiene/hygiene/blob/28d0b913bb5922666cdd72df7d27257eb58a70b/schemas/repository-intelligence.v1.schema.json",
+        "version": "1.0.0-alpha.1"
+      },
+      "domain": "foundation",
+      "evidence": [
+        "https://github.com/egohygiene/observatory/pull/8"
+      ],
+      "id": "repository-intelligence-alpha",
+      "severity": "required",
+      "status": "pass",
+      "title": "Deterministic Repository Intelligence foundation"
+    },
+    {
+      "assesses": [
+        "conformance"
+      ],
+      "contract": {
+        "id": "observatory.documentation/v1",
+        "url": "https://github.com/egohygiene/observatory/blob/3cb3555f56b9b110e98e295c1201e8d9af641297/README.md",
+        "version": "0.1.0"
+      },
+      "domain": "documentation",
+      "evidence": [
+        "https://github.com/egohygiene/observatory/pull/8"
+      ],
+      "id": "read-model-documentation",
+      "severity": "advisory",
+      "status": "pass",
+      "title": "Deterministic read-model documentation"
+    }
+  ],
+  "contract_version": "1.0.0-alpha.1",
+  "observed_at": "2026-09-01T12:00:00Z",
+  "producer": {
+    "name": "egohygiene/observatory-fixture",
+    "url": "https://github.com/egohygiene/observatory",
+    "version": "0.1.0"
+  },
+  "repository": "egohygiene/observatory",
+  "represented_commit": "3cb3555f56b9b110e98e295c1201e8d9af641297",
+  "schema": "egohygiene.observatory.repository-evidence/v1",
+  "source": {
+    "kind": "reviewed-test-evidence",
+    "sha256": null,
+    "url": "https://github.com/egohygiene/observatory/pull/8"
+  },
+  "valid_until": "2026-09-30T23:59:59Z"
+}

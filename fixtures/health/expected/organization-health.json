@@ -1,0 +1,1681 @@
+{
+  "as_of": "2026-09-02T12:00:00Z",
+  "contract_version": "1.0.0-alpha.1",
+  "generator": {
+    "name": "egohygiene/observatory:organization-health",
+    "version": "0.1.0"
+  },
+  "organization": "egohygiene",
+  "repositories": [
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "incubating",
+        "maturity": "light-foundation",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/.github",
+        "name": ".github",
+        "plane": "architecture-control",
+        "url": "https://github.com/egohygiene/.github",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "active",
+        "maturity": "active",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/aether",
+        "name": "aether",
+        "plane": "architecture-control",
+        "url": "https://github.com/egohygiene/aether",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "active",
+        "maturity": "active",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/akashic",
+        "name": "akashic",
+        "plane": "knowledge-research",
+        "url": "https://github.com/egohygiene/akashic",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "active",
+        "maturity": "active",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/aniflow",
+        "name": "aniflow",
+        "plane": "content-publishing",
+        "url": "https://github.com/egohygiene/aniflow",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "active",
+        "maturity": "active-collection",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/athena",
+        "name": "athena",
+        "plane": "knowledge-research",
+        "url": "https://github.com/egohygiene/athena",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "seed",
+        "maturity": "seed",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/beacon",
+        "name": "beacon",
+        "plane": "content-publishing",
+        "url": "https://github.com/egohygiene/beacon",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "active",
+        "maturity": "active-private",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/egohygiene",
+        "name": "egohygiene",
+        "plane": "identity-product-experience",
+        "url": "https://github.com/egohygiene/egohygiene",
+        "visibility": "private"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "incubating",
+        "maturity": "early-implementation",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/egolint",
+        "name": "egolint",
+        "plane": "developer-runtime",
+        "url": "https://github.com/egohygiene/egolint",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [
+            "egohygiene/egolint:egolint:holistic"
+          ],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 1,
+            "unknown": 0
+          },
+          "reason": "at least one required check is stale",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "stale"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "transition",
+        "maturity": "transition",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 1,
+        "checks": [
+          {
+            "assesses": [
+              "conformance"
+            ],
+            "contract": {
+              "id": "egohygiene.egolint.report/v1",
+              "url": "https://github.com/egohygiene/egolint/blob/4b98b30eb3a574c81986fb9be585c4935f585f65/schemas/report.schema.json",
+              "version": "1"
+            },
+            "domain": "automation",
+            "evidence": [
+              "https://github.com/egohygiene/egolint/blob/4b98b30eb3a574c81986fb9be585c4935f585f65/tests/fixtures/compatibility/empathy-v1/report.json"
+            ],
+            "freshness": "stale",
+            "id": "egolint:holistic",
+            "key": "egohygiene/egolint:egolint:holistic",
+            "observation": {
+              "observed_at": "1970-01-01T00:00:00Z",
+              "producer": {
+                "name": "egohygiene/egolint",
+                "url": "https://github.com/egohygiene/egolint",
+                "version": "0.1.0-alpha.1"
+              },
+              "represented_commit": "560aff8430c2f170dadae9161a4603a71c41acbf",
+              "source": {
+                "kind": "egolint-report",
+                "sha256": "4acffd56a13535f41159bca9debaaaff5ee10218c354fbc60de24f67b3ce8486",
+                "url": "https://github.com/egohygiene/egolint/blob/4b98b30eb3a574c81986fb9be585c4935f585f65/tests/fixtures/compatibility/empathy-v1/report.json"
+              },
+              "valid_until": "1970-01-02T00:00:00Z"
+            },
+            "reported_status": "fail",
+            "severity": "required",
+            "status": "stale",
+            "title": "Egolint holistic profile (complete_repository; .config/megalinter/policy.yml#profiles/holistic)"
+          }
+        ],
+        "earliest_observed_at": "1970-01-01T00:00:00Z",
+        "freshness": "stale",
+        "latest_observed_at": "1970-01-01T00:00:00Z",
+        "producers": [
+          "egohygiene/egolint"
+        ],
+        "record_count": 1,
+        "represented_commits": [
+          "560aff8430c2f170dadae9161a4603a71c41acbf"
+        ]
+      },
+      "repository": {
+        "full_name": "egohygiene/empathy",
+        "name": "empathy",
+        "plane": "developer-runtime",
+        "url": "https://github.com/egohygiene/empathy",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "architecture-first",
+        "maturity": "provisional-architecture",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/filament",
+        "name": "filament",
+        "plane": "infrastructure-deployment",
+        "url": "https://github.com/egohygiene/filament",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "architecture-first",
+        "maturity": "architecture-first",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/flow",
+        "name": "flow",
+        "plane": "content-publishing",
+        "url": "https://github.com/egohygiene/flow",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "seed",
+        "maturity": "seed",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/holon",
+        "name": "holon",
+        "plane": "architecture-control",
+        "url": "https://github.com/egohygiene/holon",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "seed",
+        "maturity": "seed",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/hygiene",
+        "name": "hygiene",
+        "plane": "architecture-control",
+        "url": "https://github.com/egohygiene/hygiene",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "seed",
+        "maturity": "seed",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/identity",
+        "name": "identity",
+        "plane": "identity-product-experience",
+        "url": "https://github.com/egohygiene/identity",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "active",
+        "maturity": "active",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/mantle",
+        "name": "mantle",
+        "plane": "developer-runtime",
+        "url": "https://github.com/egohygiene/mantle",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "active",
+        "maturity": "active",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/mindcap",
+        "name": "mindcap",
+        "plane": "knowledge-research",
+        "url": "https://github.com/egohygiene/mindcap",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "seed",
+        "maturity": "seed",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/mindgarden",
+        "name": "mindgarden",
+        "plane": "knowledge-research",
+        "url": "https://github.com/egohygiene/mindgarden",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [
+            "egohygiene/observatory-fixture:repository-intelligence-alpha"
+          ],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 1,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "all applicable required checks passed with current evidence",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "conformant"
+        },
+        "maturity": {
+          "check_ids": [
+            "egohygiene/observatory-fixture:repository-intelligence-alpha"
+          ],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 1,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "all applicable required checks passed with current evidence",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "supported"
+        }
+      },
+      "declared": {
+        "lifecycle": "seed",
+        "maturity": "seed",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 2,
+        "checks": [
+          {
+            "assesses": [
+              "conformance"
+            ],
+            "contract": {
+              "id": "observatory.documentation/v1",
+              "url": "https://github.com/egohygiene/observatory/blob/3cb3555f56b9b110e98e295c1201e8d9af641297/README.md",
+              "version": "0.1.0"
+            },
+            "domain": "documentation",
+            "evidence": [
+              "https://github.com/egohygiene/observatory/pull/8"
+            ],
+            "freshness": "current",
+            "id": "read-model-documentation",
+            "key": "egohygiene/observatory-fixture:read-model-documentation",
+            "observation": {
+              "observed_at": "2026-09-01T12:00:00Z",
+              "producer": {
+                "name": "egohygiene/observatory-fixture",
+                "url": "https://github.com/egohygiene/observatory",
+                "version": "0.1.0"
+              },
+              "represented_commit": "3cb3555f56b9b110e98e295c1201e8d9af641297",
+              "source": {
+                "kind": "reviewed-test-evidence",
+                "sha256": null,
+                "url": "https://github.com/egohygiene/observatory/pull/8"
+              },
+              "valid_until": "2026-09-30T23:59:59Z"
+            },
+            "reported_status": "pass",
+            "severity": "advisory",
+            "status": "pass",
+            "title": "Deterministic read-model documentation"
+          },
+          {
+            "assesses": [
+              "conformance",
+              "maturity"
+            ],
+            "contract": {
+              "id": "egohygiene.repository-intelligence/v1",
+              "url": "https://github.com/egohygiene/hygiene/blob/28d0b913bb5922666cdd72df7d27257eb58a70b/schemas/repository-intelligence.v1.schema.json",
+              "version": "1.0.0-alpha.1"
+            },
+            "domain": "foundation",
+            "evidence": [
+              "https://github.com/egohygiene/observatory/pull/8"
+            ],
+            "freshness": "current",
+            "id": "repository-intelligence-alpha",
+            "key": "egohygiene/observatory-fixture:repository-intelligence-alpha",
+            "observation": {
+              "observed_at": "2026-09-01T12:00:00Z",
+              "producer": {
+                "name": "egohygiene/observatory-fixture",
+                "url": "https://github.com/egohygiene/observatory",
+                "version": "0.1.0"
+              },
+              "represented_commit": "3cb3555f56b9b110e98e295c1201e8d9af641297",
+              "source": {
+                "kind": "reviewed-test-evidence",
+                "sha256": null,
+                "url": "https://github.com/egohygiene/observatory/pull/8"
+              },
+              "valid_until": "2026-09-30T23:59:59Z"
+            },
+            "reported_status": "pass",
+            "severity": "required",
+            "status": "pass",
+            "title": "Deterministic Repository Intelligence foundation"
+          }
+        ],
+        "earliest_observed_at": "2026-09-01T12:00:00Z",
+        "freshness": "current",
+        "latest_observed_at": "2026-09-01T12:00:00Z",
+        "producers": [
+          "egohygiene/observatory-fixture"
+        ],
+        "record_count": 1,
+        "represented_commits": [
+          "3cb3555f56b9b110e98e295c1201e8d9af641297"
+        ]
+      },
+      "repository": {
+        "full_name": "egohygiene/observatory",
+        "name": "observatory",
+        "plane": "architecture-control",
+        "url": "https://github.com/egohygiene/observatory",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "active",
+        "maturity": "active-read-only",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/optiflow",
+        "name": "optiflow",
+        "plane": "content-publishing",
+        "url": "https://github.com/egohygiene/optiflow",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "seed",
+        "maturity": "seed",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/pace",
+        "name": "pace",
+        "plane": "architecture-control",
+        "url": "https://github.com/egohygiene/pace",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "seed",
+        "maturity": "seed-with-staged-source",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/realm",
+        "name": "realm",
+        "plane": "developer-runtime",
+        "url": "https://github.com/egohygiene/realm",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "active",
+        "maturity": "active",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/reflector",
+        "name": "reflector",
+        "plane": "knowledge-research",
+        "url": "https://github.com/egohygiene/reflector",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "seed",
+        "maturity": "seed",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/relay",
+        "name": "relay",
+        "plane": "developer-runtime",
+        "url": "https://github.com/egohygiene/relay",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "active",
+        "maturity": "active",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/renderflow",
+        "name": "renderflow",
+        "plane": "content-publishing",
+        "url": "https://github.com/egohygiene/renderflow",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "incubating",
+        "maturity": "provisional-contract",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/sanctuary",
+        "name": "sanctuary",
+        "plane": "architecture-control",
+        "url": "https://github.com/egohygiene/sanctuary",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "active",
+        "maturity": "active",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/store",
+        "name": "store",
+        "plane": "identity-product-experience",
+        "url": "https://github.com/egohygiene/store",
+        "visibility": "public"
+      }
+    },
+    {
+      "assessment": {
+        "conformance": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        },
+        "maturity": {
+          "check_ids": [],
+          "counts": {
+            "blocked": 0,
+            "fail": 0,
+            "not_applicable": 0,
+            "partial": 0,
+            "pass": 0,
+            "stale": 0,
+            "unknown": 0
+          },
+          "reason": "no required evidence assesses this dimension",
+          "rule": "required checks only; precedence is fail, blocked, stale, unknown, partial, pass, not_applicable; no numeric score",
+          "status": "unknown"
+        }
+      },
+      "declared": {
+        "lifecycle": "transition",
+        "maturity": "active-rename-pending",
+        "source": "Hygiene repository catalog"
+      },
+      "evidence": {
+        "check_count": 0,
+        "checks": [],
+        "earliest_observed_at": null,
+        "freshness": "unknown",
+        "latest_observed_at": null,
+        "producers": [],
+        "record_count": 0,
+        "represented_commits": []
+      },
+      "repository": {
+        "full_name": "egohygiene/website",
+        "name": "website",
+        "plane": "identity-product-experience",
+        "url": "https://github.com/egohygiene/website",
+        "visibility": "public"
+      }
+    }
+  ],
+  "schema": "egohygiene.observatory.organization-health/v1",
+  "snapshot_id": "organization-health:sha256:4414b2c8cf3921c61b4cc79cf859167ae5b499f428f152e7aa8feee1a7af725e",
+  "sources": {
+    "catalog": {
+      "architecture_release": "architecture-v0.1.0",
+      "commit": "28f9d6c7519d820644572634ba4476614f418d83",
+      "freshness": "unknown",
+      "freshness_reason": "the catalog contract does not declare a validity window",
+      "observed_at": "2026-08-21",
+      "schema_version": "1.0.0",
+      "sha256": "e1193c772640ceb8d3d569a1826d3931ee9de64b0a8357a94c9f03fbceab52e5",
+      "url": "https://github.com/egohygiene/hygiene/blob/28f9d6c7519d820644572634ba4476614f418d83/catalog/repositories.yaml"
+    },
+    "evidence_digests": [
+      "sha256:0d8e5c34c23f692e4783e68162e72a43089755684c8cf9ad2d9b0c8e6b13f507",
+      "sha256:733d01505be229484c79d0628cb8a75560c1118666e562c6ead8631eccabd556"
+    ],
+    "evidence_record_count": 2
+  },
+  "summary": {
+    "assessed_repository_count": 2,
+    "conformance": {
+      "conformant": 1,
+      "stale": 1,
+      "unknown": 25
+    },
+    "maturity_evidence": {
+      "supported": 1,
+      "unknown": 26
+    },
+    "repository_count": 27,
+    "unknown_repository_count": 25
+  }
+}

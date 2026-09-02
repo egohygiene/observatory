@@ -40,7 +40,7 @@ updated: 2026-08-25
 > This evidence-reconciled snapshot is the issue-generation and visual-roadmap handoff. The longer-horizon strategy below remains canonical context; generated HTML, JSON, progress, issue plans, and commit lists are projections.
 
 **Lifecycle:** seed, executable alpha
-**Current gate:** Merge and release the deterministic read model from issue #7, then connect issue #1 to real collected evidence without weakening the offline boundary.
+**Current gate:** Review and merge issue #1's deterministic catalog/evidence health snapshot, then design live GitHub collection without weakening the offline boundary.
 **North-star outcome:** Evidence-linked portfolio, maturity, dependency, and roadmap views across the organization.
 
 ### Visual roadmap publication
@@ -92,12 +92,12 @@ issues: [1, 7]
 
 - [x] A command ingests deterministic Repository Intelligence fixtures.
 - [x] Tests validate repository, fleet, query, and comparison results.
-- [ ] Issue #1 connects the model to the first approved real evidence collection path.
+- [x] Issue #1 connects the model to the first approved real evidence collection path.
 
 **Current evidence:**
 
 - Issue #7 provides the versioned graph/read model, nine page queries, comparison, offline fixtures, and CI contract checks.
-- Issue #1 remains the gate for real catalog and repository evidence ingestion.
+- Issue #1 adds pinned Hygiene catalog ingestion, a provider-neutral evidence contract, an Egolint v1 adapter, transparent categorical rollups, and JSON/Markdown snapshots.
 
 <!-- roadmap-step
 id: OBS-Q03

@@ -1,0 +1,12 @@
+{
+  "contract": "egohygiene.egolint.report/v1",
+  "source_commit": "4b98b30eb3a574c81986fb9be585c4935f585f65",
+  "source_repository": "https://github.com/egohygiene/egolint",
+  "sources": [
+    {
+      "path": "schemas/report.schema.json",
+      "sha256": "f8feef090c1295454d9531e95996e18f52151cd3ede68eb03a6dcdcd450bf76f"
+    }
+  ],
+  "version": "1"
+}

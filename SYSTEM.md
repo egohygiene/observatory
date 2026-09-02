@@ -32,10 +32,10 @@ This document identifies Observatory's logical systems and responsibilities. It 
 
 | System | State | Responsibility |
 | --- | --- | --- |
-| Repository registry adapter | Target | Owns its bounded portion of the organization-wide visibility, maturity, health, and platform-observability system; exposes explicit inputs, outputs, failure states, and evidence. |
+| Repository registry adapter | Alpha | Defensively consumes Hygiene catalog v1 with an exact source URL, commit, and digest while leaving complete validation and vocabulary ownership in Hygiene. |
 | Evidence collectors | Target | Owns its bounded portion of the organization-wide visibility, maturity, health, and platform-observability system; exposes explicit inputs, outputs, failure states, and evidence. |
 | Normalization pipeline | Alpha | Consumes pinned Hygiene Repository Intelligence projections, rejects unsafe graph inputs, and emits deterministic repository and fleet snapshots. |
-| Metric and maturity engine | Target | Owns its bounded portion of the organization-wide visibility, maturity, health, and platform-observability system; exposes explicit inputs, outputs, failure states, and evidence. |
+| Metric and maturity engine | Alpha | Computes transparent categorical maturity-evidence and conformance rollups from required checks while preserving declarations, stale data, unknowns, and detailed evidence. |
 | Time-series store | Target | Owns its bounded portion of the organization-wide visibility, maturity, health, and platform-observability system; exposes explicit inputs, outputs, failure states, and evidence. |
 | Dashboard and architecture landscape | Target | Owns its bounded portion of the organization-wide visibility, maturity, health, and platform-observability system; exposes explicit inputs, outputs, failure states, and evidence. |
 | Report API | Alpha, static | Exposes versioned Roadmap, Decisions, Journey, Now, Dependencies, Health, Releases, Work, Search, and Compare JSON projections through the CLI and checked artifacts. |
@@ -65,7 +65,18 @@ validated Hygiene projection
   → repository and fleet JSON artifacts
 ```
 
-Live GitHub collection, time-series persistence, metric policy, dashboard rendering, and network service delivery remain target systems.
+The parallel organization-health path is also executable:
+
+```text
+validated Hygiene catalog + versioned repository evidence
+  → defensive catalog/evidence join
+  → explicit freshness and categorical rollups
+  → fleet JSON and Markdown artifacts
+```
+
+Egolint report v1 is the first validator adapter. Live GitHub collection,
+time-series persistence, policy evaluation, dashboard rendering, and network
+service delivery remain target systems.
 
 ## Failure model
 
