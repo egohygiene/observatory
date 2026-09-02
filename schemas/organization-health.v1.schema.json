@@ -1,0 +1,345 @@
+{
+  "$id": "https://schemas.egohygiene.io/observatory/organization-health.v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "as_of": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "1.0.0-alpha.1"
+    },
+    "generator": {
+      "$ref": "#/$defs/generator"
+    },
+    "organization": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "repositories": {
+      "items": {
+        "$ref": "#/$defs/repositoryHealth"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "egohygiene.observatory.organization-health/v1"
+    },
+    "snapshot_id": {
+      "pattern": "^organization-health:sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "sources": {
+      "$ref": "#/$defs/sources"
+    },
+    "summary": {
+      "$ref": "#/$defs/summary"
+    }
+  },
+  "required": [
+    "schema",
+    "contract_version",
+    "snapshot_id",
+    "as_of",
+    "generator",
+    "organization",
+    "sources",
+    "summary",
+    "repositories"
+  ],
+  "title": "Observatory organization health snapshot",
+  "type": "object",
+  "$defs": {
+    "checkResult": {
+      "additionalProperties": false,
+      "properties": {
+        "assesses": {
+          "items": { "enum": ["conformance", "maturity"], "type": "string" },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "contract": { "$ref": "#/$defs/contractReference" },
+        "domain": {
+          "enum": [
+            "lifecycle",
+            "foundation",
+            "identity",
+            "architecture",
+            "automation",
+            "security",
+            "documentation",
+            "releases",
+            "sites",
+            "migration",
+            "dependencies"
+          ],
+          "type": "string"
+        },
+        "evidence": {
+          "items": { "format": "uri", "pattern": "^https?://", "type": "string" },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "freshness": { "enum": ["current", "stale"], "type": "string" },
+        "id": { "minLength": 1, "type": "string" },
+        "key": { "minLength": 1, "type": "string" },
+        "observation": {
+          "additionalProperties": false,
+          "properties": {
+            "observed_at": { "format": "date-time", "pattern": "Z$", "type": "string" },
+            "producer": { "$ref": "#/$defs/producer" },
+            "represented_commit": { "pattern": "^[0-9a-f]{40}$", "type": "string" },
+            "source": { "$ref": "#/$defs/evidenceSource" },
+            "valid_until": { "format": "date-time", "pattern": "Z$", "type": "string" }
+          },
+          "required": [
+            "observed_at",
+            "valid_until",
+            "represented_commit",
+            "producer",
+            "source"
+          ],
+          "type": "object"
+        },
+        "reported_status": {
+          "enum": ["pass", "fail", "partial", "unknown", "blocked", "not_applicable"],
+          "type": "string"
+        },
+        "severity": { "enum": ["required", "advisory"], "type": "string" },
+        "status": {
+          "enum": ["pass", "fail", "partial", "unknown", "blocked", "not_applicable", "stale"],
+          "type": "string"
+        },
+        "title": { "minLength": 1, "type": "string" }
+      },
+      "required": [
+        "id",
+        "key",
+        "title",
+        "domain",
+        "status",
+        "reported_status",
+        "freshness",
+        "severity",
+        "assesses",
+        "contract",
+        "evidence",
+        "observation"
+      ],
+      "type": "object"
+    },
+    "contractReference": {
+      "additionalProperties": false,
+      "properties": {
+        "id": { "minLength": 1, "type": "string" },
+        "url": { "format": "uri", "pattern": "^https?://", "type": "string" },
+        "version": { "minLength": 1, "type": "string" }
+      },
+      "required": ["id", "version", "url"],
+      "type": "object"
+    },
+    "evidenceSource": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "minLength": 1, "type": "string" },
+        "sha256": {
+          "oneOf": [
+            { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+            { "type": "null" }
+          ]
+        },
+        "url": { "format": "uri", "pattern": "^https?://", "type": "string" }
+      },
+      "required": ["kind", "url", "sha256"],
+      "type": "object"
+    },
+    "assessment": {
+      "additionalProperties": false,
+      "properties": {
+        "check_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "counts": {
+          "additionalProperties": false,
+          "properties": {
+            "blocked": { "minimum": 0, "type": "integer" },
+            "fail": { "minimum": 0, "type": "integer" },
+            "not_applicable": { "minimum": 0, "type": "integer" },
+            "partial": { "minimum": 0, "type": "integer" },
+            "pass": { "minimum": 0, "type": "integer" },
+            "stale": { "minimum": 0, "type": "integer" },
+            "unknown": { "minimum": 0, "type": "integer" }
+          },
+          "required": [
+            "pass",
+            "fail",
+            "partial",
+            "unknown",
+            "blocked",
+            "not_applicable",
+            "stale"
+          ],
+          "type": "object"
+        },
+        "reason": { "minLength": 1, "type": "string" },
+        "rule": { "minLength": 1, "type": "string" },
+        "status": { "minLength": 1, "type": "string" }
+      },
+      "required": [
+        "status",
+        "reason",
+        "rule",
+        "counts",
+        "check_ids"
+      ],
+      "type": "object"
+    },
+    "generator": {
+      "additionalProperties": false,
+      "properties": {
+        "name": { "const": "egohygiene/observatory:organization-health" },
+        "version": { "type": "string" }
+      },
+      "required": ["name", "version"],
+      "type": "object"
+    },
+    "producer": {
+      "additionalProperties": false,
+      "properties": {
+        "name": { "minLength": 1, "type": "string" },
+        "url": { "format": "uri", "pattern": "^https?://", "type": "string" },
+        "version": { "minLength": 1, "type": "string" }
+      },
+      "required": ["name", "version", "url"],
+      "type": "object"
+    },
+    "repositoryHealth": {
+      "additionalProperties": false,
+      "properties": {
+        "assessment": {
+          "additionalProperties": false,
+          "properties": {
+            "conformance": { "$ref": "#/$defs/assessment" },
+            "maturity": { "$ref": "#/$defs/assessment" }
+          },
+          "required": ["maturity", "conformance"],
+          "type": "object"
+        },
+        "declared": {
+          "additionalProperties": false,
+          "properties": {
+            "lifecycle": { "type": "string" },
+            "maturity": { "type": "string" },
+            "source": { "const": "Hygiene repository catalog" }
+          },
+          "required": ["lifecycle", "maturity", "source"],
+          "type": "object"
+        },
+        "evidence": {
+          "additionalProperties": false,
+          "properties": {
+            "check_count": { "minimum": 0, "type": "integer" },
+            "checks": { "items": { "$ref": "#/$defs/checkResult" }, "type": "array" },
+            "earliest_observed_at": { "type": ["string", "null"] },
+            "freshness": {
+              "enum": ["current", "stale", "mixed", "unknown"],
+              "type": "string"
+            },
+            "latest_observed_at": { "type": ["string", "null"] },
+            "producers": { "items": { "type": "string" }, "type": "array", "uniqueItems": true },
+            "record_count": { "minimum": 0, "type": "integer" },
+            "represented_commits": { "items": { "pattern": "^[0-9a-f]{40}$", "type": "string" }, "type": "array", "uniqueItems": true }
+          },
+          "required": [
+            "freshness",
+            "record_count",
+            "check_count",
+            "earliest_observed_at",
+            "latest_observed_at",
+            "represented_commits",
+            "producers",
+            "checks"
+          ],
+          "type": "object"
+        },
+        "repository": {
+          "additionalProperties": false,
+          "properties": {
+            "full_name": { "type": "string" },
+            "name": { "type": "string" },
+            "plane": { "type": "string" },
+            "url": { "format": "uri", "type": "string" },
+            "visibility": { "type": "string" }
+          },
+          "required": ["name", "full_name", "url", "visibility", "plane"],
+          "type": "object"
+        }
+      },
+      "required": ["repository", "declared", "assessment", "evidence"],
+      "type": "object"
+    },
+    "sources": {
+      "additionalProperties": false,
+      "properties": {
+        "catalog": {
+          "additionalProperties": false,
+          "properties": {
+            "architecture_release": { "type": "string" },
+            "commit": { "pattern": "^[0-9a-f]{40}$", "type": "string" },
+            "freshness": { "const": "unknown" },
+            "freshness_reason": { "type": "string" },
+            "observed_at": { "type": "string" },
+            "schema_version": { "const": "1.0.0" },
+            "sha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
+            "url": { "format": "uri", "type": "string" }
+          },
+          "required": [
+            "schema_version",
+            "architecture_release",
+            "observed_at",
+            "freshness",
+            "freshness_reason",
+            "url",
+            "commit",
+            "sha256"
+          ],
+          "type": "object"
+        },
+        "evidence_digests": {
+          "items": { "pattern": "^sha256:[0-9a-f]{64}$", "type": "string" },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "evidence_record_count": { "minimum": 0, "type": "integer" }
+      },
+      "required": ["catalog", "evidence_record_count", "evidence_digests"],
+      "type": "object"
+    },
+    "summary": {
+      "additionalProperties": false,
+      "properties": {
+        "assessed_repository_count": { "minimum": 0, "type": "integer" },
+        "conformance": { "additionalProperties": { "minimum": 0, "type": "integer" }, "type": "object" },
+        "maturity_evidence": { "additionalProperties": { "minimum": 0, "type": "integer" }, "type": "object" },
+        "repository_count": { "minimum": 1, "type": "integer" },
+        "unknown_repository_count": { "minimum": 0, "type": "integer" }
+      },
+      "required": [
+        "repository_count",
+        "assessed_repository_count",
+        "unknown_repository_count",
+        "conformance",
+        "maturity_evidence"
+      ],
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "checks": [
+    {
+      "assesses": [
+        "conformance"
+      ],
+      "contract": {
+        "id": "egohygiene.egolint.report/v1",
+        "url": "https://github.com/egohygiene/egolint/blob/4b98b30eb3a574c81986fb9be585c4935f585f65/schemas/report.schema.json",
+        "version": "1"
+      },
+      "domain": "automation",
+      "evidence": [
+        "https://github.com/egohygiene/egolint/blob/4b98b30eb3a574c81986fb9be585c4935f585f65/tests/fixtures/compatibility/empathy-v1/report.json"
+      ],
+      "id": "egolint:holistic",
+      "severity": "required",
+      "status": "fail",
+      "title": "Egolint holistic profile (complete_repository; .config/megalinter/policy.yml#profiles/holistic)"
+    }
+  ],
+  "contract_version": "1.0.0-alpha.1",
+  "observed_at": "1970-01-01T00:00:00Z",
+  "producer": {
+    "name": "egohygiene/egolint",
+    "url": "https://github.com/egohygiene/egolint",
+    "version": "0.1.0-alpha.1"
+  },
+  "repository": "egohygiene/empathy",
+  "represented_commit": "560aff8430c2f170dadae9161a4603a71c41acbf",
+  "schema": "egohygiene.observatory.repository-evidence/v1",
+  "source": {
+    "kind": "egolint-report",
+    "sha256": "4acffd56a13535f41159bca9debaaaff5ee10218c354fbc60de24f67b3ce8486",
+    "url": "https://github.com/egohygiene/egolint/blob/4b98b30eb3a574c81986fb9be585c4935f585f65/tests/fixtures/compatibility/empathy-v1/report.json"
+  },
+  "valid_until": "1970-01-02T00:00:00Z"
+}

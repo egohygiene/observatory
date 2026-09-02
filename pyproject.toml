@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "egohygiene-observatory"
 version = "0.1.0"
-description = "Deterministic Repository Intelligence graph and query snapshots"
+description = "Deterministic repository intelligence and organization health snapshots"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
@@ -15,6 +15,7 @@ dependencies = []
 
 [project.scripts]
 observatory-intelligence = "observatory.cli:main"
+observatory-health = "observatory.health_cli:main"
 
 [tool.setuptools]
 package-dir = { "" = "src" }

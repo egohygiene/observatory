@@ -1,0 +1,213 @@
+{
+  "$id": "https://schemas.egohygiene.io/observatory/repository-evidence.v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "assesses": {
+            "items": {
+              "enum": [
+                "conformance",
+                "maturity"
+              ],
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "contract": {
+            "$ref": "#/$defs/contractReference"
+          },
+          "domain": {
+            "enum": [
+              "lifecycle",
+              "foundation",
+              "identity",
+              "architecture",
+              "automation",
+              "security",
+              "documentation",
+              "releases",
+              "sites",
+              "migration",
+              "dependencies"
+            ],
+            "type": "string"
+          },
+          "evidence": {
+            "items": {
+              "format": "uri",
+              "pattern": "^https?://",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "id": {
+            "pattern": "^[a-z0-9][a-z0-9._:/-]*$",
+            "type": "string"
+          },
+          "severity": {
+            "enum": [
+              "required",
+              "advisory"
+            ],
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "pass",
+              "fail",
+              "partial",
+              "unknown",
+              "blocked",
+              "not_applicable"
+            ],
+            "type": "string"
+          },
+          "title": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "domain",
+          "status",
+          "severity",
+          "assesses",
+          "contract",
+          "evidence"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "contract_version": {
+      "const": "1.0.0-alpha.1"
+    },
+    "observed_at": {
+      "$ref": "#/$defs/timestamp"
+    },
+    "producer": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "pattern": "^[a-z0-9][a-z0-9._/-]*$",
+          "type": "string"
+        },
+        "url": {
+          "format": "uri",
+          "pattern": "^https?://",
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "url"
+      ],
+      "type": "object"
+    },
+    "repository": {
+      "pattern": "^[a-z0-9][a-z0-9.-]*/(?:\\.github|[a-z0-9][a-z0-9.-]*)$",
+      "type": "string"
+    },
+    "represented_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "type": "string"
+    },
+    "schema": {
+      "const": "egohygiene.observatory.repository-evidence/v1"
+    },
+    "source": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "oneOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "url": {
+          "format": "uri",
+          "pattern": "^https?://",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "url",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "valid_until": {
+      "$ref": "#/$defs/timestamp"
+    }
+  },
+  "required": [
+    "schema",
+    "contract_version",
+    "repository",
+    "represented_commit",
+    "observed_at",
+    "valid_until",
+    "producer",
+    "source",
+    "checks"
+  ],
+  "title": "Observatory repository evidence",
+  "type": "object",
+  "$defs": {
+    "contractReference": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "url": {
+          "format": "uri",
+          "pattern": "^https?://",
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "url"
+      ],
+      "type": "object"
+    },
+    "timestamp": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    }
+  }
+}
