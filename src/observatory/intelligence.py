@@ -14,17 +14,19 @@ import re
 import tempfile
 from collections import Counter
 from copy import deepcopy
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 from urllib.parse import urlparse
 
 UPSTREAM_SCHEMA = "egohygiene.repository-intelligence/v1"
-UPSTREAM_CONTRACT_VERSION = "1.0.0-alpha.1"
+UPSTREAM_CONTRACT_VERSION = "1.0.0-alpha.2"
+LEGACY_CONTRACT_VERSION = "1.0.0-alpha.1"
 READ_MODEL_SCHEMA = "egohygiene.observatory.repository-intelligence-read-model/v1"
 FLEET_SCHEMA = "egohygiene.observatory.repository-intelligence-fleet/v1"
 VIEW_SCHEMA = "egohygiene.observatory.repository-intelligence-view/v1"
 COMPARE_SCHEMA = "egohygiene.observatory.repository-intelligence-compare/v1"
-CONTRACT_VERSION = "1.0.0-alpha.1"
+CONTRACT_VERSION = "1.0.0-alpha.2"
 GENERATOR = {
     "name": "egohygiene/observatory:repository-intelligence",
     "version": "0.1.0",
@@ -45,6 +47,29 @@ _REPOSITORY_PATTERN = re.compile(r"^[a-z0-9][a-z0-9.-]*/(?:\.github|[a-z0-9][a-z
 _IDENTIFIED_COLLECTIONS = ("sources", "entities", "relationships", "events")
 _FRESHNESS_STATES = ("current", "stale", "unknown", "not_applicable")
 _ASSERTION_STATES = ("authoritative", "inferred", "unknown")
+COLLECTION_DOMAINS = {
+    "roadmap": "roadmap_step", "decisions": "architecture_decision",
+    "git": "commit", "issues": "issue", "pull_requests": "pull_request",
+    "checks": "check", "releases": "release", "deployments": "deployment",
+    "history": None,
+}
+VIEW_DOMAINS = {
+    "roadmap": ("roadmap",), "decisions": ("decisions",),
+    "journey": ("history",), "health": ("checks",),
+    "releases": ("releases", "deployments"),
+    "work": ("roadmap", "issues", "pull_requests"),
+    "now": tuple(COLLECTION_DOMAINS), "dependencies": tuple(COLLECTION_DOMAINS),
+    "search": tuple(COLLECTION_DOMAINS),
+}
+_COLLECTION_RULES = {
+    "uncollected": (("not_requested",), ("unknown",), False),
+    "unavailable": (("access_denied", "provider_unavailable"), ("unknown",), False),
+    "partial": (("filtered", "truncated", "incomplete"), ("current", "stale"), True),
+    "observed_empty": (("complete",), ("current", "stale"), True),
+    "observed": (("complete",), ("current", "stale"), True),
+    "failed": (("collection_failed",), ("unknown",), False),
+    "not_applicable": (("explicit_not_applicable",), ("not_applicable",), True),
+}
 
 JsonObject = dict[str, Any]
 
@@ -129,6 +154,64 @@ def _validate_assertion_and_freshness(record: Mapping[str, Any], location: str) 
         raise ContractError(f"{location} has unsupported freshness {freshness!r}")
 
 
+def _observation_time(value: Any, location: str) -> datetime:
+    if not isinstance(value, str) or not re.fullmatch(
+        r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z", value
+    ):
+        raise ContractError(f"{location} must be a UTC RFC 3339 timestamp")
+    try:
+        return datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        raise ContractError(f"{location} must be a valid UTC timestamp") from None
+
+
+def _validate_collection_entry(item: Any, label: str, observation: datetime, *, legacy: bool = False) -> None:
+    if legacy and item == {"collection": "unavailable", "freshness": "unknown",
+                           "reason": "legacy_unspecified", "observed_at": None}:
+        return
+    if not isinstance(item, dict) or set(item) != {"collection", "freshness", "reason", "observed_at"}:
+        raise ContractError(f"{label} must contain only the four defined fields")
+    state = item["collection"]
+    if not isinstance(state, str) or state not in _COLLECTION_RULES:
+        raise ContractError(f"{label}.collection is unsupported")
+    reasons, freshnesses, has_time = _COLLECTION_RULES[state]
+    if item["reason"] not in reasons or item["freshness"] not in freshnesses:
+        raise ContractError(f"{label} has contradictory collection, freshness or reason")
+    if has_time:
+        if _observation_time(item["observed_at"], f"{label}.observed_at") > observation:
+            raise ContractError(f"{label}.observed_at exceeds projection observation")
+    elif item["observed_at"] is not None:
+        raise ContractError(f"{label}.observed_at must be null without an observation")
+
+
+def _collection_coverage(document: Mapping[str, Any]) -> JsonObject:
+    """Preserve the pinned Hygiene claim; missing legacy coverage stays unknown."""
+    if document["contract_version"] == LEGACY_CONTRACT_VERSION:
+        if "collection_coverage" in document:
+            raise ContractError("alpha.1 cannot carry collection_coverage; migrate to alpha.2")
+        return {domain: {"collection": "unavailable", "freshness": "unknown",
+                         "reason": "legacy_unspecified", "observed_at": None}
+                for domain in COLLECTION_DOMAINS}
+    coverage = document.get("collection_coverage")
+    if not isinstance(coverage, dict) or set(coverage) != set(COLLECTION_DOMAINS):
+        raise ContractError("collection_coverage must contain exactly the nine defined domains")
+    observation = _observation_time(document["observed_at"], "projection.observed_at")
+    root_entities = [e for e in document["entities"] if e["repository"] == document["repository"]]
+    root_ids = {e["id"] for e in root_entities}
+    for domain, kind in COLLECTION_DOMAINS.items():
+        label = f"collection_coverage.{domain}"
+        item = coverage[domain]
+        _validate_collection_entry(item, label, observation)
+        state = item["collection"]
+        records = ([e for e in document["events"] if e["subject"] in root_ids]
+                   if domain == "history" else [e for e in root_entities if e["kind"] == kind])
+        if records and state in {"observed_empty", "uncollected", "unavailable", "failed", "not_applicable"}:
+            raise ContractError(f"{label}.collection contradicts represented records")
+        if not records and state == "observed":
+            raise ContractError(f"{label}.observed requires represented records")
+    return deepcopy(coverage)
+
+
 def validate_projection(projection: Any) -> JsonObject:
     """Validate the safe subset Observatory requires before querying a graph.
 
@@ -143,7 +226,7 @@ def validate_projection(projection: Any) -> JsonObject:
             "unsupported projection schema: "
             f"{document.get('schema')!r}; expected {UPSTREAM_SCHEMA!r}"
         )
-    if document.get("contract_version") != UPSTREAM_CONTRACT_VERSION:
+    if document.get("contract_version") not in (LEGACY_CONTRACT_VERSION, UPSTREAM_CONTRACT_VERSION):
         raise ContractError(
             "unsupported Repository Intelligence contract version: "
             f"{document.get('contract_version')!r}; expected {UPSTREAM_CONTRACT_VERSION!r}"
@@ -231,6 +314,7 @@ def validate_projection(projection: Any) -> JsonObject:
         raise ContractError(
             "projection must contain exactly one repository entity for its root repository"
         )
+    _collection_coverage(document)
     return document
 
 
@@ -403,6 +487,7 @@ def _roadmap_view(projection: Mapping[str, Any]) -> JsonObject:
                 "entity": _entity_ref(entity),
                 "outcome": entity.get("attributes", {}).get("outcome"),
                 "exit_criteria": entity.get("attributes", {}).get("exit_criteria", []),
+                "issue_references": deepcopy(entity.get("attributes", {}).get("issue_references", [])),
                 "dependencies": [_entity_ref(item) for item in dependencies],
                 "blocked_by": [_entity_ref(item) for item in blockers],
                 "tracked_by": [_entity_ref(item) for item in tracked],
@@ -658,7 +743,8 @@ def _coverage(projection: Mapping[str, Any]) -> JsonObject:
     else:
         status = "not_applicable"
     return {
-        "status": status,
+        "record_status": status,
+        "domains": _collection_coverage(projection),
         "counts": {
             "sources": len(projection["sources"]),
             "entities": len(projection["entities"]),
@@ -704,8 +790,12 @@ def build_repository_snapshot(projection: Any) -> JsonObject:
         ],
         "next_ready": work["roadmap_queues"]["ready"][:3],
         "recent_events": recent_events,
-        "coverage_status": _coverage(normalized)["status"],
+        "record_freshness_status": _coverage(normalized)["record_status"],
     }
+    collection = _collection_coverage(normalized)
+    for name, data in views.items():
+        data["collection_coverage"] = {domain: deepcopy(collection[domain])
+                                       for domain in VIEW_DOMAINS[name]}
     ordered_views = {name: views[name] for name in VIEW_NAMES}
     upstream_digest = digest(normalized)
     return {
@@ -752,6 +842,10 @@ def build_fleet_snapshot(repository_snapshots: Iterable[Mapping[str, Any]]) -> J
     for item in snapshots:
         if item.get("schema") != READ_MODEL_SCHEMA:
             raise ContractError("fleet input must contain Observatory repository read models")
+        _require_snapshot_version(item)
+    visibilities = {item["visibility"] for item in snapshots}
+    if len(visibilities) != 1:
+        raise ContractError("fleet inputs must have the same visibility")
 
     repository_records = [
         {
@@ -772,7 +866,14 @@ def build_fleet_snapshot(repository_snapshots: Iterable[Mapping[str, Any]]) -> J
                 for item in snapshots
                 for record in item["views"]["search"]["records"]
             ]
-            fleet_views[name] = {"records": sorted(records, key=lambda record: record["id"])}
+            fleet_views[name] = {
+                "records": sorted(records, key=lambda record: record["id"]),
+                "collection_coverage": [
+                    {"repository": item["repository"]["repository"],
+                     "domains": item["views"][name]["collection_coverage"]}
+                    for item in snapshots
+                ],
+            }
         else:
             fleet_views[name] = {
                 "repositories": [
@@ -784,10 +885,11 @@ def build_fleet_snapshot(repository_snapshots: Iterable[Mapping[str, Any]]) -> J
                 ]
             }
     observation_times = [item["observed_at"] for item in snapshots]
-    coverage_states = Counter(item["coverage"]["status"] for item in snapshots)
+    coverage_states = Counter(item["coverage"]["record_status"] for item in snapshots)
     return {
         "schema": FLEET_SCHEMA,
         "contract_version": CONTRACT_VERSION,
+        "visibility": snapshots[0]["visibility"],
         "snapshot_id": digest(repository_records),
         "generator": deepcopy(GENERATOR),
         "observation_window": {
@@ -796,12 +898,80 @@ def build_fleet_snapshot(repository_snapshots: Iterable[Mapping[str, Any]]) -> J
         },
         "coverage": {
             "repositories": len(snapshots),
-            "states": dict(sorted(coverage_states.items())),
+            "record_states": dict(sorted(coverage_states.items())),
         },
         "repositories": repository_records,
         "views": fleet_views,
         "extensions": {},
     }
+
+
+def _require_snapshot_version(snapshot: Mapping[str, Any]) -> None:
+    if snapshot.get("contract_version") != CONTRACT_VERSION:
+        raise ContractError("unsupported snapshot contract version; rebuild with Observatory alpha.2")
+    if snapshot.get("visibility") not in ("public", "internal", "private"):
+        raise ContractError("snapshot visibility is unsupported")
+    if snapshot.get("schema") == READ_MODEL_SCHEMA:
+        coverage = _require_object(snapshot.get("coverage"), "snapshot.coverage")
+        graph = _require_object(snapshot.get("graph"), "snapshot.graph")
+        upstream = _require_object(snapshot.get("upstream"), "snapshot.upstream")
+        repository = _require_object(snapshot.get("repository"), "snapshot.repository")
+        projection = {
+            **graph, "schema": upstream.get("schema"),
+            "contract_version": upstream.get("contract_version"),
+            "projection_id": upstream.get("projection_id"),
+            "repository": repository.get("repository"),
+            "represented_commit": snapshot.get("represented_commit"),
+            "observed_at": snapshot.get("observed_at"), "visibility": snapshot["visibility"],
+        }
+        if upstream.get("contract_version") != LEGACY_CONTRACT_VERSION:
+            projection["collection_coverage"] = coverage.get("domains")
+        validate_projection(projection)
+        domains = _collection_coverage(projection)
+        if coverage.get("domains") != domains:
+            raise ContractError("snapshot coverage contradicts its upstream contract")
+        views = _require_object(snapshot.get("views"), "snapshot.views")
+        for name in VIEW_NAMES:
+            data = _require_object(views.get(name), "snapshot view")
+            expected = {domain: domains[domain] for domain in VIEW_DOMAINS[name]}
+            if data.get("collection_coverage") != expected:
+                raise ContractError("snapshot view must preserve repository collection coverage")
+    elif snapshot.get("schema") == FLEET_SCHEMA:
+        records = _require_list(snapshot.get("repositories"), "fleet.repositories")
+        expected = {}
+        for raw in records:
+            record = _require_object(raw, "fleet repository")
+            repository = _require_object(record.get("repository"), "fleet repository reference")
+            name = _require_string(repository.get("repository"), "fleet repository identity")
+            if name in expected:
+                raise ContractError("fleet repository identities must be unique")
+            if repository.get("visibility") != snapshot["visibility"]:
+                raise ContractError("fleet repository visibility must match the fleet")
+            coverage = _require_object(record.get("coverage"), "fleet repository coverage")
+            domains = _require_object(coverage.get("domains"), "fleet collection coverage")
+            if set(domains) != set(COLLECTION_DOMAINS):
+                raise ContractError("fleet collection coverage must contain the nine defined domains")
+            observed = _observation_time(record.get("observed_at"), "fleet repository observation")
+            for domain in COLLECTION_DOMAINS:
+                _validate_collection_entry(domains[domain], f"collection_coverage.{domain}", observed, legacy=True)
+            expected[name] = domains
+        views = _require_object(snapshot.get("views"), "fleet.views")
+        for view in VIEW_NAMES:
+            data = _require_object(views.get(view), "fleet view")
+            groups = _require_list(data.get("collection_coverage" if view == "search" else "repositories"), "fleet view repositories")
+            seen = set()
+            for raw in groups:
+                group = _require_object(raw, "fleet view repository")
+                name = group.get("repository")
+                if not isinstance(name, str) or name not in expected or name in seen:
+                    raise ContractError("fleet view repository coverage must match the fleet")
+                seen.add(name)
+                payload = group if view == "search" else _require_object(group.get("data"), "fleet view data")
+                actual = payload.get("domains" if view == "search" else "collection_coverage")
+                if actual != {domain: expected[name][domain] for domain in VIEW_DOMAINS[view]}:
+                    raise ContractError("fleet view must preserve repository collection coverage")
+            if seen != set(expected):
+                raise ContractError("fleet view omits repository collection coverage")
 
 
 def extract_view(snapshot: Mapping[str, Any], view: str) -> JsonObject:
@@ -811,6 +981,7 @@ def extract_view(snapshot: Mapping[str, Any], view: str) -> JsonObject:
         raise ContractError(f"unsupported view {view!r}; choose one of {', '.join(VIEW_NAMES)}")
     if snapshot.get("schema") not in {READ_MODEL_SCHEMA, FLEET_SCHEMA}:
         raise ContractError("query input is not an Observatory repository or fleet snapshot")
+    _require_snapshot_version(snapshot)
     views = _require_object(snapshot.get("views"), "snapshot.views")
     if view not in views:
         raise ContractError(f"snapshot does not contain the {view!r} view")
@@ -823,6 +994,7 @@ def extract_view(snapshot: Mapping[str, Any], view: str) -> JsonObject:
         "contract_version": CONTRACT_VERSION,
         "view": view,
         "scope": scope,
+        "visibility": snapshot["visibility"],
         "subject": subject,
         "snapshot_id": snapshot["snapshot_id"],
         "data": deepcopy(views[view]),
@@ -868,6 +1040,8 @@ def compare_snapshots(before: Mapping[str, Any], after: Mapping[str, Any]) -> Js
 
     if before.get("schema") != READ_MODEL_SCHEMA or after.get("schema") != READ_MODEL_SCHEMA:
         raise ContractError("compare inputs must be Observatory repository read models")
+    _require_snapshot_version(before)
+    _require_snapshot_version(after)
     repository = before["repository"]["repository"]
     if after["repository"]["repository"] != repository:
         raise ContractError("compare inputs must represent the same repository")

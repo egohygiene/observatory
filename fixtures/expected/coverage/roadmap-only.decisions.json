@@ -1,0 +1,20 @@
+{
+  "contract_version": "1.0.0-alpha.2",
+  "data": {
+    "collection_coverage": {
+      "decisions": {
+        "collection": "uncollected",
+        "freshness": "unknown",
+        "observed_at": null,
+        "reason": "not_requested"
+      }
+    },
+    "decisions": []
+  },
+  "schema": "egohygiene.observatory.repository-intelligence-view/v1",
+  "scope": "repository",
+  "snapshot_id": "egohygiene/relay@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "subject": "egohygiene/relay",
+  "view": "decisions",
+  "visibility": "public"
+}

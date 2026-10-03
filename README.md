@@ -50,6 +50,11 @@ The first executable slice consumes the pinned Hygiene `egohygiene.repository-in
 
 The implementation is dependency-free Python 3.11+ and performs no network access. Hygiene owns the input contract and vocabulary. Egolint owns semantic validation. Observatory rejects unsupported or unsafe inputs, then indexes and composes the accepted evidence.
 
+An empty section now carries an explicit collection state: not checked, unavailable,
+partial, checked and empty, checked with records, failed, or explicitly not applicable.
+[Migration and renderer guidance](docs/collection-coverage-migration.md) explains the
+exact alpha.2 boundary and legacy-input behavior.
+
 ## Quick start
 
 ```bash
@@ -95,6 +100,8 @@ observatory-intelligence compare \
 ## Verification
 
 ```bash
+python3 -m pip install --editable ".[test]"
+
 python3 -m unittest discover \
   --start-directory "tests" \
   --pattern "test_*.py" \

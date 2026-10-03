@@ -13,58 +13,58 @@
     },
     "domains": {
       "checks": {
-        "collection": "unavailable",
-        "freshness": "unknown",
-        "observed_at": null,
-        "reason": "legacy_unspecified"
+        "collection": "observed",
+        "freshness": "current",
+        "observed_at": "2026-08-25T14:00:00Z",
+        "reason": "complete"
       },
       "decisions": {
-        "collection": "unavailable",
-        "freshness": "unknown",
-        "observed_at": null,
-        "reason": "legacy_unspecified"
+        "collection": "observed",
+        "freshness": "current",
+        "observed_at": "2026-08-25T14:00:00Z",
+        "reason": "complete"
       },
       "deployments": {
-        "collection": "unavailable",
-        "freshness": "unknown",
-        "observed_at": null,
-        "reason": "legacy_unspecified"
+        "collection": "observed",
+        "freshness": "current",
+        "observed_at": "2026-08-25T14:00:00Z",
+        "reason": "complete"
       },
       "git": {
-        "collection": "unavailable",
-        "freshness": "unknown",
-        "observed_at": null,
-        "reason": "legacy_unspecified"
+        "collection": "observed",
+        "freshness": "current",
+        "observed_at": "2026-08-25T14:00:00Z",
+        "reason": "complete"
       },
       "history": {
-        "collection": "unavailable",
-        "freshness": "unknown",
-        "observed_at": null,
-        "reason": "legacy_unspecified"
+        "collection": "observed",
+        "freshness": "current",
+        "observed_at": "2026-08-25T14:00:00Z",
+        "reason": "complete"
       },
       "issues": {
-        "collection": "unavailable",
-        "freshness": "unknown",
-        "observed_at": null,
-        "reason": "legacy_unspecified"
+        "collection": "observed",
+        "freshness": "current",
+        "observed_at": "2026-08-25T14:00:00Z",
+        "reason": "complete"
       },
       "pull_requests": {
-        "collection": "unavailable",
-        "freshness": "unknown",
-        "observed_at": null,
-        "reason": "legacy_unspecified"
+        "collection": "observed",
+        "freshness": "current",
+        "observed_at": "2026-08-25T14:00:00Z",
+        "reason": "complete"
       },
       "releases": {
-        "collection": "unavailable",
-        "freshness": "unknown",
-        "observed_at": null,
-        "reason": "legacy_unspecified"
+        "collection": "observed",
+        "freshness": "current",
+        "observed_at": "2026-08-25T14:00:00Z",
+        "reason": "complete"
       },
       "roadmap": {
-        "collection": "unavailable",
-        "freshness": "unknown",
-        "observed_at": null,
-        "reason": "legacy_unspecified"
+        "collection": "observed",
+        "freshness": "current",
+        "observed_at": "2026-08-25T14:00:00Z",
+        "reason": "complete"
       }
     },
     "freshness": {
@@ -888,8 +888,8 @@
   "schema": "egohygiene.observatory.repository-intelligence-read-model/v1",
   "snapshot_id": "egohygiene/relay@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
   "upstream": {
-    "contract_version": "1.0.0-alpha.1",
-    "digest": "sha256:9731e32459fea97e5bd41a4f65db18f6c233da9c001ee5fd5c0497a637914b24",
+    "contract_version": "1.0.0-alpha.2",
+    "digest": "sha256:7ba751dd645684de205b841e170eb659f8d4f5935109022ed9388fe24d0d63f1",
     "projection_id": "egohygiene/relay@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "schema": "egohygiene.repository-intelligence/v1"
   },
@@ -897,10 +897,10 @@
     "decisions": {
       "collection_coverage": {
         "decisions": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         }
       },
       "decisions": [
@@ -960,58 +960,58 @@
     "dependencies": {
       "collection_coverage": {
         "checks": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "decisions": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "deployments": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "git": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "history": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "issues": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "pull_requests": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "releases": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "roadmap": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         }
       },
       "external_repositories": [],
@@ -1078,10 +1078,10 @@
       ],
       "collection_coverage": {
         "checks": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         }
       },
       "freshness": {
@@ -1142,10 +1142,10 @@
       ],
       "collection_coverage": {
         "history": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         }
       },
       "events": [
@@ -1638,58 +1638,58 @@
       "blockers": [],
       "collection_coverage": {
         "checks": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "decisions": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "deployments": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "git": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "history": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "issues": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "pull_requests": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "releases": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "roadmap": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         }
       },
       "current_focus": [],
@@ -1882,16 +1882,16 @@
     "releases": {
       "collection_coverage": {
         "deployments": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "releases": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         }
       },
       "releases": [
@@ -1962,10 +1962,10 @@
     "roadmap": {
       "collection_coverage": {
         "roadmap": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         }
       },
       "roots": [
@@ -2107,58 +2107,58 @@
     "search": {
       "collection_coverage": {
         "checks": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "decisions": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "deployments": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "git": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "history": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "issues": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "pull_requests": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "releases": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "roadmap": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         }
       },
       "records": [
@@ -2307,22 +2307,22 @@
     "work": {
       "collection_coverage": {
         "issues": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "pull_requests": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         },
         "roadmap": {
-          "collection": "unavailable",
-          "freshness": "unknown",
-          "observed_at": null,
-          "reason": "legacy_unspecified"
+          "collection": "observed",
+          "freshness": "current",
+          "observed_at": "2026-08-25T14:00:00Z",
+          "reason": "complete"
         }
       },
       "open_issues": [],

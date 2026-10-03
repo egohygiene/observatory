@@ -13,14 +13,15 @@
     "coverage",
     "repositories",
     "views",
-    "extensions"
+    "extensions",
+    "visibility"
   ],
   "properties": {
     "schema": {
       "const": "egohygiene.observatory.repository-intelligence-fleet/v1"
     },
     "contract_version": {
-      "const": "1.0.0-alpha.1"
+      "const": "1.0.0-alpha.2"
     },
     "snapshot_id": {
       "type": "string",
@@ -32,7 +33,10 @@
     "observation_window": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["earliest", "latest"],
+      "required": [
+        "earliest",
+        "latest"
+      ],
       "properties": {
         "earliest": {
           "type": "string",
@@ -47,13 +51,16 @@
     "coverage": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["repositories", "states"],
+      "required": [
+        "repositories",
+        "record_states"
+      ],
       "properties": {
         "repositories": {
           "type": "integer",
           "minimum": 1
         },
-        "states": {
+        "record_states": {
           "type": "object"
         }
       }
@@ -92,7 +99,15 @@
             "format": "date-time"
           },
           "coverage": {
-            "type": "object"
+            "type": "object",
+            "required": [
+              "domains"
+            ],
+            "properties": {
+              "domains": {
+                "$ref": "#/$defs/collectionCoverage"
+              }
+            }
           }
         }
       }
@@ -113,36 +128,806 @@
       ],
       "properties": {
         "roadmap": {
-          "type": "object"
+          "type": "object",
+          "required": [
+            "repositories"
+          ],
+          "properties": {
+            "repositories": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "repository",
+                  "data"
+                ],
+                "properties": {
+                  "repository": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "required": [
+                      "collection_coverage"
+                    ],
+                    "properties": {
+                      "collection_coverage": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "roadmap"
+                        ],
+                        "properties": {
+                          "roadmap": {
+                            "$ref": "#/$defs/collectionDomain"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "decisions": {
-          "type": "object"
+          "type": "object",
+          "required": [
+            "repositories"
+          ],
+          "properties": {
+            "repositories": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "repository",
+                  "data"
+                ],
+                "properties": {
+                  "repository": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "required": [
+                      "collection_coverage"
+                    ],
+                    "properties": {
+                      "collection_coverage": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "decisions"
+                        ],
+                        "properties": {
+                          "decisions": {
+                            "$ref": "#/$defs/collectionDomain"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "journey": {
-          "type": "object"
+          "type": "object",
+          "required": [
+            "repositories"
+          ],
+          "properties": {
+            "repositories": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "repository",
+                  "data"
+                ],
+                "properties": {
+                  "repository": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "required": [
+                      "collection_coverage"
+                    ],
+                    "properties": {
+                      "collection_coverage": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "history"
+                        ],
+                        "properties": {
+                          "history": {
+                            "$ref": "#/$defs/collectionDomain"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "now": {
-          "type": "object"
+          "type": "object",
+          "required": [
+            "repositories"
+          ],
+          "properties": {
+            "repositories": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "repository",
+                  "data"
+                ],
+                "properties": {
+                  "repository": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "required": [
+                      "collection_coverage"
+                    ],
+                    "properties": {
+                      "collection_coverage": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "roadmap",
+                          "decisions",
+                          "git",
+                          "issues",
+                          "pull_requests",
+                          "checks",
+                          "releases",
+                          "deployments",
+                          "history"
+                        ],
+                        "properties": {
+                          "roadmap": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "decisions": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "git": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "issues": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "pull_requests": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "checks": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "releases": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "deployments": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "history": {
+                            "$ref": "#/$defs/collectionDomain"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "dependencies": {
-          "type": "object"
+          "type": "object",
+          "required": [
+            "repositories"
+          ],
+          "properties": {
+            "repositories": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "repository",
+                  "data"
+                ],
+                "properties": {
+                  "repository": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "required": [
+                      "collection_coverage"
+                    ],
+                    "properties": {
+                      "collection_coverage": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "roadmap",
+                          "decisions",
+                          "git",
+                          "issues",
+                          "pull_requests",
+                          "checks",
+                          "releases",
+                          "deployments",
+                          "history"
+                        ],
+                        "properties": {
+                          "roadmap": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "decisions": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "git": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "issues": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "pull_requests": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "checks": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "releases": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "deployments": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "history": {
+                            "$ref": "#/$defs/collectionDomain"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "health": {
-          "type": "object"
+          "type": "object",
+          "required": [
+            "repositories"
+          ],
+          "properties": {
+            "repositories": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "repository",
+                  "data"
+                ],
+                "properties": {
+                  "repository": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "required": [
+                      "collection_coverage"
+                    ],
+                    "properties": {
+                      "collection_coverage": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "checks"
+                        ],
+                        "properties": {
+                          "checks": {
+                            "$ref": "#/$defs/collectionDomain"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "releases": {
-          "type": "object"
+          "type": "object",
+          "required": [
+            "repositories"
+          ],
+          "properties": {
+            "repositories": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "repository",
+                  "data"
+                ],
+                "properties": {
+                  "repository": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "required": [
+                      "collection_coverage"
+                    ],
+                    "properties": {
+                      "collection_coverage": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "releases",
+                          "deployments"
+                        ],
+                        "properties": {
+                          "releases": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "deployments": {
+                            "$ref": "#/$defs/collectionDomain"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "work": {
-          "type": "object"
+          "type": "object",
+          "required": [
+            "repositories"
+          ],
+          "properties": {
+            "repositories": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "repository",
+                  "data"
+                ],
+                "properties": {
+                  "repository": {
+                    "type": "string"
+                  },
+                  "data": {
+                    "type": "object",
+                    "required": [
+                      "collection_coverage"
+                    ],
+                    "properties": {
+                      "collection_coverage": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "roadmap",
+                          "issues",
+                          "pull_requests"
+                        ],
+                        "properties": {
+                          "roadmap": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "issues": {
+                            "$ref": "#/$defs/collectionDomain"
+                          },
+                          "pull_requests": {
+                            "$ref": "#/$defs/collectionDomain"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "search": {
-          "type": "object"
+          "type": "object",
+          "required": [
+            "records",
+            "collection_coverage"
+          ],
+          "properties": {
+            "collection_coverage": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "repository",
+                  "domains"
+                ],
+                "properties": {
+                  "repository": {
+                    "type": "string"
+                  },
+                  "domains": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "roadmap",
+                      "decisions",
+                      "git",
+                      "issues",
+                      "pull_requests",
+                      "checks",
+                      "releases",
+                      "deployments",
+                      "history"
+                    ],
+                    "properties": {
+                      "roadmap": {
+                        "$ref": "#/$defs/collectionDomain"
+                      },
+                      "decisions": {
+                        "$ref": "#/$defs/collectionDomain"
+                      },
+                      "git": {
+                        "$ref": "#/$defs/collectionDomain"
+                      },
+                      "issues": {
+                        "$ref": "#/$defs/collectionDomain"
+                      },
+                      "pull_requests": {
+                        "$ref": "#/$defs/collectionDomain"
+                      },
+                      "checks": {
+                        "$ref": "#/$defs/collectionDomain"
+                      },
+                      "releases": {
+                        "$ref": "#/$defs/collectionDomain"
+                      },
+                      "deployments": {
+                        "$ref": "#/$defs/collectionDomain"
+                      },
+                      "history": {
+                        "$ref": "#/$defs/collectionDomain"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "records": {
+              "type": "array"
+            }
+          }
         }
       }
     },
     "extensions": {
       "type": "object"
+    },
+    "visibility": {
+      "enum": [
+        "public",
+        "internal",
+        "private"
+      ]
+    }
+  },
+  "$defs": {
+    "collectionDomain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "collection",
+        "freshness",
+        "reason",
+        "observed_at"
+      ],
+      "properties": {
+        "collection": {
+          "enum": [
+            "uncollected",
+            "unavailable",
+            "partial",
+            "observed_empty",
+            "observed",
+            "failed",
+            "not_applicable"
+          ]
+        },
+        "freshness": {
+          "enum": [
+            "current",
+            "stale",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "reason": {
+          "enum": [
+            "access_denied",
+            "collection_failed",
+            "complete",
+            "explicit_not_applicable",
+            "filtered",
+            "incomplete",
+            "not_requested",
+            "provider_unavailable",
+            "truncated",
+            "legacy_unspecified"
+          ]
+        },
+        "observed_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time",
+          "pattern": "Z$"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "collection": {
+                "const": "uncollected"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "enum": [
+                  "not_requested"
+                ]
+              },
+              "freshness": {
+                "enum": [
+                  "unknown"
+                ]
+              },
+              "observed_at": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "collection": {
+                "const": "unavailable"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "enum": [
+                  "access_denied",
+                  "provider_unavailable",
+                  "legacy_unspecified"
+                ]
+              },
+              "freshness": {
+                "enum": [
+                  "unknown"
+                ]
+              },
+              "observed_at": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "collection": {
+                "const": "partial"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "enum": [
+                  "filtered",
+                  "truncated",
+                  "incomplete"
+                ]
+              },
+              "freshness": {
+                "enum": [
+                  "current",
+                  "stale"
+                ]
+              },
+              "observed_at": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "collection": {
+                "const": "observed_empty"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "enum": [
+                  "complete"
+                ]
+              },
+              "freshness": {
+                "enum": [
+                  "current",
+                  "stale"
+                ]
+              },
+              "observed_at": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "collection": {
+                "const": "observed"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "enum": [
+                  "complete"
+                ]
+              },
+              "freshness": {
+                "enum": [
+                  "current",
+                  "stale"
+                ]
+              },
+              "observed_at": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "collection": {
+                "const": "failed"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "enum": [
+                  "collection_failed"
+                ]
+              },
+              "freshness": {
+                "enum": [
+                  "unknown"
+                ]
+              },
+              "observed_at": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "collection": {
+                "const": "not_applicable"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "enum": [
+                  "explicit_not_applicable"
+                ]
+              },
+              "freshness": {
+                "enum": [
+                  "not_applicable"
+                ]
+              },
+              "observed_at": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "collectionCoverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "roadmap",
+        "decisions",
+        "git",
+        "issues",
+        "pull_requests",
+        "checks",
+        "releases",
+        "deployments",
+        "history"
+      ],
+      "properties": {
+        "roadmap": {
+          "$ref": "#/$defs/collectionDomain"
+        },
+        "decisions": {
+          "$ref": "#/$defs/collectionDomain"
+        },
+        "git": {
+          "$ref": "#/$defs/collectionDomain"
+        },
+        "issues": {
+          "$ref": "#/$defs/collectionDomain"
+        },
+        "pull_requests": {
+          "$ref": "#/$defs/collectionDomain"
+        },
+        "checks": {
+          "$ref": "#/$defs/collectionDomain"
+        },
+        "releases": {
+          "$ref": "#/$defs/collectionDomain"
+        },
+        "deployments": {
+          "$ref": "#/$defs/collectionDomain"
+        },
+        "history": {
+          "$ref": "#/$defs/collectionDomain"
+        }
+      }
     }
   }
 }

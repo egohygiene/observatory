@@ -91,7 +91,7 @@ class RepositorySnapshotTests(unittest.TestCase):
                 self.assertEqual(projection["subject"], "egohygiene/relay")
 
     def test_stale_unknown_inferred_and_blocked_states_remain_explicit(self) -> None:
-        self.assertEqual(self.observatory["coverage"]["status"], "unknown")
+        self.assertEqual(self.observatory["coverage"]["record_status"], "unknown")
         foundation = roadmap_step(self.observatory, "OBS-Q02")
         self.assertEqual(foundation["readiness"]["value"], "blocked")
         self.assertEqual(foundation["blocked_by"][0]["freshness"], "stale")
