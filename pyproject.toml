@@ -13,6 +13,9 @@ license-files = ["LICENSE"]
 authors = [{ name = "Ego Hygiene" }]
 dependencies = []
 
+[project.optional-dependencies]
+test = ["jsonschema==4.26.0", "rfc3339-validator==0.1.4"]
+
 [project.scripts]
 observatory-intelligence = "observatory.cli:main"
 observatory-health = "observatory.health_cli:main"

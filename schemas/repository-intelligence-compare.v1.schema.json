@@ -20,7 +20,7 @@
       "const": "egohygiene.observatory.repository-intelligence-compare/v1"
     },
     "contract_version": {
-      "const": "1.0.0-alpha.1"
+      "const": "1.0.0-alpha.2"
     },
     "repository": {
       "type": "string",
@@ -52,7 +52,11 @@
     "boundary": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["snapshot_id", "represented_commit", "observed_at"],
+      "required": [
+        "snapshot_id",
+        "represented_commit",
+        "observed_at"
+      ],
       "properties": {
         "snapshot_id": {
           "type": "string"
@@ -70,7 +74,11 @@
     "delta": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["added", "removed", "changed"],
+      "required": [
+        "added",
+        "removed",
+        "changed"
+      ],
       "properties": {
         "added": {
           "type": "array",

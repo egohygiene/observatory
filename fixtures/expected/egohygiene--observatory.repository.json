@@ -1,5 +1,5 @@
 {
-  "contract_version": "1.0.0-alpha.1",
+  "contract_version": "1.0.0-alpha.2",
   "coverage": {
     "assertions": {
       "authoritative": 30,
@@ -12,12 +12,68 @@
       "relationships": 9,
       "sources": 6
     },
+    "domains": {
+      "checks": {
+        "collection": "unavailable",
+        "freshness": "unknown",
+        "observed_at": null,
+        "reason": "legacy_unspecified"
+      },
+      "decisions": {
+        "collection": "unavailable",
+        "freshness": "unknown",
+        "observed_at": null,
+        "reason": "legacy_unspecified"
+      },
+      "deployments": {
+        "collection": "unavailable",
+        "freshness": "unknown",
+        "observed_at": null,
+        "reason": "legacy_unspecified"
+      },
+      "git": {
+        "collection": "unavailable",
+        "freshness": "unknown",
+        "observed_at": null,
+        "reason": "legacy_unspecified"
+      },
+      "history": {
+        "collection": "unavailable",
+        "freshness": "unknown",
+        "observed_at": null,
+        "reason": "legacy_unspecified"
+      },
+      "issues": {
+        "collection": "unavailable",
+        "freshness": "unknown",
+        "observed_at": null,
+        "reason": "legacy_unspecified"
+      },
+      "pull_requests": {
+        "collection": "unavailable",
+        "freshness": "unknown",
+        "observed_at": null,
+        "reason": "legacy_unspecified"
+      },
+      "releases": {
+        "collection": "unavailable",
+        "freshness": "unknown",
+        "observed_at": null,
+        "reason": "legacy_unspecified"
+      },
+      "roadmap": {
+        "collection": "unavailable",
+        "freshness": "unknown",
+        "observed_at": null,
+        "reason": "legacy_unspecified"
+      }
+    },
     "freshness": {
       "current": 24,
       "stale": 5,
       "unknown": 2
     },
-    "status": "unknown"
+    "record_status": "unknown"
   },
   "extensions": {},
   "generator": {
@@ -619,9 +675,73 @@
   },
   "views": {
     "decisions": {
+      "collection_coverage": {
+        "decisions": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        }
+      },
       "decisions": []
     },
     "dependencies": {
+      "collection_coverage": {
+        "checks": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "decisions": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "deployments": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "git": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "history": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "issues": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "pull_requests": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "releases": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "roadmap": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        }
+      },
       "external_repositories": [
         "egohygiene/hygiene"
       ],
@@ -797,6 +917,14 @@
           "visibility": "public"
         }
       ],
+      "collection_coverage": {
+        "checks": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        }
+      },
       "freshness": {
         "current": 24,
         "stale": 5,
@@ -835,6 +963,14 @@
           "title": "Unreleased history"
         }
       ],
+      "collection_coverage": {
+        "history": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        }
+      },
       "events": [
         {
           "actor": null,
@@ -1122,7 +1258,62 @@
           "type": "blocks"
         }
       ],
-      "coverage_status": "unknown",
+      "collection_coverage": {
+        "checks": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "decisions": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "deployments": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "git": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "history": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "issues": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "pull_requests": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "releases": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "roadmap": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        }
+      },
       "current_focus": [],
       "next_ready": [],
       "recent_events": [
@@ -1300,12 +1491,35 @@
           "type": "issue.opened",
           "visibility": "public"
         }
-      ]
+      ],
+      "record_freshness_status": "unknown"
     },
     "releases": {
+      "collection_coverage": {
+        "deployments": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "releases": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        }
+      },
       "releases": []
     },
     "roadmap": {
+      "collection_coverage": {
+        "roadmap": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        }
+      },
       "roots": [
         "ri:egohygiene/observatory:roadmap-step:OBS-Q01"
       ],
@@ -1334,6 +1548,7 @@
             }
           ],
           "informed_by": [],
+          "issue_references": [],
           "outcome": "The repository documents its intended portfolio-observability role.",
           "readiness": {
             "assertion": "inferred",
@@ -1400,6 +1615,7 @@
             }
           ],
           "informed_by": [],
+          "issue_references": [],
           "outcome": "Runnable ingestion produces a deterministic evidence read model.",
           "readiness": {
             "assertion": "inferred",
@@ -1491,6 +1707,7 @@
             }
           ],
           "informed_by": [],
+          "issue_references": [],
           "outcome": "Provider records become normalized without hiding unavailable evidence.",
           "readiness": {
             "assertion": "inferred",
@@ -1520,6 +1737,62 @@
       ]
     },
     "search": {
+      "collection_coverage": {
+        "checks": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "decisions": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "deployments": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "git": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "history": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "issues": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "pull_requests": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "releases": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "roadmap": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        }
+      },
       "records": [
         {
           "assertion": "authoritative",
@@ -1650,6 +1923,26 @@
       ]
     },
     "work": {
+      "collection_coverage": {
+        "issues": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "pull_requests": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        },
+        "roadmap": {
+          "collection": "unavailable",
+          "freshness": "unknown",
+          "observed_at": null,
+          "reason": "legacy_unspecified"
+        }
+      },
       "open_issues": [
         {
           "assertion": "authoritative",

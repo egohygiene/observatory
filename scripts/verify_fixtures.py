@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from observatory.intelligence import (
     build_fleet_snapshot,
     build_repository_snapshot,
+    extract_view,
     json_text,
     load_projection,
 )
@@ -30,6 +31,13 @@ def main() -> int:
         "egohygiene--relay.repository.json": snapshots[1],
         "fleet.json": build_fleet_snapshot(snapshots),
     }
+    for path in sorted((fixtures / "coverage").glob("*.json")):
+        snapshot = build_repository_snapshot(load_projection(path))
+        artifacts[f"coverage/{path.stem}.repository.json"] = snapshot
+        if path.stem == "roadmap-only":
+            artifacts["coverage/mixed.fleet.json"] = build_fleet_snapshot([snapshot, snapshots[0]])
+            for view in ("journey", "work", "decisions"):
+                artifacts[f"coverage/roadmap-only.{view}.json"] = extract_view(snapshot, view)
     mismatches = []
     for filename, artifact in artifacts.items():
         path = expected / filename
@@ -40,7 +48,7 @@ def main() -> int:
             "fixture snapshots are stale or missing: " + ", ".join(mismatches) + "\n"
         )
         return 1
-    print("verified 2 repository snapshots and 1 fleet snapshot")
+    print(f"verified {len(artifacts)} repository, view and fleet snapshots")
     return 0
 
 

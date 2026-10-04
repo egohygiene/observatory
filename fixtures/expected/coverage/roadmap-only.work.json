@@ -1,0 +1,40 @@
+{
+  "contract_version": "1.0.0-alpha.2",
+  "data": {
+    "collection_coverage": {
+      "issues": {
+        "collection": "uncollected",
+        "freshness": "unknown",
+        "observed_at": null,
+        "reason": "not_requested"
+      },
+      "pull_requests": {
+        "collection": "uncollected",
+        "freshness": "unknown",
+        "observed_at": null,
+        "reason": "not_requested"
+      },
+      "roadmap": {
+        "collection": "observed",
+        "freshness": "current",
+        "observed_at": "2026-08-25T14:00:00Z",
+        "reason": "complete"
+      }
+    },
+    "open_issues": [],
+    "open_pull_requests": [],
+    "roadmap_queues": {
+      "active": [],
+      "blocked": [],
+      "ready": [],
+      "unknown": [],
+      "waiting": []
+    }
+  },
+  "schema": "egohygiene.observatory.repository-intelligence-view/v1",
+  "scope": "repository",
+  "snapshot_id": "egohygiene/relay@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "subject": "egohygiene/relay",
+  "view": "work",
+  "visibility": "public"
+}
