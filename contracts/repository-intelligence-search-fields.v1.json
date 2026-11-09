@@ -1,0 +1,45 @@
+{
+  "schema": "egohygiene.observatory.search-fields-contract/v1",
+  "lifecycle": "proposed",
+  "contract_version": "1.0.0-alpha.1",
+  "member": "views.search.records[*].search_fields",
+  "compatible_read_model_version": "1.0.0-alpha.2",
+  "default_enabled": false,
+  "fields": [
+    "title",
+    "key",
+    "kind",
+    "state",
+    "repository"
+  ],
+  "normalization": "unicode-14.0.0-default-lowercase-fixed-outer-whitespace-v1",
+  "matching": "whole-query-substring-all-occurrences-field-span-overlap",
+  "python": "src/observatory/search_fields.py",
+  "javascript": "contracts/search-fields.v1.js",
+  "schema_path": "schemas/repository-intelligence-search-fields.v1.schema.json",
+  "documentation": "docs/search-field-attribution.md",
+  "unicode": {
+    "version": "14.0.0",
+    "rules": "simple lowercase plus unconditional SpecialCasing and Final_Sigma; no locale-specific rules; unmapped code points retain their value",
+    "sources": [
+      {
+        "url": "https://www.unicode.org/Public/14.0.0/ucd/UnicodeData.txt",
+        "sha256": "36018e68657fdcb3485f636630ffe8c8532e01c977703d2803f5b89d6c5feafb"
+      },
+      {
+        "url": "https://www.unicode.org/Public/14.0.0/ucd/SpecialCasing.txt",
+        "sha256": "c667b45908fd269af25fd55d2fc5bbc157fb1b77675936e25c513ce32e080334"
+      },
+      {
+        "url": "https://www.unicode.org/Public/14.0.0/ucd/DerivedCoreProperties.txt",
+        "sha256": "e3eddd7d469cd1b0feed7528defad1a1cc7c6a9ceb0ae4446a6d10921ed2e7bc"
+      }
+    ],
+    "license": "contracts/UNICODE-LICENSE.txt",
+    "embedded_data_counts": {
+      "lowercase_mappings": 1433,
+      "cased_ranges": 155,
+      "case_ignorable_ranges": 427
+    }
+  }
+}

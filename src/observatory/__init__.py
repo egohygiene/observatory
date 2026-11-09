@@ -23,6 +23,15 @@ from .intelligence import (
     load_projection,
     write_json,
 )
+from .search_fields import (
+    SEARCH_FIELDS_SCHEMA,
+    SEARCH_FIELDS_VERSION,
+    SEARCH_FIELD_NAMES,
+    SearchContractError,
+    match_search_record,
+    normalize_search_query,
+    validate_search_record,
+)
 
 __all__ = [
     "COMPARE_SCHEMA",
@@ -43,6 +52,13 @@ __all__ = [
     "load_projection",
     "markdown_text",
     "write_json",
+    "SEARCH_FIELDS_SCHEMA",
+    "SEARCH_FIELDS_VERSION",
+    "SEARCH_FIELD_NAMES",
+    "SearchContractError",
+    "match_search_record",
+    "normalize_search_query",
+    "validate_search_record",
 ]
 
 __version__ = "0.1.0"

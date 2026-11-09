@@ -51,6 +51,11 @@ def _parser() -> argparse.ArgumentParser:
         help="Hygiene Repository Intelligence projection; repeat for a fleet",
     )
     build.add_argument("--output", required=True, type=Path)
+    build.add_argument(
+        "--search-attribution",
+        action="store_true",
+        help="opt into the versioned approved-field Search extension; default output is unchanged",
+    )
 
     query = subparsers.add_parser(
         "query",
@@ -90,7 +95,7 @@ def _run(args: argparse.Namespace) -> int:
 
     if args.command == "build":
         projections = [load_projection(path) for path in args.input]
-        repositories, fleet = build_bundle(projections)
+        repositories, fleet = build_bundle(projections, search_attribution=args.search_attribution)
         repository_directory = args.output / "repositories"
         for snapshot in repositories:
             repository = snapshot["repository"]["repository"]

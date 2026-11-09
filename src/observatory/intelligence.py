@@ -19,6 +19,30 @@ from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 from urllib.parse import urlparse
 
+if __package__:
+    from .search_fields import (
+        SEARCH_TRIM_CHARACTERS,
+        SearchContractError,
+        build_search_fields,
+        validate_search_record,
+    )
+else:
+    # Relay's verified native profiles also load this exact file outside a
+    # package. Its adjacent helper must be part of the same pinned file set.
+    import importlib.util
+
+    _search_spec = importlib.util.spec_from_file_location(
+        "observatory_pinned_search_fields", Path(__file__).with_name("search_fields.py")
+    )
+    if _search_spec is None or _search_spec.loader is None:
+        raise ImportError("pinned Observatory Search helper is unavailable")
+    _search_module = importlib.util.module_from_spec(_search_spec)
+    _search_spec.loader.exec_module(_search_module)
+    SearchContractError = _search_module.SearchContractError
+    SEARCH_TRIM_CHARACTERS = _search_module.SEARCH_TRIM_CHARACTERS
+    build_search_fields = _search_module.build_search_fields
+    validate_search_record = _search_module.validate_search_record
+
 UPSTREAM_SCHEMA = "egohygiene.repository-intelligence/v1"
 UPSTREAM_CONTRACT_VERSION = "1.0.0-alpha.2"
 LEGACY_CONTRACT_VERSION = "1.0.0-alpha.1"
@@ -706,7 +730,7 @@ def _work_view(projection: Mapping[str, Any], roadmap: Mapping[str, Any]) -> Jso
     }
 
 
-def _search_view(projection: Mapping[str, Any]) -> JsonObject:
+def _search_view(projection: Mapping[str, Any], *, search_attribution: bool = False) -> JsonObject:
     records = []
     for entity in projection["entities"]:
         reference = _entity_ref(entity)
@@ -717,7 +741,17 @@ def _search_view(projection: Mapping[str, Any]) -> JsonObject:
             str(reference["state"]),
             str(reference["repository"]),
         ]
-        records.append({**reference, "search_text": " ".join(tokens).lower().strip()})
+        record = {**reference, "search_text": " ".join(tokens).lower().strip()}
+        if search_attribution:
+            try:
+                record["search_fields"] = build_search_fields(reference)
+                record["search_text"] = " ".join(
+                    field["text"] for field in record["search_fields"]["fields"]
+                ).strip(SEARCH_TRIM_CHARACTERS)
+                validate_search_record(record)
+            except SearchContractError as error:
+                raise ContractError(str(error)) from error
+        records.append(record)
     return {"records": records}
 
 
@@ -757,9 +791,11 @@ def _coverage(projection: Mapping[str, Any]) -> JsonObject:
     }
 
 
-def build_repository_snapshot(projection: Any) -> JsonObject:
+def build_repository_snapshot(projection: Any, *, search_attribution: bool = False) -> JsonObject:
     """Build one deterministic repository graph and all initial page queries."""
 
+    if not isinstance(search_attribution, bool):
+        raise ContractError("search_attribution must be a boolean")
     normalized = normalize_projection(projection)
     entities = _entity_index(normalized)
     root = next(
@@ -779,7 +815,7 @@ def build_repository_snapshot(projection: Any) -> JsonObject:
         "health": _health_view(normalized),
         "releases": _releases_view(normalized),
         "work": work,
-        "search": _search_view(normalized),
+        "search": _search_view(normalized, search_attribution=search_attribution),
     }
     views["now"] = {
         "current_focus": work["roadmap_queues"]["active"],
@@ -936,6 +972,7 @@ def _require_snapshot_version(snapshot: Mapping[str, Any]) -> None:
             expected = {domain: domains[domain] for domain in VIEW_DOMAINS[name]}
             if data.get("collection_coverage") != expected:
                 raise ContractError("snapshot view must preserve repository collection coverage")
+        _validate_search_attribution(views["search"], _entity_index(projection))
     elif snapshot.get("schema") == FLEET_SCHEMA:
         records = _require_list(snapshot.get("repositories"), "fleet.repositories")
         expected = {}
@@ -972,6 +1009,33 @@ def _require_snapshot_version(snapshot: Mapping[str, Any]) -> None:
                     raise ContractError("fleet view must preserve repository collection coverage")
             if seen != set(expected):
                 raise ContractError("fleet view omits repository collection coverage")
+        _validate_search_attribution(views["search"])
+
+
+def _validate_search_attribution(
+    search: Mapping[str, Any], entities: Mapping[str, Mapping[str, Any]] | None = None
+) -> None:
+    """Check supplied attribution without reconstructing missing attribution."""
+
+    records = search.get("records")
+    # Legacy shape validation remains unchanged when attribution is absent.
+    if not isinstance(records, list):
+        return
+    for record in records:
+        if not isinstance(record, dict) or "search_fields" not in record:
+            continue
+        try:
+            validate_search_record(record)
+        except SearchContractError as error:
+            raise ContractError(str(error)) from error
+        if entities is not None:
+            identifier = record.get("id")
+            if not isinstance(identifier, str) or identifier not in entities:
+                raise ContractError("attributed Search records must identify a canonical graph entity")
+            reference = _entity_ref(entities[identifier])
+            if any(record.get(name) != reference[name]
+                   for name in ("title", "key", "kind", "state", "repository", "visibility")):
+                raise ContractError("attributed Search records must preserve their canonical graph fields")
 
 
 def extract_view(snapshot: Mapping[str, Any], view: str) -> JsonObject:
@@ -1116,9 +1180,12 @@ def write_json(path: str | Path, value: Any) -> None:
         raise
 
 
-def build_bundle(projections: Iterable[Mapping[str, Any]]) -> tuple[list[JsonObject], JsonObject]:
+def build_bundle(
+    projections: Iterable[Mapping[str, Any]], *, search_attribution: bool = False
+) -> tuple[list[JsonObject], JsonObject]:
     """Build repository snapshots and their fleet index in stable order."""
 
-    repositories = [build_repository_snapshot(item) for item in projections]
+    repositories = [build_repository_snapshot(item, search_attribution=search_attribution)
+                    for item in projections]
     repositories.sort(key=lambda item: item["repository"]["repository"])
     return repositories, build_fleet_snapshot(repositories)
