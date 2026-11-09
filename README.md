@@ -84,6 +84,7 @@ observatory-intelligence compare \
 ## Contracts and fixtures
 
 - [Read-model and query contract](docs/repository-intelligence-read-model.md)
+- [Optional versioned Search field attribution](docs/search-field-attribution.md)
 - [Repository read-model schema](schemas/repository-intelligence-read-model.v1.schema.json)
 - [Fleet snapshot schema](schemas/repository-intelligence-fleet.v1.schema.json)
 - [View envelope schema](schemas/repository-intelligence-view.v1.schema.json)

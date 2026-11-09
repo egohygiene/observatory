@@ -114,6 +114,12 @@ All views use global entity IDs and preserve canonical URLs. Repeated compact en
 | Search | Stable entity records and a normalized search string formed only from already-publishable title, key, kind, state, and repository fields. |
 | Compare | Separate two-snapshot query listing added, removed, and field-changed entities, relationships, and events plus per-view content digests. |
 
+Search additionally supports an explicitly enabled, independently versioned
+`search_fields` extension for those same five approved fields. The default and
+outer alpha.2 contracts remain unchanged. Its closed shape, aggregate binding,
+owner reference matching and unavailable-attribution migration are specified in
+the [field-attribution contract](search-field-attribution.md).
+
 ### Readiness
 
 Readiness is always labeled `inferred`:

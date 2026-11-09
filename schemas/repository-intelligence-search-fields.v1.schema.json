@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://egohygiene.io/schemas/observatory/repository-intelligence-search-fields.v1.schema.json",
+  "title": "Observatory proposed Search field attribution v1",
+  "$comment": "Proposed 1.0.0-alpha.1. Semantic validation also requires canonical-field equality and aggregate equality through observatory.search_fields.validate_search_record; JSON Schema cannot express these cross-field equalities.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "contract_version",
+    "fields"
+  ],
+  "properties": {
+    "schema": {
+      "const": "egohygiene.observatory.repository-intelligence-search-fields/v1"
+    },
+    "contract_version": {
+      "const": "1.0.0-alpha.1"
+    },
+    "fields": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "prefixItems": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "field",
+            "text"
+          ],
+          "properties": {
+            "field": {
+              "const": "title"
+            },
+            "text": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "field",
+            "text"
+          ],
+          "properties": {
+            "field": {
+              "const": "key"
+            },
+            "text": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "field",
+            "text"
+          ],
+          "properties": {
+            "field": {
+              "const": "kind"
+            },
+            "text": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "field",
+            "text"
+          ],
+          "properties": {
+            "field": {
+              "const": "state"
+            },
+            "text": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "field",
+            "text"
+          ],
+          "properties": {
+            "field": {
+              "const": "repository"
+            },
+            "text": {
+              "type": "string"
+            }
+          }
+        }
+      ],
+      "items": false
+    }
+  }
+}

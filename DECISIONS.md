@@ -8,7 +8,7 @@ status: provisional
 owners:
   - egohygiene
 created: 2026-08-19
-updated: 2026-08-19
+updated: 2026-11-09
 governed_by:
   - architecture-decisions
 depends_on:
@@ -41,6 +41,7 @@ Do not rewrite historical context to fit current understanding. Amend a record f
 - ADR-0002: Link every health signal to source evidence
 - ADR-0003: Represent unknown and unavailable states explicitly
 - ADR-0004: Derive read models from pinned Repository Intelligence projections
+- ADR-0005: Version optional Search field attribution at its owner boundary
 
 ## ADR-0001: Keep observation separate from enforcement
 
@@ -77,6 +78,16 @@ Do not rewrite historical context to fit current understanding. Amend a record f
 - **Decision:** Consume exact, validated Hygiene Repository Intelligence projections and derive deterministic repository, fleet, page, and comparison read models without live provider access. Keep the implementation dependency-free and the JSON interfaces framework-neutral for the alpha slice.
 - **Consequences:** Relay and Holon can develop from offline fixtures and one stable query model. Observatory must maintain compatibility fixtures and explicit input pins, and it must not absorb collection, validation policy, rendering, or canonical source ownership.
 - **Reconsider when:** Measured fleet scale requires a storage/query backend, the Hygiene contract changes incompatibly, or a second implementation can prove equivalent deterministic artifacts with a safer maintenance profile.
+
+## ADR-0005: Version optional Search field attribution at its owner boundary
+
+- **Status:** Proposed
+- **Date:** 2026-11-09
+- **Context:** Observatory #24 and Relay #102 need an explanation of every approved field participating in a Search match. The current alpha.2 aggregate is opaque, and rebuilding an index in Relay would duplicate normalization and authority semantics.
+- **Decision:** Offer an explicitly enabled, independently versioned closed Search-field extension containing only title, key, kind, state and repository. Keep current alpha.2/default output unchanged. Bind the five normalized fields to the existing aggregate exactly and own both Python and portable JavaScript reference matching. Preserve unavailable attribution for older records rather than inferring it.
+- **Consequences:** Consumers can pin the same owner representation and matching algorithm while retaining record order and existing substring semantics. The optional version freezes Unicode 14 default lowercase tables and trim semantics; the default opaque path remains unchanged. Adoption needs the helper/schema/contract pins and later cross-runtime fixtures; source preparation supplies no test, native execution or publication acceptance. No source authority, visibility, canonical state or collection coverage changes.
+- **Reconsider when:** The approved search fields or matching semantics need a versioned change, a stable contract is accepted, or measured scale requires a different query representation.
+- **References:** [Observatory #24](https://github.com/egohygiene/observatory/issues/24), [Relay #102](https://github.com/egohygiene/relay/issues/102), [contract and migration](docs/search-field-attribution.md).
 
 ## Open decisions
 
