@@ -19,9 +19,13 @@ test = ["jsonschema==4.26.0", "rfc3339-validator==0.1.4"]
 [project.scripts]
 observatory-intelligence = "observatory.cli:main"
 observatory-health = "observatory.health_cli:main"
+observatory-conformance = "observatory.conformance_cli:main"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+observatory = ["data/*.json"]

@@ -42,6 +42,7 @@ Do not rewrite historical context to fit current understanding. Amend a record f
 - ADR-0003: Represent unknown and unavailable states explicitly
 - ADR-0004: Derive read models from pinned Repository Intelligence projections
 - ADR-0005: Version optional Search field attribution at its owner boundary
+- ADR-0006: Expose bounded conformance evidence without inventing applicability
 
 ## ADR-0001: Keep observation separate from enforcement
 
@@ -88,6 +89,16 @@ Do not rewrite historical context to fit current understanding. Amend a record f
 - **Consequences:** Consumers can pin the same owner representation and matching algorithm while retaining record order and existing substring semantics. The optional version freezes Unicode 14 default lowercase tables and trim semantics; the default opaque path remains unchanged. Adoption needs the helper/schema/contract pins and later cross-runtime fixtures; source preparation supplies no test, native execution or publication acceptance. No source authority, visibility, canonical state or collection coverage changes.
 - **Reconsider when:** The approved search fields or matching semantics need a versioned change, a stable contract is accepted, or measured scale requires a different query representation.
 - **References:** [Observatory #24](https://github.com/egohygiene/observatory/issues/24), [Relay #102](https://github.com/egohygiene/relay/issues/102), [contract and migration](docs/search-field-attribution.md).
+
+## ADR-0006: Expose bounded conformance evidence without inventing applicability
+
+- **Status:** Proposed
+- **Date:** 2026-11-09
+- **Context:** Observatory #5 and Relay #75 need repository-level contract evidence. Existing health/evidence models supply check identities, status, revision and freshness, while complete applicability and adoption inventories remain unavailable.
+- **Decision:** Derive an optional repository conformance query from the existing owner health/evidence rules and an exact reviewed Hygiene public admission artifact. Keep whole contract inventory and applicability unknown, retain other-revision observations as context, and assess only supplied current-revision conformance checks. Publish a closed schema and standalone owner validator for renderers.
+- **Consequences:** Repository Hygiene pages can show genuine evidence without pretending complete policy coverage or rerunning validators. Public wrappers and authenticated admission precede payload processing. Existing defaults and locks remain unchanged; fixture, package, consumer and publication qualification stay deferred. This introduces no exemption, ratification, enforcement or remediation authority.
+- **Reconsider when:** Hygiene supplies a reviewed applicability/adoption model, producers expose richer compatible evidence, or a stable conformance contract is reviewed.
+- **References:** [Observatory #5](https://github.com/egohygiene/observatory/issues/5), [Relay #75](https://github.com/egohygiene/relay/issues/75), [query contract](docs/repository-conformance-query.md).
 
 ## Open decisions
 

@@ -62,3 +62,9 @@ __all__ = [
 ]
 
 __version__ = "0.1.0"
+
+# The optional conformance query does not change existing health or Intelligence
+# defaults and introduces no additional repository-intelligence coverage domain.
+from .conformance import build_repository_conformance
+
+__all__.append("build_repository_conformance")
