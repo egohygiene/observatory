@@ -92,7 +92,7 @@ Every row separately reports whether its represented commit matches the query.
 Other-revision observations remain context but are excluded from the current
 assessment. Required current-revision checks use the existing precedence:
 fail, blocked, stale, unknown, partial, pass, not applicable. Advisory checks are
-visible and excluded from that rollup. No current required evidence is unknown.
+visible and excluded from that rollup. With no current required evidence, the assessment is unknown.
 The assessment is explicitly limited to supplied evidence, never whole-repository
 conformance or maturity and never a score.
 
