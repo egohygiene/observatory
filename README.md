@@ -92,6 +92,7 @@ observatory-intelligence compare \
 - [Pinned Hygiene contract lock](contracts/hygiene.repository-intelligence.v1.lock.json)
 - [Offline fixture provenance](fixtures/repository-intelligence/README.md)
 - [Organization-health read model](docs/organization-health-read-model.md)
+- [Bounded public repository conformance query](docs/repository-conformance-query.md)
 - [Repository evidence schema](schemas/repository-evidence.v1.schema.json)
 - [Organization-health schema](schemas/organization-health.v1.schema.json)
 - [Pinned Hygiene catalog lock](contracts/hygiene.repository-catalog.v1.lock.json)
