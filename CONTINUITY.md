@@ -7,25 +7,21 @@ repository:
   continuity_path: CONTINUITY.md
 document:
   status: active
-  updated_at: '2026-11-09T17:46:24Z'
+  updated_at: '2026-11-10T01:42:42Z'
   max_bytes: 16384
   max_lines: 240
   stale_reason: null
   superseded_by: null
 scope:
-  purpose: Expose a bounded owner conformance query from supplied public contract assessments without inventing
-    applicability.
+  purpose: Normalize exact public audit evidence into separate deterministic repository and fleet queries.
   includes:
-  - observatory.conformance and its offline CLI reuse the existing repository-evidence validator, health check
-    identities, freshness and required-check rollup. Exact packaged Hygiene public admission bytes authenticate
-    the target before supplied wrappers, text, counts and hashes are processed.
-  - The standalone owner validator and closed alpha.1 schema bind the repository, represented commit, evaluation
-    clock, public evidence, canonical digest and assessed subset. Other-revision checks stay visible context
-    but are excluded from the current assessment. Whole contract inventory and applicability remain unknown;
-    no score, exemption, migration or ratification is inferred.
-  - Proposed ADR-0006 records the optional query boundary. Existing health and Intelligence defaults, locks
-    and golden inputs remain unchanged; new package metadata exposes only the explicit new CLI and exact public
-    data artifact.
+  - New closed Audits queries preserve profile/version, source revisions, findings, explicit history, completion
+    and categorical coverage without a fleet score.
+  - All declared source owners are admitted against exact public catalog bytes before payloads, counts or hashes.
+    Existing nine-domain and Hygiene models remain compatible.
+  - Audit sidecars are consumed from immutable Aether 74490907bf3979ac45594d97fb1bb5fa7071346d. Existing core
+    and Hygiene contracts remain untouched. Sanity, campaign ingestion and fleet comparisons are separate active
+    follow-ups.
   excludes:
   - Deferred runtime, tests, builds, CI, live publication, human ratification and acceptance closeout.
   precedence:
@@ -35,77 +31,72 @@ scope:
   - canonical-repository-sources
   - continuity-checkpoint
   canonical_sources:
-  - ARCHITECTURE.md
-  - SYSTEM.md
-  - DECISIONS.md
-  - docs/repository-conformance-query.md
-  - contracts/hygiene.public-conformance.v1.lock.json
-  - schemas/repository-conformance.v1.schema.json
-  - https://github.com/egohygiene/observatory/issues/5
+  - src/observatory/audits.py
+  - src/observatory/audits_contract.py
+  - src/observatory/public_reviews.py
+  - schemas/repository-audits.v1.schema.json
+  - schemas/fleet-audits.v1.schema.json
+  - docs/repository-audits-query.md
+  - https://github.com/egohygiene/observatory/issues/20
 work:
-  objective: Expose a bounded owner conformance query from supplied public contract assessments without inventing
-    applicability.
+  objective: Normalize exact public audit evidence into separate deterministic repository and fleet queries.
   success_conditions:
-  - Only admitted supplied public conformance evidence affects the deterministic model.
-  - Reported status, effective stale status, required/advisory severity and per-row source revision remain
-    distinct.
-  - Relay can pin and execute the owner contract instead of recreating policy or rerunning validators.
+  - Immutable owner inputs and public source admission precede public identities, counts and digests.
+  - Missing, partial and unverified evidence remains explicit and cannot establish human approval.
+  - Existing publication, source ownership and historical recovery are preserved.
   active_issue:
     provider: github
-    id: egohygiene/observatory#5
-    url: https://github.com/egohygiene/observatory/issues/5
+    id: egohygiene/observatory#20
+    url: https://github.com/egohygiene/observatory/issues/20
   next:
     kind: action
-    id: wire-owner-conformance-hygiene-view
-    description: Integrate the prepared Relay Hygiene renderer and explicit owner-model input at this immutable
-      source revision, then qualify invariance, package installation, malformed/time/revision cases and representative
-      consumer canaries in the deferred verification pass.
+    id: consume-audits-and-sanity-queries
+    description: Complete the separate Sanity owner query, typed Reflector campaign ingestion and fleet comparisons,
+      then bind final Relay and central site consumers. Runtime and acceptance qualification remain deferred.
     readiness: ready
     references:
-    - https://github.com/egohygiene/observatory/issues/5
+    - https://github.com/egohygiene/observatory/issues/20
     depends_on: []
 state:
   base:
-    revision: 51be4a740c790f99364f577730c1a98f301bee47
+    revision: 2eebdb63c3239cbb790be4146df5340c7ad59c17
     ref: refs/heads/main
-    verified_at: '2026-11-09T17:46:24Z'
+    verified_at: '2026-11-10T01:42:42Z'
   candidate:
-    branch: codex/repository-conformance-query
+    branch: codex/intelligence-audits-owner
     revision: null
     pull_request: null
     handoff_state: ready-for-review
   live:
     status: verified
-    observed_at: '2026-11-09T17:46:24Z'
-    default_branch_revision: 51be4a740c790f99364f577730c1a98f301bee47
+    observed_at: '2026-11-10T01:42:42Z'
+    default_branch_revision: 2eebdb63c3239cbb790be4146df5340c7ad59c17
     issue_state: open
     pull_request_state: not-applicable
-    notes: Observatory issue 5 remains open. Main already includes optional Search attribution through merged
-      PR 29; the conformance query is an independent optional model. Relay issue 75 owns the prepared consumer
-      renderer and common build wiring.
+    notes: Observed main 2eebdb63c3239cbb790be4146df5340c7ad59c17 remains the current base. Aether review source
+      74490907bf3979ac45594d97fb1bb5fa7071346d and Hygiene governance source d11580e9a9c5d78b9a5d21474deaa612712a0fb9
+      are merged and reachable. First Audit functional source 82ac5f14d74a8e144a1499307c45b6d4b0aa92ee is prepared;
+      no Sanity implementation is claimed in this slice.
   parallel_changes: []
 review:
   status: partial
-  reviewed_at: '2026-11-09T17:46:24Z'
+  reviewed_at: '2026-11-10T01:42:42Z'
   reviewed_by: Codex
   evidence:
-  - command: Python AST, JSON schema definitions and local references, TOML/package metadata, exact owner public
-      artifact hashes, whitespace, continuity schema/size and independent static source review
+  - command: Independent static source review; Python syntax, closed schema definitions/local references, exact
+      owner resource hashes, source metadata and continuity schema/size/links; whitespace
     outcome: limited
-    observed_at: '2026-11-09T17:46:24Z'
+    observed_at: '2026-11-10T01:42:42Z'
     notes: Static source and metadata inspection only; no application execution.
   - command: Native/runtime execution, tests, builds, CI investigation, browser/provider/consumer/publication
       qualification
     outcome: not-run
-    observed_at: '2026-11-09T17:46:24Z'
+    observed_at: '2026-11-10T01:42:42Z'
     notes: Deferred at maintainer request; source merges do not establish acceptance.
   environment_limitations:
-  - Tests, fixtures, package installation, builds, native/consumer execution, CI, browsers and publication
-    were not executed.
-  - Whole applicability, adoption inventory, policy ratification and three diverse canary proofs remain unavailable
-    or deferred.
-  - Existing health/evidence source authority and all human ADR dispositions are preserved; proposed ADR-0006
-    is not accepted by this implementation or merge.
+  - Tests, native/application execution, builds, CI, browser/provider/publication qualification and actual
+    audit execution remain deferred.
+  - Source implementation does not establish human ratification, successful publication or parent issue completion.
 privacy:
   classification: public-repository
   contains_sensitive_data: false
@@ -132,35 +123,35 @@ Read scoped instructions, canonical sources above and this checkpoint. Verify mu
 
 ## Current objective and success conditions
 
-Expose a bounded owner conformance query from supplied public contract assessments without inventing applicability. Only admitted supplied public conformance evidence affects the deterministic model. Reported status, effective stale status, required/advisory severity and per-row source revision remain distinct. Relay can pin and execute the owner contract instead of recreating policy or rerunning validators.
+Normalize exact public audit evidence into separate deterministic repository and fleet queries. Immutable owner inputs and public source admission precede public identities, counts and digests. Missing, partial and unverified evidence remains explicit and cannot establish human approval. Existing publication, source ownership and historical recovery are preserved.
 
 ## State snapshot
 
-Candidate `codex/repository-conformance-query` is based on observed main `51be4a740c790f99364f577730c1a98f301bee47`. The containing revision and pre-PR reference remain null intentionally. Observatory issue 5 remains open. Main already includes optional Search attribution through merged PR 29; the conformance query is an independent optional model. Relay issue 75 owns the prepared consumer renderer and common build wiring.
+Candidate `codex/intelligence-audits-owner` is based on observed main `2eebdb63c3239cbb790be4146df5340c7ad59c17`. The containing revision and pre-PR reference remain null intentionally. Observed main 2eebdb63c3239cbb790be4146df5340c7ad59c17 remains the current base. Aether review source 74490907bf3979ac45594d97fb1bb5fa7071346d and Hygiene governance source d11580e9a9c5d78b9a5d21474deaa612712a0fb9 are merged and reachable. First Audit functional source 82ac5f14d74a8e144a1499307c45b6d4b0aa92ee is prepared; no Sanity implementation is claimed in this slice.
 
 ## Completed and material changes
 
-observatory.conformance and its offline CLI reuse the existing repository-evidence validator, health check identities, freshness and required-check rollup. Exact packaged Hygiene public admission bytes authenticate the target before supplied wrappers, text, counts and hashes are processed.
+New closed Audits queries preserve profile/version, source revisions, findings, explicit history, completion and categorical coverage without a fleet score.
 
-The standalone owner validator and closed alpha.1 schema bind the repository, represented commit, evaluation clock, public evidence, canonical digest and assessed subset. Other-revision checks stay visible context but are excluded from the current assessment. Whole contract inventory and applicability remain unknown; no score, exemption, migration or ratification is inferred.
+All declared source owners are admitted against exact public catalog bytes before payloads, counts or hashes. Existing nine-domain and Hygiene models remain compatible.
 
-Proposed ADR-0006 records the optional query boundary. Existing health and Intelligence defaults, locks and golden inputs remain unchanged; new package metadata exposes only the explicit new CLI and exact public data artifact.
+Audit sidecars are consumed from immutable Aether 74490907bf3979ac45594d97fb1bb5fa7071346d. Existing core and Hygiene contracts remain untouched. Sanity, campaign ingestion and fleet comparisons are separate active follow-ups.
 
 ## Validation and review evidence
 
-Python AST, JSON schema definitions and local references, TOML/package metadata, exact owner public artifact hashes, whitespace, continuity schema/size and independent static source review. Static inspection only. Native/runtime execution, tests, builds, CI investigation, browsers, provider reads and publication qualification were not run.
+Independent static source review; Python syntax, closed schema definitions/local references, exact owner resource hashes, source metadata and continuity schema/size/links; whitespace. Static inspection only. Native/runtime execution, tests, builds, CI investigation, browsers, provider reads and publication qualification were not run.
 
 ## Blockers, risks, unknowns, and deferred work
 
-Tests, fixtures, package installation, builds, native/consumer execution, CI, browsers and publication were not executed. Whole applicability, adoption inventory, policy ratification and three diverse canary proofs remain unavailable or deferred. Existing health/evidence source authority and all human ADR dispositions are preserved; proposed ADR-0006 is not accepted by this implementation or merge.
+Tests, native/application execution, builds, CI, browser/provider/publication qualification and actual audit execution remain deferred. Source implementation does not establish human ratification, successful publication or parent issue completion.
 
 ## Next dependency-ready work
 
-Integrate the prepared Relay Hygiene renderer and explicit owner-model input at this immutable source revision, then qualify invariance, package installation, malformed/time/revision cases and representative consumer canaries in the deferred verification pass.
+Complete the separate Sanity owner query, typed Reflector campaign ingestion and fleet comparisons, then bind final Relay and central site consumers. Runtime and acceptance qualification remain deferred.
 
 ## Parallel changes and reconciliation
 
-New conformance source is pinned independently from the previous Search/Intelligence owners. Relay Dependencies and fleet work consume the same exact reviewed public Hygiene artifact. Sanity and Audits require separate owner contracts before the later organization sanity sweep; this model cannot substitute for human architecture ratification.
+Other Intelligence slices remain separately reviewed. Reconcile the current main and this handoff before integration; preserve all immutable historical recovery bytes and consumer-owned publication gates.
 
 ## Privacy and redaction
 
