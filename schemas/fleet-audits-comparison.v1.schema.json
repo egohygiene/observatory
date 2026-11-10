@@ -1,0 +1,594 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://egohygiene.io/schemas/observatory/fleet-audits-comparison.v1.schema.json",
+  "title": "Structural comparison of exact public audit scopes",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "contract_version",
+    "visibility",
+    "as_of",
+    "admission",
+    "baseline",
+    "current",
+    "semantics",
+    "changes",
+    "explicit_current_history",
+    "counts",
+    "classification_inventory",
+    "digest"
+  ],
+  "properties": {
+    "schema": {
+      "const": "egohygiene.observatory.fleet-audits-comparison/v1"
+    },
+    "contract_version": {
+      "const": "1.0.0-alpha.1"
+    },
+    "visibility": {
+      "const": "public"
+    },
+    "as_of": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+    },
+    "admission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "owner",
+        "revision",
+        "artifact_path",
+        "artifact_sha256",
+        "schema_sha256",
+        "helper_sha256",
+        "observed_at",
+        "selected_sha256"
+      ],
+      "properties": {
+        "schema": {
+          "const": "egohygiene.relay.public-catalog-admission/v1"
+        },
+        "owner": {
+          "const": "egohygiene/hygiene"
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "artifact_path": {
+          "type": "string"
+        },
+        "artifact_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "schema_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "helper_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "observed_at": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+          "format": "date-time"
+        },
+        "selected_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "digest",
+        "as_of",
+        "repositories"
+      ],
+      "properties": {
+        "schema": {
+          "const": "egohygiene.observatory.fleet-audits/v1"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+        },
+        "repositories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "repository",
+              "represented_commit"
+            ],
+            "properties": {
+              "repository": {
+                "type": "string",
+                "pattern": "^egohygiene/(?:\\.github|[a-z0-9][a-z0-9.-]*)$"
+              },
+              "represented_commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              }
+            }
+          },
+          "maxItems": 1024
+        }
+      }
+    },
+    "current": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "digest",
+        "as_of",
+        "repositories"
+      ],
+      "properties": {
+        "schema": {
+          "const": "egohygiene.observatory.fleet-audits/v1"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+        },
+        "repositories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "repository",
+              "represented_commit"
+            ],
+            "properties": {
+              "repository": {
+                "type": "string",
+                "pattern": "^egohygiene/(?:\\.github|[a-z0-9][a-z0-9.-]*)$"
+              },
+              "represented_commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              }
+            }
+          },
+          "maxItems": 1024
+        }
+      }
+    },
+    "semantics": {
+      "const": "structural-record-delta-no-absence-resolution-or-inferred-continuity"
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "repository",
+          "kind",
+          "observation",
+          "changed_fields",
+          "before_sha256",
+          "after_sha256"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "repository": {
+            "type": "string",
+            "pattern": "^egohygiene/(?:\\.github|[a-z0-9][a-z0-9.-]*)$"
+          },
+          "kind": {
+            "enum": [
+              "report",
+              "finding"
+            ]
+          },
+          "observation": {
+            "enum": [
+              "after-only",
+              "before-only",
+              "changed"
+            ]
+          },
+          "changed_fields": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z_]{0,63}$"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "before_sha256": {
+            "oneOf": [
+              {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "after_sha256": {
+            "oneOf": [
+              {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "explicit_current_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "finding_key",
+          "repository",
+          "audit_id",
+          "history"
+        ],
+        "properties": {
+          "finding_key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "repository": {
+            "type": "string",
+            "pattern": "^egohygiene/(?:\\.github|[a-z0-9][a-z0-9.-]*)$"
+          },
+          "audit_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "history": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "delta",
+              "prior_audit_id",
+              "prior_finding_id",
+              "evidence_classification",
+              "evidence_refs"
+            ],
+            "properties": {
+              "delta": {
+                "enum": [
+                  "new",
+                  "unchanged",
+                  "improved",
+                  "regressed",
+                  "resolved",
+                  "unverified"
+                ]
+              },
+              "prior_audit_id": {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "prior_finding_id": {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^AUDIT-[0-9]{3}$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "evidence_classification": {
+                "enum": [
+                  "observed",
+                  "inferred",
+                  "recommended",
+                  "unverified"
+                ]
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+                "maxItems": 64
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "delta": {
+                      "enum": [
+                        "unchanged",
+                        "improved",
+                        "regressed",
+                        "resolved"
+                      ]
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "prior_audit_id": {
+                      "type": "string"
+                    },
+                    "prior_finding_id": {
+                      "type": "string"
+                    },
+                    "evidence_refs": {
+                      "minItems": 1
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "delta": {
+                      "const": "resolved"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "evidence_classification": {
+                      "const": "observed"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "prior_finding_id": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "prior_audit_id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "report",
+        "finding"
+      ],
+      "properties": {
+        "report": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "after-only",
+            "before-only",
+            "changed"
+          ],
+          "properties": {
+            "after-only": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "before-only": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "changed": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "finding": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "after-only",
+            "before-only",
+            "changed"
+          ],
+          "properties": {
+            "after-only": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "before-only": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "changed": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "classification_inventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "before",
+        "after"
+      ],
+      "properties": {
+        "before": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "confirmed-defect",
+            "probable-issue",
+            "architectural-concern",
+            "maintainability-risk",
+            "optimization-opportunity",
+            "documentation-gap",
+            "future-enhancement",
+            "intentional-trade-off",
+            "needs-human-clarification",
+            "positive-observation"
+          ],
+          "properties": {
+            "confirmed-defect": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "probable-issue": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "architectural-concern": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "maintainability-risk": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "optimization-opportunity": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "documentation-gap": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "future-enhancement": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "intentional-trade-off": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "needs-human-clarification": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "positive-observation": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "after": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "confirmed-defect",
+            "probable-issue",
+            "architectural-concern",
+            "maintainability-risk",
+            "optimization-opportunity",
+            "documentation-gap",
+            "future-enhancement",
+            "intentional-trade-off",
+            "needs-human-clarification",
+            "positive-observation"
+          ],
+          "properties": {
+            "confirmed-defect": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "probable-issue": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "architectural-concern": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "maintainability-risk": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "optimization-opportunity": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "documentation-gap": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "future-enhancement": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "intentional-trade-off": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "needs-human-clarification": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "positive-observation": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

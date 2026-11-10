@@ -75,9 +75,10 @@ Candidate issues remain suggested proposals with materialization unavailable.
 Repository subsets of cross-repository proposals are explicitly labeled.
 Summary counts use repository-report projections, not unique campaign runs or
 an organization score. Latest-by-profile retains ties rather than arbitrarily
-picking one source. Campaign and structural before/after inputs remain explicit
-unavailable boundaries until their separate typed orchestration handoff is
-supplied; this query never scrapes or invents those records.
+picking one source. The base repository model's campaign field remains
+unavailable. Separate [campaign, pattern and comparison models](audit-campaigns-and-queries.md)
+now accept explicit typed source inputs without changing that default or
+scraping or inventing records.
 
 ## Source checkpoint and qualification
 
