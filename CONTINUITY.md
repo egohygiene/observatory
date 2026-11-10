@@ -7,21 +7,21 @@ repository:
   continuity_path: CONTINUITY.md
 document:
   status: active
-  updated_at: '2026-11-10T01:42:42Z'
+  updated_at: '2026-11-10T01:50:24Z'
   max_bytes: 16384
   max_lines: 240
   stale_reason: null
   superseded_by: null
 scope:
-  purpose: Normalize exact public audit evidence into separate deterministic repository and fleet queries.
+  purpose: Normalize exact public audit and architecture review evidence into separate deterministic repository
+    and fleet queries.
   includes:
   - New closed Audits queries preserve profile/version, source revisions, findings, explicit history, completion
     and categorical coverage without a fleet score.
+  - Separate Sanity projections keep AI assessment, applicability, human claims, evidence and freshness distinct,
+    using exact Aether/Hygiene owners.
   - All declared source owners are admitted against exact public catalog bytes before payloads, counts or hashes.
     Existing nine-domain and Hygiene models remain compatible.
-  - Audit sidecars are consumed from immutable Aether 74490907bf3979ac45594d97fb1bb5fa7071346d. Existing core
-    and Hygiene contracts remain untouched. Sanity, campaign ingestion and fleet comparisons are separate active
-    follow-ups.
   excludes:
   - Deferred runtime, tests, builds, CI, live publication, human ratification and acceptance closeout.
   precedence:
@@ -37,61 +37,69 @@ scope:
   - schemas/repository-audits.v1.schema.json
   - schemas/fleet-audits.v1.schema.json
   - docs/repository-audits-query.md
-  - https://github.com/egohygiene/observatory/issues/20
+  - src/observatory/sanity.py
+  - src/observatory/sanity_contract.py
+  - schemas/repository-sanity.v1.schema.json
+  - schemas/fleet-sanity.v1.schema.json
+  - docs/repository-sanity-query.md
+  - https://github.com/egohygiene/observatory/issues/21
 work:
-  objective: Normalize exact public audit evidence into separate deterministic repository and fleet queries.
+  objective: Normalize exact public audit and architecture review evidence into separate deterministic repository
+    and fleet queries.
   success_conditions:
   - Immutable owner inputs and public source admission precede public identities, counts and digests.
   - Missing, partial and unverified evidence remains explicit and cannot establish human approval.
   - Existing publication, source ownership and historical recovery are preserved.
   active_issue:
     provider: github
-    id: egohygiene/observatory#20
-    url: https://github.com/egohygiene/observatory/issues/20
+    id: egohygiene/observatory#21
+    url: https://github.com/egohygiene/observatory/issues/21
   next:
     kind: action
     id: consume-audits-and-sanity-queries
-    description: Complete the separate Sanity owner query, typed Reflector campaign ingestion and fleet comparisons,
-      then bind final Relay and central site consumers. Runtime and acceptance qualification remain deferred.
+    description: Consume exact Sanity queries in Relay and the central site; complete the separate typed campaign/fleet
+      comparison follow-up and deferred runtime qualification. No authenticated human transport or ratification
+      is created.
     readiness: ready
     references:
-    - https://github.com/egohygiene/observatory/issues/20
+    - https://github.com/egohygiene/observatory/issues/21
     depends_on: []
 state:
   base:
-    revision: 2eebdb63c3239cbb790be4146df5340c7ad59c17
+    revision: caf3481fdfa61f20b056b5c166e36954edeeef1f
     ref: refs/heads/main
-    verified_at: '2026-11-10T01:42:42Z'
+    verified_at: '2026-11-10T01:50:24Z'
   candidate:
-    branch: codex/intelligence-audits-owner
+    branch: codex/intelligence-sanity-owner
     revision: null
     pull_request: null
     handoff_state: ready-for-review
   live:
     status: verified
-    observed_at: '2026-11-10T01:42:42Z'
-    default_branch_revision: 2eebdb63c3239cbb790be4146df5340c7ad59c17
+    observed_at: '2026-11-10T01:50:24Z'
+    default_branch_revision: caf3481fdfa61f20b056b5c166e36954edeeef1f
     issue_state: open
     pull_request_state: not-applicable
-    notes: Observed main 2eebdb63c3239cbb790be4146df5340c7ad59c17 remains the current base. Aether review source
-      74490907bf3979ac45594d97fb1bb5fa7071346d and Hygiene governance source d11580e9a9c5d78b9a5d21474deaa612712a0fb9
-      are merged and reachable. First Audit functional source 82ac5f14d74a8e144a1499307c45b6d4b0aa92ee is prepared;
-      no Sanity implementation is claimed in this slice.
+    notes: Observed main caf3481fdfa61f20b056b5c166e36954edeeef1f includes merged Audit query PR 31. This Sanity
+      functional source is 692fbe7a5a31827d442818bf33f5b225abc2d4b8, reconciled over that main. Aether744909
+      and Hygiene d115 remain exact immutable owners.
   parallel_changes: []
 review:
   status: partial
-  reviewed_at: '2026-11-10T01:42:42Z'
+  reviewed_at: '2026-11-10T01:50:24Z'
   reviewed_by: Codex
   evidence:
   - command: Independent static source review; Python syntax, closed schema definitions/local references, exact
-      owner resource hashes, source metadata and continuity schema/size/links; whitespace
+      owner resource hashes, source metadata and continuity schema/size/links; whitespace; independent Sanity
+      source peer of empty human-trust evaluation, material clocks, assessment subject digest and normalized
+      subset bounds
     outcome: limited
-    observed_at: '2026-11-10T01:42:42Z'
+    observed_at: '2026-11-10T01:50:24Z'
     notes: Static source and metadata inspection only; no application execution.
   - command: Native/runtime execution, tests, builds, CI investigation, browser/provider/consumer/publication
       qualification
     outcome: not-run
-    observed_at: '2026-11-10T01:42:42Z'
+    observed_at: '2026-11-10T01:50:24Z'
     notes: Deferred at maintainer request; source merges do not establish acceptance.
   environment_limitations:
   - Tests, native/application execution, builds, CI, browser/provider/publication qualification and actual
@@ -123,23 +131,23 @@ Read scoped instructions, canonical sources above and this checkpoint. Verify mu
 
 ## Current objective and success conditions
 
-Normalize exact public audit evidence into separate deterministic repository and fleet queries. Immutable owner inputs and public source admission precede public identities, counts and digests. Missing, partial and unverified evidence remains explicit and cannot establish human approval. Existing publication, source ownership and historical recovery are preserved.
+Normalize exact public audit and architecture review evidence into separate deterministic repository and fleet queries. Immutable owner inputs and public source admission precede public identities, counts and digests. Missing, partial and unverified evidence remains explicit and cannot establish human approval. Existing publication, source ownership and historical recovery are preserved.
 
 ## State snapshot
 
-Candidate `codex/intelligence-audits-owner` is based on observed main `2eebdb63c3239cbb790be4146df5340c7ad59c17`. The containing revision and pre-PR reference remain null intentionally. Observed main 2eebdb63c3239cbb790be4146df5340c7ad59c17 remains the current base. Aether review source 74490907bf3979ac45594d97fb1bb5fa7071346d and Hygiene governance source d11580e9a9c5d78b9a5d21474deaa612712a0fb9 are merged and reachable. First Audit functional source 82ac5f14d74a8e144a1499307c45b6d4b0aa92ee is prepared; no Sanity implementation is claimed in this slice.
+Candidate `codex/intelligence-sanity-owner` is based on observed main `caf3481fdfa61f20b056b5c166e36954edeeef1f`. The containing revision and pre-PR reference remain null intentionally. Observed main caf3481fdfa61f20b056b5c166e36954edeeef1f includes merged Audit query PR 31. This Sanity functional source is 692fbe7a5a31827d442818bf33f5b225abc2d4b8, reconciled over that main. Aether744909 and Hygiene d115 remain exact immutable owners.
 
 ## Completed and material changes
 
 New closed Audits queries preserve profile/version, source revisions, findings, explicit history, completion and categorical coverage without a fleet score.
 
-All declared source owners are admitted against exact public catalog bytes before payloads, counts or hashes. Existing nine-domain and Hygiene models remain compatible.
+Separate Sanity projections keep AI assessment, applicability, human claims, evidence and freshness distinct, using exact Aether/Hygiene owners.
 
-Audit sidecars are consumed from immutable Aether 74490907bf3979ac45594d97fb1bb5fa7071346d. Existing core and Hygiene contracts remain untouched. Sanity, campaign ingestion and fleet comparisons are separate active follow-ups.
+All declared source owners are admitted against exact public catalog bytes before payloads, counts or hashes. Existing nine-domain and Hygiene models remain compatible.
 
 ## Validation and review evidence
 
-Independent static source review; Python syntax, closed schema definitions/local references, exact owner resource hashes, source metadata and continuity schema/size/links; whitespace. Static inspection only. Native/runtime execution, tests, builds, CI investigation, browsers, provider reads and publication qualification were not run.
+Independent static source review; Python syntax, closed schema definitions/local references, exact owner resource hashes, source metadata and continuity schema/size/links; whitespace; independent Sanity source peer of empty human-trust evaluation, material clocks, assessment subject digest and normalized subset bounds. Static inspection only. Native/runtime execution, tests, builds, CI investigation, browsers, provider reads and publication qualification were not run.
 
 ## Blockers, risks, unknowns, and deferred work
 
@@ -147,7 +155,7 @@ Tests, native/application execution, builds, CI, browser/provider/publication qu
 
 ## Next dependency-ready work
 
-Complete the separate Sanity owner query, typed Reflector campaign ingestion and fleet comparisons, then bind final Relay and central site consumers. Runtime and acceptance qualification remain deferred.
+Consume exact Sanity queries in Relay and the central site; complete the separate typed campaign/fleet comparison follow-up and deferred runtime qualification. No authenticated human transport or ratification is created.
 
 ## Parallel changes and reconciliation
 
