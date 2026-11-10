@@ -1,0 +1,17 @@
+{
+  "files": [
+    {
+      "local": "campaign-owner/audit_campaign.py",
+      "sha256": "09cfa97565bb506b0c5ed333b8cb9dfc3234f08566787a89ef4487a76849689b",
+      "source": "reflector/schemas/audit_campaign.py"
+    },
+    {
+      "local": "campaign-owner/audit-campaign-manifest.v1.schema.json",
+      "sha256": "b63c9ec3d294a4cebe2bc00cee8fd2bfdf7830ae39ddbe77536f9af67a041593",
+      "source": "specs/orchestration/audit-campaign-manifest.v1.schema.json"
+    }
+  ],
+  "owner": "egohygiene/reflector",
+  "revision": "39f7e02acb0e100881a1f81a2ea8a3927e34ed15",
+  "schema": "egohygiene.observatory.public-review-owner-lock/v1"
+}

@@ -21,6 +21,7 @@ observatory-intelligence = "observatory.cli:main"
 observatory-health = "observatory.health_cli:main"
 observatory-conformance = "observatory.conformance_cli:main"
 observatory-audits = "observatory.audits_cli:main"
+observatory-audit-campaigns = "observatory.audit_campaigns_cli:main"
 observatory-sanity = "observatory.sanity_cli:main"
 
 [tool.setuptools]
@@ -30,4 +31,4 @@ package-dir = { "" = "src" }
 where = ["src"]
 
 [tool.setuptools.package-data]
-observatory = ["data/*.json", "data/audit-owner/*.json", "data/audit-owner/*.py", "data/sanity-owner/*.json", "data/sanity-owner/*.py"]
+observatory = ["data/*.json", "data/audit-owner/*.json", "data/audit-owner/*.py", "data/sanity-owner/*.json", "data/sanity-owner/*.py", "data/campaign-owner/*.json", "data/campaign-owner/*.py"]

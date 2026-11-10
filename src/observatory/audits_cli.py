@@ -9,6 +9,7 @@ import sys
 
 from . import audits
 from . import audits_contract as contract
+from . import audits_queries
 
 
 def parser():
@@ -27,26 +28,40 @@ def parser():
         else:
             command.add_argument("--targets", type=Path, required=True,
                 help="Explicit repository/revision selector array; excluded identities are never placeholders.")
+    patterns = commands.add_parser("patterns", allow_abbrev=False)
+    patterns.add_argument("--fleet", type=Path, required=True)
+    comparison = commands.add_parser("compare", allow_abbrev=False)
+    comparison.add_argument("--before", type=Path, required=True)
+    comparison.add_argument("--after", type=Path, required=True)
+    for command in (patterns, comparison):
+        command.add_argument("--admission-root", type=Path, default=contract.DEFAULT_ROOT)
+        command.add_argument("--output", type=Path, required=True)
     return result
 
 
 def main(argv=None):
     args = parser().parse_args(argv)
     try:
-        contract.require(len(args.evidence) <= 256)
-        wrappers = []
-        for path in args.evidence:
-            value = contract.parse(contract.shared.base._read(path))
-            wrappers.extend(value if isinstance(value, list) else [value])
-        options = {"as_of": args.as_of, "admission_root": args.admission_root,
-            "maximum_age_seconds": args.maximum_age_seconds}
-        if args.command == "repository":
-            model = audits.build_repository_audits(wrappers, repository=args.repository,
-                represented_commit=args.represented_commit, **options)
+        if args.command in {"patterns", "compare"}:
+            def read(path):
+                return contract.parse(contract.shared.base._read(path))
+            model = audits_queries.query_fleet_audits(read(args.fleet), admission_root=args.admission_root) if args.command == "patterns" else (
+                audits_queries.compare_fleet_audits(read(args.before), read(args.after), admission_root=args.admission_root))
         else:
-            selected = contract.parse(contract.shared.base._read(args.targets))
-            contract.require(isinstance(selected, list))
-            model = audits.build_fleet_audits(wrappers, repositories=selected, **options)
+            contract.require(len(args.evidence) <= 256)
+            wrappers = []
+            for path in args.evidence:
+                value = contract.parse(contract.shared.base._read(path))
+                wrappers.extend(value if isinstance(value, list) else [value])
+            options = {"as_of": args.as_of, "admission_root": args.admission_root,
+                "maximum_age_seconds": args.maximum_age_seconds}
+            if args.command == "repository":
+                model = audits.build_repository_audits(wrappers, repository=args.repository,
+                    represented_commit=args.represented_commit, **options)
+            else:
+                selected = contract.parse(contract.shared.base._read(args.targets))
+                contract.require(isinstance(selected, list))
+                model = audits.build_fleet_audits(wrappers, repositories=selected, **options)
         destination = args.output.absolute()
         contract.require(".." not in destination.parts and not destination.exists()
             and not any(item.is_symlink() for item in (destination, *destination.parents)))

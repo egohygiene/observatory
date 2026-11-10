@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://egohygiene.io/schemas/observatory/fleet-audit-patterns.v1.schema.json",
+  "title": "Categorical public audit finding patterns",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "contract_version",
+    "visibility",
+    "as_of",
+    "admission",
+    "source",
+    "semantics",
+    "patterns",
+    "digest"
+  ],
+  "properties": {
+    "schema": {
+      "const": "egohygiene.observatory.fleet-audit-patterns/v1"
+    },
+    "contract_version": {
+      "const": "1.0.0-alpha.1"
+    },
+    "visibility": {
+      "const": "public"
+    },
+    "as_of": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+    },
+    "admission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "owner",
+        "revision",
+        "artifact_path",
+        "artifact_sha256",
+        "schema_sha256",
+        "helper_sha256",
+        "observed_at",
+        "selected_sha256"
+      ],
+      "properties": {
+        "schema": {
+          "const": "egohygiene.relay.public-catalog-admission/v1"
+        },
+        "owner": {
+          "const": "egohygiene/hygiene"
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "artifact_path": {
+          "type": "string"
+        },
+        "artifact_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "schema_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "helper_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "observed_at": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$",
+          "format": "date-time"
+        },
+        "selected_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "digest",
+        "as_of",
+        "repositories"
+      ],
+      "properties": {
+        "schema": {
+          "const": "egohygiene.observatory.fleet-audits/v1"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+        },
+        "repositories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "repository",
+              "represented_commit"
+            ],
+            "properties": {
+              "repository": {
+                "type": "string",
+                "pattern": "^egohygiene/(?:\\.github|[a-z0-9][a-z0-9.-]*)$"
+              },
+              "represented_commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              }
+            }
+          },
+          "maxItems": 1024
+        }
+      }
+    },
+    "semantics": {
+      "const": "categorical-source-grouping-no-inferred-common-cause"
+    },
+    "patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "dimension",
+          "value",
+          "repositories",
+          "finding_count",
+          "members"
+        ],
+        "properties": {
+          "dimension": {
+            "enum": [
+              "classification",
+              "nature",
+              "area",
+              "source_profile"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "repositories": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^egohygiene/(?:\\.github|[a-z0-9][a-z0-9.-]*)$"
+            },
+            "minItems": 2,
+            "uniqueItems": true
+          },
+          "finding_count": {
+            "type": "integer",
+            "minimum": 2
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "finding_key",
+                "repository",
+                "audit_id",
+                "revision_status",
+                "freshness",
+                "status"
+              ],
+              "properties": {
+                "finding_key": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 512
+                },
+                "repository": {
+                  "type": "string",
+                  "pattern": "^egohygiene/(?:\\.github|[a-z0-9][a-z0-9.-]*)$"
+                },
+                "audit_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128
+                },
+                "revision_status": {
+                  "enum": [
+                    "matched",
+                    "different"
+                  ]
+                },
+                "freshness": {
+                  "enum": [
+                    "current",
+                    "stale",
+                    "unknown"
+                  ]
+                },
+                "status": {
+                  "enum": [
+                    "confirmed",
+                    "probable",
+                    "needs-validation",
+                    "intentional-trade-off",
+                    "needs-clarification",
+                    "not-applicable"
+                  ]
+                }
+              }
+            },
+            "minItems": 2
+          }
+        }
+      }
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}
