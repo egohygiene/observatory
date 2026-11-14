@@ -29,7 +29,10 @@ component/environment/correlation IDs, lifecycle, independent reproduction,
 root-cause, remediation and validation states, optional hypothesis counts,
 redaction, structural-conformance result, authored update time, and explicit
 issue/PR/commit/ADR/incident/supersession links. No arbitrary body/telemetry field
-is accepted. The canonical source digest remains an **unverified source claim**;
+is accepted. Canonical record links name an immutable Markdown file in the
+selected repository and cannot use fragments to alias one file as distinct IDs;
+related evidence links may retain section fragments. The canonical source digest
+remains an **unverified source claim**;
 only the normalized public view receives an actually calculated digest.
 
 Nodes keep a stable diagnosis identity and a separate represented-artifact key.

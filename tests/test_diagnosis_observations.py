@@ -141,6 +141,14 @@ class DiagnosisObservationTests(unittest.TestCase):
         bad=deepcopy(snapshot);bad["represented_commit"]="d"*40
         with self.assertRaises(ValueError):attach_to_snapshot(bad,view)
 
+    def test_canonical_record_fragment_alias_is_rejected_without_changing_related_links(self):
+        wrappers=deepcopy(self.wrappers)
+        wrappers[0]["evidence"]["records"][1]["canonical_url"] = wrappers[0]["evidence"]["records"][0]["canonical_url"] + "#same-file-alias"
+        with self.assertRaises(ValueError):self.build(wrappers)
+        wrappers=deepcopy(self.wrappers)
+        wrappers[0]["evidence"]["records"][0]["related"][0]["target"] += "#public-evidence-section"
+        self.assertEqual(self.observed(self.build(wrappers))["public_record_count"],3)
+
     def test_cli_output_is_explicit_new_and_errors_do_not_echo_rejected_content(self):
         with tempfile.TemporaryDirectory() as directory:
             output=Path(directory)/"view.json"

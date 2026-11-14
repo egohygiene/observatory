@@ -45,7 +45,7 @@ def normalize_record(value, repository, allowed):
     shared.require(isinstance(value["content_sha256"], str) and shared.base.HASH.fullmatch(value["content_sha256"]))
     shared.public_url(value["canonical_url"], allowed)
     shared.require(bool(re.fullmatch(r"https://github\.com/" + re.escape(repository)
-                   + r"/blob/[0-9a-f]{40}/.+", value["canonical_url"])))
+                   + r"/blob/[0-9a-f]{40}/(?:[^/#]+/)*[^/#]+\.md", value["canonical_url"])))
     optional_commit(value["represented_commit"])
     shared.instant(value["updated_at"])
     enum(value["status"], {"open", "monitoring", "resolved", "closed", "superseded"})

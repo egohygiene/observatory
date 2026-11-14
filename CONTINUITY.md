@@ -103,7 +103,7 @@ review:
       python3 scripts/verify_health_fixtures.py
     outcome: passed
     observed_at: '2026-11-14T04:27:40Z'
-    notes: 83 tests pass:13 diagnosis controls,11 continuity controls and59 existing. All15 RI repository/view/fleet
+    notes: 84 tests pass:14 diagnosis controls,11 continuity controls and59 existing. All15 RI repository/view/fleet
       goldens and health JSON/Markdown fixtures verify unchanged. Synthetic schema/metadata/CLI/RI extension
       and private-byte invariance checks execute offline.
   environment_limitations: *id001
@@ -149,7 +149,7 @@ Pure library and explicit offline CLI build sealed repository/fleet views. Compo
 
 ## Validation and review evidence
 
-83 tests pass, including13 diagnosis and11 continuity controls. All15 RI goldens and health JSON/Markdown fixtures verify unchanged. Synthetic metadata schemas, state/privacy controls, no-overwrite CLI and RI extension composition execute offline; no diagnosis body is parsed.
+84 tests pass, including14 diagnosis and11 continuity controls. All15 RI goldens and health JSON/Markdown fixtures verify unchanged. Synthetic metadata schemas, state/privacy controls, no-overwrite CLI and RI extension composition execute offline; no diagnosis body is parsed.
 
 ## Blockers, risks, unknowns, and deferred work
 
