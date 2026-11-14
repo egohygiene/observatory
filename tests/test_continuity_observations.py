@@ -101,6 +101,23 @@ class ContinuityObservationTests(unittest.TestCase):
         conflicting = deepcopy(self.wrappers[0]); conflicting["evidence"]["structure"]["warning_count"] = 1
         with self.assertRaises(ValueError): self.build(self.wrappers + [conflicting])
 
+    def test_malformed_container_selection_fails_library_and_cli_without_empty_fleet(self):
+        for value in ({"repositories":[]}, "not-an-array", None):
+            with self.subTest(value=value):
+                with self.assertRaises(ValueError):
+                    build_continuity_view([],repositories=value,as_of=AS_OF)
+        for value in ({"observations":[]}, "not-an-array"):
+            with self.assertRaises(ValueError):
+                build_continuity_view(value,repositories=self.targets,as_of=AS_OF)
+        with tempfile.TemporaryDirectory() as directory:
+            targets=Path(directory)/"targets.json"; output=Path(directory)/"output"
+            args=["build","--catalog",str(CATALOG),"--catalog-url",CATALOG_URL,"--catalog-commit",CATALOG_COMMIT,
+                  "--as-of",AS_OF,"--output",str(output),"--continuity-targets",str(targets)]
+            for value in ({"repositories":[]}, "not-an-array"):
+                targets.write_text(json.dumps(value))
+                with redirect_stderr(io.StringIO()):self.assertEqual(main(args),2)
+                self.assertFalse((output/"organization-health.json").exists())
+
     def test_forged_output_and_pins_cannot_be_resealed_into_a_valid_view(self):
         model = self.build()
         model["repositories"][0]["posture"] = "valid"

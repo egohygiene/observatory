@@ -117,6 +117,7 @@ def normalize_observation(value, repository, allowed, as_of):
 def build_diagnosis_view(observations, *, repositories, as_of, admission_root=shared.DEFAULT_ROOT):
     """Build an optional derived view, without inferring truth or no-defect health."""
     shared.instant(as_of)
+    shared.require(isinstance(repositories, list) and isinstance(observations, list))
     selected, rows, allowed = shared.targets(repositories, admission_root)
     wrappers = list(observations)
     output = []

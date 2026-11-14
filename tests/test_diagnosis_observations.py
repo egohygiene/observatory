@@ -160,6 +160,19 @@ class DiagnosisObservationTests(unittest.TestCase):
             self.assertEqual(output.read_bytes(),before)
             self.assertNotIn("Traceback",stderr.getvalue())
 
+    def test_malformed_selection_containers_fail_in_library_and_cli(self):
+        for value in ({"repositories":[]}, "not-an-array", None):
+            with self.subTest(value=value):
+                with self.assertRaises(ValueError):build_diagnosis_view([],repositories=value,as_of=AS_OF)
+        for value in ({"observations":[]}, "not-an-array"):
+            with self.assertRaises(ValueError):build_diagnosis_view(value,repositories=self.targets,as_of=AS_OF)
+        with tempfile.TemporaryDirectory() as directory:
+            target=Path(directory)/"targets.json";output=Path(directory)/"output.json"
+            for value in ({"repositories":[]}, "not-an-array"):
+                target.write_text(json.dumps(value))
+                with redirect_stderr(io.StringIO()):self.assertEqual(main(["--targets",str(target),"--as-of",AS_OF,"--output",str(output)]),2)
+                self.assertFalse(output.exists())
+
 
 if __name__ == "__main__":
     unittest.main()

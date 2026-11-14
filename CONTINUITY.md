@@ -77,7 +77,7 @@ work:
     depends_on: []
 state:
   base:
-    revision: c44c56c8e1c57be3fa52bb1ba787c8b1dc9b086e
+    revision: d126ff87c68121a2eaab6fd0cb106369abf360f8
     ref: refs/heads/codex/18-continuity-observations
     verified_at: '2026-11-14T04:27:40Z'
   candidate:
@@ -91,7 +91,7 @@ state:
     default_branch_revision: 7f399a0b32a1abdd1283ef8bf06b8c3cda703636
     issue_state: open
     pull_request_state: not-applicable
-    notes: Diagnosis work stacks on continuity PR34 headc44c56c. Containing revision and pre-PR reference
+    notes: Diagnosis work stacks on continuity PR34 headd126ff8. Containing revision and pre-PR reference
       remain null intentionally; no merge/publication or policy approval is inferred.
   parallel_changes: []
 review:
@@ -103,7 +103,7 @@ review:
       python3 scripts/verify_health_fixtures.py
     outcome: passed
     observed_at: '2026-11-14T04:27:40Z'
-    notes: 84 tests pass:14 diagnosis controls,11 continuity controls and59 existing. All15 RI repository/view/fleet
+    notes: 86 tests pass:15 diagnosis controls,12 continuity controls and59 existing. All15 RI repository/view/fleet
       goldens and health JSON/Markdown fixtures verify unchanged. Synthetic schema/metadata/CLI/RI extension
       and private-byte invariance checks execute offline.
   environment_limitations: *id001
@@ -137,7 +137,7 @@ Project already-validated public diagnosis metadata and compose through existing
 
 ## State snapshot
 
-Candidate codex/16-diagnosis-observations is stacked on PR34 headc44c56c8e1c57be3fa52bb1ba787c8b1dc9b086e, based on main7f399a0b32a1abdd1283ef8bf06b8c3cda703636. Containing revision and pre-PR reference intentionally remain null.
+Candidate codex/16-diagnosis-observations is stacked on PR34 headd126ff87c68121a2eaab6fd0cb106369abf360f8, based on main7f399a0b32a1abdd1283ef8bf06b8c3cda703636. Containing revision and pre-PR reference intentionally remain null.
 
 ## Completed and material changes
 
@@ -149,7 +149,7 @@ Pure library and explicit offline CLI build sealed repository/fleet views. Compo
 
 ## Validation and review evidence
 
-84 tests pass, including14 diagnosis and11 continuity controls. All15 RI goldens and health JSON/Markdown fixtures verify unchanged. Synthetic metadata schemas, state/privacy controls, no-overwrite CLI and RI extension composition execute offline; no diagnosis body is parsed.
+86 tests pass, including15 diagnosis and12 continuity controls. All15 RI goldens and health JSON/Markdown fixtures verify unchanged. Synthetic metadata schemas, state/privacy controls, no-overwrite CLI and RI extension composition execute offline; no diagnosis body is parsed.
 
 ## Blockers, risks, unknowns, and deferred work
 
