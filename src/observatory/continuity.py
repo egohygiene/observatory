@@ -150,6 +150,7 @@ def build_continuity_view(observations, *, repositories, as_of, admission_root=s
     counts or digests. Missing observation is not a missing file observation.
     """
     shared.instant(as_of)
+    shared.require(isinstance(repositories, list) and isinstance(observations, list))
     selected, rows, allowed = shared.targets(repositories, admission_root)
     wrappers = list(observations)
     output = []

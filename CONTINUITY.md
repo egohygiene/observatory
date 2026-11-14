@@ -97,7 +97,7 @@ review:
   - command: PYTHONPATH=src python3 -m unittest discover -s tests -v
     outcome: passed
     observed_at: '2026-11-14T04:19:30Z'
-    notes: '70 tests pass, including11 new continuity controls: closed schemas, deterministic states,
+    notes: '71 tests pass, including12 new continuity controls: closed schemas, deterministic states,
       private byte invariance, revision/freshness separation, forged outputs and health CLI compatibility.'
   environment_limitations: *id001
 privacy:
@@ -142,7 +142,7 @@ Optional healthbuilder/CLI integration selects alpha.2 and binds metadata into s
 
 ## Validation and review evidence
 
-70 tests pass, including11 continuity controls and unchanged default health/intelligence golden fixtures. Synthetic input/schema/expected snapshots and health CLI composition execute offline. No real handoff content was read by the projection.
+71 tests pass, including12 continuity controls and unchanged default health/intelligence golden fixtures. Synthetic input/schema/expected snapshots and health CLI composition execute offline. No real handoff content was read by the projection.
 
 ## Blockers, risks, unknowns, and deferred work
 
