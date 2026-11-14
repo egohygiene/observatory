@@ -68,31 +68,7 @@
         ],
         "properties": {
           "repository": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "full_name",
-              "repository_id",
-              "visibility",
-              "source_url"
-            ],
-            "properties": {
-              "full_name": {
-                "type": "string",
-                "minLength": 1
-              },
-              "repository_id": {
-                "type": "integer",
-                "minimum": 1
-              },
-              "visibility": {
-                "const": "public"
-              },
-              "source_url": {
-                "type": "string",
-                "format": "uri"
-              }
-            }
+            "$ref": "#/$defs/repositoryIdentity"
           },
           "represented_commit": {
             "type": "string",
@@ -127,366 +103,7 @@
           "latest": {
             "anyOf": [
               {
-                "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "schema",
-                  "repository",
-                  "represented_commit",
-                  "observed_at",
-                  "valid_until",
-                  "source_url",
-                  "producer",
-                  "file",
-                  "structure",
-                  "pointer",
-                  "declared",
-                  "git",
-                  "live",
-                  "applicability",
-                  "observation_freshness"
-                ],
-                "properties": {
-                  "schema": {
-                    "const": "egohygiene.observatory.continuity-observation/v1"
-                  },
-                  "repository": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "represented_commit": {
-                    "type": "string",
-                    "pattern": "^[0-9a-f]{40}$"
-                  },
-                  "observed_at": {
-                    "type": "string",
-                    "format": "date-time",
-                    "pattern": "Z$"
-                  },
-                  "valid_until": {
-                    "type": "string",
-                    "format": "date-time",
-                    "pattern": "Z$"
-                  },
-                  "source_url": {
-                    "type": "string",
-                    "format": "uri"
-                  },
-                  "producer": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "id",
-                      "version"
-                    ],
-                    "properties": {
-                      "id": {
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "version": {
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    }
-                  },
-                  "file": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "presence",
-                      "exact_case",
-                      "contract",
-                      "version"
-                    ],
-                    "properties": {
-                      "presence": {
-                        "enum": [
-                          "present",
-                          "absent",
-                          "unknown"
-                        ]
-                      },
-                      "exact_case": {
-                        "anyOf": [
-                          {
-                            "type": "boolean"
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      },
-                      "contract": {
-                        "anyOf": [
-                          {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      },
-                      "version": {
-                        "anyOf": [
-                          {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "structure": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "status",
-                      "error_count",
-                      "warning_count",
-                      "validator"
-                    ],
-                    "properties": {
-                      "status": {
-                        "enum": [
-                          "valid",
-                          "invalid",
-                          "not-run",
-                          "unavailable",
-                          "unsupported"
-                        ]
-                      },
-                      "error_count": {
-                        "anyOf": [
-                          {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 1000000
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      },
-                      "warning_count": {
-                        "anyOf": [
-                          {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 1000000
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      },
-                      "validator": {
-                        "anyOf": [
-                          {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "pointer": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "presence",
-                      "managed_block_count"
-                    ],
-                    "properties": {
-                      "presence": {
-                        "enum": [
-                          "present",
-                          "absent",
-                          "unknown"
-                        ]
-                      },
-                      "managed_block_count": {
-                        "anyOf": [
-                          {
-                            "type": "integer",
-                            "minimum": 0,
-                            "maximum": 1000000
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "declared": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "status",
-                      "updated_at",
-                      "reviewed_at",
-                      "base_revision"
-                    ],
-                    "properties": {
-                      "status": {
-                        "enum": [
-                          "active",
-                          "stale",
-                          "provisional",
-                          "unknown"
-                        ]
-                      },
-                      "updated_at": {
-                        "anyOf": [
-                          {
-                            "type": "string",
-                            "format": "date-time",
-                            "pattern": "Z$"
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      },
-                      "reviewed_at": {
-                        "anyOf": [
-                          {
-                            "type": "string",
-                            "format": "date-time",
-                            "pattern": "Z$"
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      },
-                      "base_revision": {
-                        "anyOf": [
-                          {
-                            "type": "string",
-                            "pattern": "^[0-9a-f]{40}$"
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "git": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "status",
-                      "file_commit",
-                      "file_commit_at"
-                    ],
-                    "properties": {
-                      "status": {
-                        "enum": [
-                          "verified",
-                          "unverified",
-                          "unavailable"
-                        ]
-                      },
-                      "file_commit": {
-                        "anyOf": [
-                          {
-                            "type": "string",
-                            "pattern": "^[0-9a-f]{40}$"
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      },
-                      "file_commit_at": {
-                        "anyOf": [
-                          {
-                            "type": "string",
-                            "format": "date-time",
-                            "pattern": "Z$"
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "live": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "status",
-                      "verified_at"
-                    ],
-                    "properties": {
-                      "status": {
-                        "enum": [
-                          "verified",
-                          "unverified",
-                          "unavailable"
-                        ]
-                      },
-                      "verified_at": {
-                        "anyOf": [
-                          {
-                            "type": "string",
-                            "format": "date-time",
-                            "pattern": "Z$"
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "applicability": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "status",
-                      "exception_reference"
-                    ],
-                    "properties": {
-                      "status": {
-                        "enum": [
-                          "applicable",
-                          "exempt",
-                          "unknown",
-                          "unsupported"
-                        ]
-                      },
-                      "exception_reference": {
-                        "anyOf": [
-                          {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "observation_freshness": {
-                    "enum": [
-                      "fresh",
-                      "stale"
-                    ]
-                  }
-                }
+                "$ref": "#/$defs/observation"
               },
               {
                 "type": "null"
@@ -496,366 +113,7 @@
           "observations": {
             "type": "array",
             "items": {
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "schema",
-                "repository",
-                "represented_commit",
-                "observed_at",
-                "valid_until",
-                "source_url",
-                "producer",
-                "file",
-                "structure",
-                "pointer",
-                "declared",
-                "git",
-                "live",
-                "applicability",
-                "observation_freshness"
-              ],
-              "properties": {
-                "schema": {
-                  "const": "egohygiene.observatory.continuity-observation/v1"
-                },
-                "repository": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "represented_commit": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{40}$"
-                },
-                "observed_at": {
-                  "type": "string",
-                  "format": "date-time",
-                  "pattern": "Z$"
-                },
-                "valid_until": {
-                  "type": "string",
-                  "format": "date-time",
-                  "pattern": "Z$"
-                },
-                "source_url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "producer": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "id",
-                    "version"
-                  ],
-                  "properties": {
-                    "id": {
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "version": {
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  }
-                },
-                "file": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "presence",
-                    "exact_case",
-                    "contract",
-                    "version"
-                  ],
-                  "properties": {
-                    "presence": {
-                      "enum": [
-                        "present",
-                        "absent",
-                        "unknown"
-                      ]
-                    },
-                    "exact_case": {
-                      "anyOf": [
-                        {
-                          "type": "boolean"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "contract": {
-                      "anyOf": [
-                        {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "version": {
-                      "anyOf": [
-                        {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    }
-                  }
-                },
-                "structure": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "status",
-                    "error_count",
-                    "warning_count",
-                    "validator"
-                  ],
-                  "properties": {
-                    "status": {
-                      "enum": [
-                        "valid",
-                        "invalid",
-                        "not-run",
-                        "unavailable",
-                        "unsupported"
-                      ]
-                    },
-                    "error_count": {
-                      "anyOf": [
-                        {
-                          "type": "integer",
-                          "minimum": 0,
-                          "maximum": 1000000
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "warning_count": {
-                      "anyOf": [
-                        {
-                          "type": "integer",
-                          "minimum": 0,
-                          "maximum": 1000000
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "validator": {
-                      "anyOf": [
-                        {
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    }
-                  }
-                },
-                "pointer": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "presence",
-                    "managed_block_count"
-                  ],
-                  "properties": {
-                    "presence": {
-                      "enum": [
-                        "present",
-                        "absent",
-                        "unknown"
-                      ]
-                    },
-                    "managed_block_count": {
-                      "anyOf": [
-                        {
-                          "type": "integer",
-                          "minimum": 0,
-                          "maximum": 1000000
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    }
-                  }
-                },
-                "declared": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "status",
-                    "updated_at",
-                    "reviewed_at",
-                    "base_revision"
-                  ],
-                  "properties": {
-                    "status": {
-                      "enum": [
-                        "active",
-                        "stale",
-                        "provisional",
-                        "unknown"
-                      ]
-                    },
-                    "updated_at": {
-                      "anyOf": [
-                        {
-                          "type": "string",
-                          "format": "date-time",
-                          "pattern": "Z$"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "reviewed_at": {
-                      "anyOf": [
-                        {
-                          "type": "string",
-                          "format": "date-time",
-                          "pattern": "Z$"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "base_revision": {
-                      "anyOf": [
-                        {
-                          "type": "string",
-                          "pattern": "^[0-9a-f]{40}$"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    }
-                  }
-                },
-                "git": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "status",
-                    "file_commit",
-                    "file_commit_at"
-                  ],
-                  "properties": {
-                    "status": {
-                      "enum": [
-                        "verified",
-                        "unverified",
-                        "unavailable"
-                      ]
-                    },
-                    "file_commit": {
-                      "anyOf": [
-                        {
-                          "type": "string",
-                          "pattern": "^[0-9a-f]{40}$"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    },
-                    "file_commit_at": {
-                      "anyOf": [
-                        {
-                          "type": "string",
-                          "format": "date-time",
-                          "pattern": "Z$"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    }
-                  }
-                },
-                "live": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "status",
-                    "verified_at"
-                  ],
-                  "properties": {
-                    "status": {
-                      "enum": [
-                        "verified",
-                        "unverified",
-                        "unavailable"
-                      ]
-                    },
-                    "verified_at": {
-                      "anyOf": [
-                        {
-                          "type": "string",
-                          "format": "date-time",
-                          "pattern": "Z$"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    }
-                  }
-                },
-                "applicability": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "status",
-                    "exception_reference"
-                  ],
-                  "properties": {
-                    "status": {
-                      "enum": [
-                        "applicable",
-                        "exempt",
-                        "unknown",
-                        "unsupported"
-                      ]
-                    },
-                    "exception_reference": {
-                      "anyOf": [
-                        {
-                          "type": "string",
-                          "format": "uri"
-                        },
-                        {
-                          "type": "null"
-                        }
-                      ]
-                    }
-                  }
-                },
-                "observation_freshness": {
-                  "enum": [
-                    "fresh",
-                    "stale"
-                  ]
-                }
-              }
+              "$ref": "#/$defs/observation"
             }
           }
         }
@@ -867,5 +125,396 @@
     }
   },
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.egohygiene.io/observatory/fleet-continuity.v1.schema.json"
+  "$id": "https://schemas.egohygiene.io/observatory/fleet-continuity.v1.schema.json",
+  "$defs": {
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "repository",
+        "represented_commit",
+        "observed_at",
+        "valid_until",
+        "source_url",
+        "producer",
+        "file",
+        "structure",
+        "pointer",
+        "declared",
+        "git",
+        "live",
+        "applicability",
+        "observation_freshness"
+      ],
+      "properties": {
+        "schema": {
+          "const": "egohygiene.observatory.continuity-observation/v1"
+        },
+        "repository": {
+          "type": "string",
+          "minLength": 1
+        },
+        "represented_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "valid_until": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "producer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "file": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "presence",
+            "exact_case",
+            "contract",
+            "version"
+          ],
+          "properties": {
+            "presence": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "exact_case": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "contract": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "version": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "structure": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "error_count",
+            "warning_count",
+            "validator"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "valid",
+                "invalid",
+                "not-run",
+                "unavailable",
+                "unsupported"
+              ]
+            },
+            "error_count": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "warning_count": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "validator": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "pointer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "presence",
+            "managed_block_count"
+          ],
+          "properties": {
+            "presence": {
+              "enum": [
+                "present",
+                "absent",
+                "unknown"
+              ]
+            },
+            "managed_block_count": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "declared": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "updated_at",
+            "reviewed_at",
+            "base_revision"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "active",
+                "stale",
+                "provisional",
+                "unknown"
+              ]
+            },
+            "updated_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "Z$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "reviewed_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "Z$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "base_revision": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{40}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "git": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "file_commit",
+            "file_commit_at"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "verified",
+                "unverified",
+                "unavailable"
+              ]
+            },
+            "file_commit": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{40}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "file_commit_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "Z$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "live": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "verified_at"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "verified",
+                "unverified",
+                "unavailable"
+              ]
+            },
+            "verified_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "Z$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "applicability": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "exception_reference"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "applicable",
+                "exempt",
+                "unknown",
+                "unsupported"
+              ]
+            },
+            "exception_reference": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "observation_freshness": {
+          "enum": [
+            "fresh",
+            "stale"
+          ]
+        }
+      }
+    },
+    "repositoryIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "full_name",
+        "repository_id",
+        "visibility",
+        "source_url"
+      ],
+      "properties": {
+        "full_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repository_id": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "visibility": {
+          "const": "public"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    }
+  }
 }
