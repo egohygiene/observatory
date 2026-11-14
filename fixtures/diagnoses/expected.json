@@ -1,0 +1,459 @@
+{
+  "admission": {
+    "artifact_path": "catalog/public-repositories.json",
+    "artifact_sha256": "af9c7186ded0bb57b18741eaa5905314b96d6adb03736946c868e0fc4aa50b26",
+    "helper_sha256": "fd3bb2099f2b9040502f19a8e582e4c4100653bd6cf2ea640cc36338dcfc4273",
+    "observed_at": "2026-11-09T14:06:57Z",
+    "owner": "egohygiene/hygiene",
+    "revision": "49639c1845cdfd08fbd5a768261a8b3cf515f80f",
+    "schema": "egohygiene.relay.public-catalog-admission/v1",
+    "schema_sha256": "eeb88b6a99de987500b946bd71c987e1fb7d0bd7350f466885c11ac7603c96d8",
+    "selected_sha256": "29a20760fe8110cf6248c9135ebb539a1477ad474d75ae5642b6e09567fc0228"
+  },
+  "as_of": "2026-11-14T04:00:00Z",
+  "contract_version": "1.0.0-alpha.1",
+  "digest": "a1442686cd2d1ccec823b29c8559e9e75e1a38784ae80e6c174e3234a5d9adc7",
+  "owner_contract": {
+    "contract": "aether.diagnosis-record/v1",
+    "lifecycle": "draft",
+    "path": "catalog/schemas/aether.diagnosis-record.v1.schema.json",
+    "repository": "egohygiene/aether",
+    "revision": "e9aa58bb70c8b29179329c1c989aed38c620f7fd",
+    "sha256": "e84bb047a51b398e94847b291a9dfefb1aaa38d0f8fefda5764a2f233080abf8",
+    "version": "1.0.0"
+  },
+  "policy": {
+    "applicability": "source-declared",
+    "enforcement": "none",
+    "reference": "https://github.com/egohygiene/hygiene/issues/41",
+    "status": "unavailable"
+  },
+  "repositories": [
+    {
+      "applicability": "unknown",
+      "collection": "unavailable",
+      "collection_revision": "unavailable",
+      "edges": [],
+      "nodes": [],
+      "observation_freshness": "unknown",
+      "observations": [],
+      "public_record_count": 0,
+      "repository": {
+        "full_name": "egohygiene/mantle",
+        "repository_id": 1320127077,
+        "source_url": "https://github.com/egohygiene/mantle",
+        "visibility": "public"
+      },
+      "represented_commit": "cccccccccccccccccccccccccccccccccccccccc"
+    },
+    {
+      "applicability": "optional",
+      "collection": "partial",
+      "collection_revision": "matched",
+      "edges": [
+        {
+          "assertion": "source-declared",
+          "relation": "issue",
+          "source": "diagnosis:egohygiene/observatory:diag-20261114-synthetic-open@cccccccccccccccccccccccccccccccccccccccc",
+          "target": "https://github.com/egohygiene/observatory/issues/16"
+        },
+        {
+          "assertion": "source-declared",
+          "relation": "issue",
+          "source": "diagnosis:egohygiene/observatory:diag-20261114-synthetic-other-artifact@bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "target": "https://github.com/egohygiene/observatory/issues/16"
+        },
+        {
+          "assertion": "source-declared",
+          "relation": "superseded-by",
+          "source": "diagnosis:egohygiene/observatory:diag-20261114-synthetic-superseded@cccccccccccccccccccccccccccccccccccccccc",
+          "target": "https://github.com/egohygiene/observatory/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/.github/diagnostics/records/diag-20261114-synthetic-open.md"
+        }
+      ],
+      "nodes": [
+        {
+          "content_integrity": "unverified-source-claim",
+          "key": "diagnosis:egohygiene/observatory:diag-20261114-synthetic-open@cccccccccccccccccccccccccccccccccccccccc",
+          "metadata": {
+            "canonical_url": "https://github.com/egohygiene/observatory/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/.github/diagnostics/records/diag-20261114-synthetic-open.md",
+            "conformance": "valid",
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "context": {
+              "artifact_version": "fixture-v1",
+              "component": "synthetic-parser",
+              "correlation_ids": [
+                "fixture-run-1"
+              ],
+              "environment": "offline-fixture"
+            },
+            "contract": {
+              "contract": "aether.diagnosis-record/v1",
+              "lifecycle": "draft",
+              "path": "catalog/schemas/aether.diagnosis-record.v1.schema.json",
+              "repository": "egohygiene/aether",
+              "revision": "e9aa58bb70c8b29179329c1c989aed38c620f7fd",
+              "sha256": "e84bb047a51b398e94847b291a9dfefb1aaa38d0f8fefda5764a2f233080abf8",
+              "version": "1.0.0"
+            },
+            "hypothesis_counts": {
+              "confirmed": 0,
+              "eliminated": 0,
+              "open": 1,
+              "supported": 1
+            },
+            "id": "diag-20261114-synthetic-open",
+            "publication": {
+              "reference": "https://github.com/egohygiene/observatory/issues/16",
+              "scope": "allowlisted-metadata",
+              "status": "approved"
+            },
+            "redactions": "none",
+            "related": [
+              {
+                "relation": "issue",
+                "target": "https://github.com/egohygiene/observatory/issues/16"
+              }
+            ],
+            "remediation": "not-authorized",
+            "represented_commit": "cccccccccccccccccccccccccccccccccccccccc",
+            "reproduction": "reproduced",
+            "root_cause": "suspected",
+            "sensitivity": "public",
+            "status": "open",
+            "updated_at": "2026-11-14T02:00:00Z",
+            "validation": "blocked"
+          },
+          "publication_authority": "source-declared-not-verified",
+          "repository": "egohygiene/observatory",
+          "revision_status": "matched",
+          "stable_id": "diagnosis:egohygiene/observatory:diag-20261114-synthetic-open"
+        },
+        {
+          "content_integrity": "unverified-source-claim",
+          "key": "diagnosis:egohygiene/observatory:diag-20261114-synthetic-other-artifact@bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "metadata": {
+            "canonical_url": "https://github.com/egohygiene/observatory/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/.github/diagnostics/records/diag-20261114-synthetic-other-artifact.md",
+            "conformance": "valid",
+            "content_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "context": {
+              "artifact_version": "fixture-v1",
+              "component": "synthetic-parser",
+              "correlation_ids": [
+                "fixture-run-1"
+              ],
+              "environment": "offline-fixture"
+            },
+            "contract": {
+              "contract": "aether.diagnosis-record/v1",
+              "lifecycle": "draft",
+              "path": "catalog/schemas/aether.diagnosis-record.v1.schema.json",
+              "repository": "egohygiene/aether",
+              "revision": "e9aa58bb70c8b29179329c1c989aed38c620f7fd",
+              "sha256": "e84bb047a51b398e94847b291a9dfefb1aaa38d0f8fefda5764a2f233080abf8",
+              "version": "1.0.0"
+            },
+            "hypothesis_counts": {
+              "confirmed": 0,
+              "eliminated": 0,
+              "open": 1,
+              "supported": 1
+            },
+            "id": "diag-20261114-synthetic-other-artifact",
+            "publication": {
+              "reference": "https://github.com/egohygiene/observatory/issues/16",
+              "scope": "allowlisted-metadata",
+              "status": "approved"
+            },
+            "redactions": "none",
+            "related": [
+              {
+                "relation": "issue",
+                "target": "https://github.com/egohygiene/observatory/issues/16"
+              }
+            ],
+            "remediation": "not-authorized",
+            "represented_commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "reproduction": "reproduced",
+            "root_cause": "suspected",
+            "sensitivity": "public",
+            "status": "monitoring",
+            "updated_at": "2026-11-14T02:00:00Z",
+            "validation": "partial"
+          },
+          "publication_authority": "source-declared-not-verified",
+          "repository": "egohygiene/observatory",
+          "revision_status": "different",
+          "stable_id": "diagnosis:egohygiene/observatory:diag-20261114-synthetic-other-artifact"
+        },
+        {
+          "content_integrity": "unverified-source-claim",
+          "key": "diagnosis:egohygiene/observatory:diag-20261114-synthetic-superseded@cccccccccccccccccccccccccccccccccccccccc",
+          "metadata": {
+            "canonical_url": "https://github.com/egohygiene/observatory/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/.github/diagnostics/records/diag-20261114-synthetic-superseded.md",
+            "conformance": "valid",
+            "content_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "context": {
+              "artifact_version": "fixture-v1",
+              "component": "synthetic-parser",
+              "correlation_ids": [
+                "fixture-run-1"
+              ],
+              "environment": "offline-fixture"
+            },
+            "contract": {
+              "contract": "aether.diagnosis-record/v1",
+              "lifecycle": "draft",
+              "path": "catalog/schemas/aether.diagnosis-record.v1.schema.json",
+              "repository": "egohygiene/aether",
+              "revision": "e9aa58bb70c8b29179329c1c989aed38c620f7fd",
+              "sha256": "e84bb047a51b398e94847b291a9dfefb1aaa38d0f8fefda5764a2f233080abf8",
+              "version": "1.0.0"
+            },
+            "hypothesis_counts": {
+              "confirmed": 1,
+              "eliminated": 0,
+              "open": 1,
+              "supported": 1
+            },
+            "id": "diag-20261114-synthetic-superseded",
+            "publication": {
+              "reference": "https://github.com/egohygiene/observatory/issues/16",
+              "scope": "allowlisted-metadata",
+              "status": "approved"
+            },
+            "redactions": "none",
+            "related": [
+              {
+                "relation": "superseded-by",
+                "target": "https://github.com/egohygiene/observatory/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/.github/diagnostics/records/diag-20261114-synthetic-open.md"
+              }
+            ],
+            "remediation": "implemented",
+            "represented_commit": "cccccccccccccccccccccccccccccccccccccccc",
+            "reproduction": "reproduced",
+            "root_cause": "confirmed",
+            "sensitivity": "public",
+            "status": "superseded",
+            "updated_at": "2026-11-14T02:00:00Z",
+            "validation": "failed"
+          },
+          "publication_authority": "source-declared-not-verified",
+          "repository": "egohygiene/observatory",
+          "revision_status": "matched",
+          "stable_id": "diagnosis:egohygiene/observatory:diag-20261114-synthetic-superseded"
+        }
+      ],
+      "observation_freshness": "fresh",
+      "observations": [
+        {
+          "applicability": "optional",
+          "collection": "partial",
+          "observation_freshness": "fresh",
+          "observed_at": "2026-11-14T03:00:00Z",
+          "producer": {
+            "id": "synthetic-existing-validator-projection",
+            "version": "1.0.0"
+          },
+          "records": [
+            {
+              "canonical_url": "https://github.com/egohygiene/observatory/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/.github/diagnostics/records/diag-20261114-synthetic-open.md",
+              "conformance": "valid",
+              "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "context": {
+                "artifact_version": "fixture-v1",
+                "component": "synthetic-parser",
+                "correlation_ids": [
+                  "fixture-run-1"
+                ],
+                "environment": "offline-fixture"
+              },
+              "contract": {
+                "contract": "aether.diagnosis-record/v1",
+                "lifecycle": "draft",
+                "path": "catalog/schemas/aether.diagnosis-record.v1.schema.json",
+                "repository": "egohygiene/aether",
+                "revision": "e9aa58bb70c8b29179329c1c989aed38c620f7fd",
+                "sha256": "e84bb047a51b398e94847b291a9dfefb1aaa38d0f8fefda5764a2f233080abf8",
+                "version": "1.0.0"
+              },
+              "hypothesis_counts": {
+                "confirmed": 0,
+                "eliminated": 0,
+                "open": 1,
+                "supported": 1
+              },
+              "id": "diag-20261114-synthetic-open",
+              "publication": {
+                "reference": "https://github.com/egohygiene/observatory/issues/16",
+                "scope": "allowlisted-metadata",
+                "status": "approved"
+              },
+              "redactions": "none",
+              "related": [
+                {
+                  "relation": "issue",
+                  "target": "https://github.com/egohygiene/observatory/issues/16"
+                }
+              ],
+              "remediation": "not-authorized",
+              "represented_commit": "cccccccccccccccccccccccccccccccccccccccc",
+              "reproduction": "reproduced",
+              "root_cause": "suspected",
+              "sensitivity": "public",
+              "status": "open",
+              "updated_at": "2026-11-14T02:00:00Z",
+              "validation": "blocked"
+            },
+            {
+              "canonical_url": "https://github.com/egohygiene/observatory/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/.github/diagnostics/records/diag-20261114-synthetic-other-artifact.md",
+              "conformance": "valid",
+              "content_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+              "context": {
+                "artifact_version": "fixture-v1",
+                "component": "synthetic-parser",
+                "correlation_ids": [
+                  "fixture-run-1"
+                ],
+                "environment": "offline-fixture"
+              },
+              "contract": {
+                "contract": "aether.diagnosis-record/v1",
+                "lifecycle": "draft",
+                "path": "catalog/schemas/aether.diagnosis-record.v1.schema.json",
+                "repository": "egohygiene/aether",
+                "revision": "e9aa58bb70c8b29179329c1c989aed38c620f7fd",
+                "sha256": "e84bb047a51b398e94847b291a9dfefb1aaa38d0f8fefda5764a2f233080abf8",
+                "version": "1.0.0"
+              },
+              "hypothesis_counts": {
+                "confirmed": 0,
+                "eliminated": 0,
+                "open": 1,
+                "supported": 1
+              },
+              "id": "diag-20261114-synthetic-other-artifact",
+              "publication": {
+                "reference": "https://github.com/egohygiene/observatory/issues/16",
+                "scope": "allowlisted-metadata",
+                "status": "approved"
+              },
+              "redactions": "none",
+              "related": [
+                {
+                  "relation": "issue",
+                  "target": "https://github.com/egohygiene/observatory/issues/16"
+                }
+              ],
+              "remediation": "not-authorized",
+              "represented_commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "reproduction": "reproduced",
+              "root_cause": "suspected",
+              "sensitivity": "public",
+              "status": "monitoring",
+              "updated_at": "2026-11-14T02:00:00Z",
+              "validation": "partial"
+            },
+            {
+              "canonical_url": "https://github.com/egohygiene/observatory/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/.github/diagnostics/records/diag-20261114-synthetic-superseded.md",
+              "conformance": "valid",
+              "content_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "context": {
+                "artifact_version": "fixture-v1",
+                "component": "synthetic-parser",
+                "correlation_ids": [
+                  "fixture-run-1"
+                ],
+                "environment": "offline-fixture"
+              },
+              "contract": {
+                "contract": "aether.diagnosis-record/v1",
+                "lifecycle": "draft",
+                "path": "catalog/schemas/aether.diagnosis-record.v1.schema.json",
+                "repository": "egohygiene/aether",
+                "revision": "e9aa58bb70c8b29179329c1c989aed38c620f7fd",
+                "sha256": "e84bb047a51b398e94847b291a9dfefb1aaa38d0f8fefda5764a2f233080abf8",
+                "version": "1.0.0"
+              },
+              "hypothesis_counts": {
+                "confirmed": 1,
+                "eliminated": 0,
+                "open": 1,
+                "supported": 1
+              },
+              "id": "diag-20261114-synthetic-superseded",
+              "publication": {
+                "reference": "https://github.com/egohygiene/observatory/issues/16",
+                "scope": "allowlisted-metadata",
+                "status": "approved"
+              },
+              "redactions": "none",
+              "related": [
+                {
+                  "relation": "superseded-by",
+                  "target": "https://github.com/egohygiene/observatory/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/.github/diagnostics/records/diag-20261114-synthetic-open.md"
+                }
+              ],
+              "remediation": "implemented",
+              "represented_commit": "cccccccccccccccccccccccccccccccccccccccc",
+              "reproduction": "reproduced",
+              "root_cause": "confirmed",
+              "sensitivity": "public",
+              "status": "superseded",
+              "updated_at": "2026-11-14T02:00:00Z",
+              "validation": "failed"
+            }
+          ],
+          "repository": "egohygiene/observatory",
+          "represented_commit": "cccccccccccccccccccccccccccccccccccccccc",
+          "schema": "egohygiene.observatory.diagnosis-observations/v1",
+          "source_url": "https://github.com/egohygiene/observatory/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/public-diagnosis-projection.json",
+          "valid_until": "2026-11-15T03:00:00Z"
+        }
+      ],
+      "public_record_count": 3,
+      "repository": {
+        "full_name": "egohygiene/observatory",
+        "repository_id": 1325309565,
+        "source_url": "https://github.com/egohygiene/observatory",
+        "visibility": "public"
+      },
+      "represented_commit": "cccccccccccccccccccccccccccccccccccccccc"
+    },
+    {
+      "applicability": "unknown",
+      "collection": "withheld",
+      "collection_revision": "matched",
+      "edges": [],
+      "nodes": [],
+      "observation_freshness": "fresh",
+      "observations": [
+        {
+          "applicability": "unknown",
+          "collection": "withheld",
+          "observation_freshness": "fresh",
+          "observed_at": "2026-11-14T03:00:00Z",
+          "producer": {
+            "id": "synthetic-existing-validator-projection",
+            "version": "1.0.0"
+          },
+          "records": [],
+          "repository": "egohygiene/relay",
+          "represented_commit": "cccccccccccccccccccccccccccccccccccccccc",
+          "schema": "egohygiene.observatory.diagnosis-observations/v1",
+          "source_url": "https://github.com/egohygiene/relay/issues/29",
+          "valid_until": "2026-11-15T03:00:00Z"
+        }
+      ],
+      "public_record_count": 0,
+      "repository": {
+        "full_name": "egohygiene/relay",
+        "repository_id": 1321918958,
+        "source_url": "https://github.com/egohygiene/relay",
+        "visibility": "public"
+      },
+      "represented_commit": "cccccccccccccccccccccccccccccccccccccccc"
+    }
+  ],
+  "schema": "egohygiene.observatory.fleet-diagnoses/v1",
+  "visibility": "public"
+}
