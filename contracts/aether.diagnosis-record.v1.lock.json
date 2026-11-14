@@ -1,0 +1,9 @@
+{
+  "contract": "aether.diagnosis-record/v1",
+  "lifecycle": "draft",
+  "path": "catalog/schemas/aether.diagnosis-record.v1.schema.json",
+  "repository": "egohygiene/aether",
+  "revision": "e9aa58bb70c8b29179329c1c989aed38c620f7fd",
+  "sha256": "e84bb047a51b398e94847b291a9dfefb1aaa38d0f8fefda5764a2f233080abf8",
+  "version": "1.0.0"
+}

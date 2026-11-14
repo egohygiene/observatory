@@ -71,3 +71,6 @@ __all__.append("build_repository_conformance")
 
 from .continuity import build_continuity_view
 __all__.append("build_continuity_view")
+
+from .diagnoses import build_diagnosis_view, attach_to_snapshot as attach_diagnosis_view
+__all__.extend(["build_diagnosis_view", "attach_diagnosis_view"])

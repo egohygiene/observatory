@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "repository",
+    "represented_commit",
+    "observed_at",
+    "valid_until",
+    "source_url",
+    "producer",
+    "collection",
+    "applicability",
+    "records"
+  ],
+  "properties": {
+    "schema": {
+      "const": "egohygiene.observatory.diagnosis-observations/v1"
+    },
+    "repository": {
+      "type": "string",
+      "minLength": 1
+    },
+    "represented_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "valid_until": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "collection": {
+      "enum": [
+        "observed",
+        "observed-empty",
+        "partial",
+        "unavailable",
+        "withheld",
+        "unsupported",
+        "not-applicable",
+        "unknown"
+      ]
+    },
+    "applicability": {
+      "enum": [
+        "optional",
+        "recommended",
+        "required",
+        "not-applicable",
+        "unknown",
+        "blocked"
+      ]
+    },
+    "records": {
+      "type": "array"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.egohygiene.io/observatory/diagnosis-observations.v1.schema.json",
+  "description": "Transport wrapper; admitted public metadata records are validated by the closed projection contract. Restricted/withheld content is never inspected."
+}

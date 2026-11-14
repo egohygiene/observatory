@@ -1,0 +1,611 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "contract_version",
+    "visibility",
+    "as_of",
+    "admission",
+    "owner_contract",
+    "policy",
+    "repositories",
+    "digest"
+  ],
+  "properties": {
+    "schema": {
+      "const": "egohygiene.observatory.fleet-diagnoses/v1"
+    },
+    "contract_version": {
+      "const": "1.0.0-alpha.1"
+    },
+    "visibility": {
+      "const": "public"
+    },
+    "as_of": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "admission": {
+      "type": "object"
+    },
+    "owner_contract": {
+      "const": {
+        "repository": "egohygiene/aether",
+        "revision": "e9aa58bb70c8b29179329c1c989aed38c620f7fd",
+        "path": "catalog/schemas/aether.diagnosis-record.v1.schema.json",
+        "sha256": "e84bb047a51b398e94847b291a9dfefb1aaa38d0f8fefda5764a2f233080abf8",
+        "contract": "aether.diagnosis-record/v1",
+        "version": "1.0.0",
+        "lifecycle": "draft"
+      }
+    },
+    "policy": {
+      "const": {
+        "status": "unavailable",
+        "reference": "https://github.com/egohygiene/hygiene/issues/41",
+        "applicability": "source-declared",
+        "enforcement": "none"
+      }
+    },
+    "repositories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "repository",
+          "represented_commit",
+          "collection",
+          "applicability",
+          "observation_freshness",
+          "collection_revision",
+          "public_record_count",
+          "nodes",
+          "edges",
+          "observations"
+        ],
+        "properties": {
+          "repository": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "full_name",
+              "repository_id",
+              "visibility",
+              "source_url"
+            ],
+            "properties": {
+              "full_name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "repository_id": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "visibility": {
+                "const": "public"
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "represented_commit": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          },
+          "collection": {
+            "enum": [
+              "observed",
+              "observed-empty",
+              "partial",
+              "unavailable",
+              "withheld",
+              "unsupported",
+              "not-applicable",
+              "unknown"
+            ]
+          },
+          "applicability": {
+            "enum": [
+              "optional",
+              "recommended",
+              "required",
+              "not-applicable",
+              "unknown",
+              "blocked"
+            ]
+          },
+          "observation_freshness": {
+            "enum": [
+              "fresh",
+              "stale",
+              "unknown"
+            ]
+          },
+          "collection_revision": {
+            "enum": [
+              "matched",
+              "other-revision-only",
+              "unavailable"
+            ]
+          },
+          "public_record_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "nodes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "key",
+                "stable_id",
+                "repository",
+                "metadata",
+                "revision_status",
+                "content_integrity",
+                "publication_authority"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "stable_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "repository": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "metadata": {
+                  "$ref": "#/$defs/record"
+                },
+                "revision_status": {
+                  "enum": [
+                    "matched",
+                    "different",
+                    "unknown"
+                  ]
+                },
+                "content_integrity": {
+                  "const": "unverified-source-claim"
+                },
+                "publication_authority": {
+                  "const": "source-declared-not-verified"
+                }
+              }
+            }
+          },
+          "edges": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "source",
+                "relation",
+                "target",
+                "assertion"
+              ],
+              "properties": {
+                "source": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "relation": {
+                  "enum": [
+                    "issue",
+                    "pull-request",
+                    "commit",
+                    "adr",
+                    "incident",
+                    "related-diagnosis",
+                    "supersedes",
+                    "superseded-by"
+                  ]
+                },
+                "target": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "assertion": {
+                  "const": "source-declared"
+                }
+              }
+            }
+          },
+          "observations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/observation"
+            }
+          }
+        }
+      }
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.egohygiene.io/observatory/fleet-diagnoses.v1.schema.json",
+  "$defs": {
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "canonical_url",
+        "content_sha256",
+        "contract",
+        "represented_commit",
+        "context",
+        "status",
+        "reproduction",
+        "root_cause",
+        "remediation",
+        "validation",
+        "hypothesis_counts",
+        "sensitivity",
+        "redactions",
+        "publication",
+        "conformance",
+        "updated_at",
+        "related"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^diag-[0-9]{8}-[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "canonical_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "contract": {
+          "const": {
+            "repository": "egohygiene/aether",
+            "revision": "e9aa58bb70c8b29179329c1c989aed38c620f7fd",
+            "path": "catalog/schemas/aether.diagnosis-record.v1.schema.json",
+            "sha256": "e84bb047a51b398e94847b291a9dfefb1aaa38d0f8fefda5764a2f233080abf8",
+            "contract": "aether.diagnosis-record/v1",
+            "version": "1.0.0",
+            "lifecycle": "draft"
+          }
+        },
+        "represented_commit": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{40}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "context": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "component",
+            "environment",
+            "artifact_version",
+            "correlation_ids"
+          ],
+          "properties": {
+            "component": {
+              "type": "string",
+              "minLength": 1
+            },
+            "environment": {
+              "type": "string",
+              "minLength": 1
+            },
+            "artifact_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "correlation_ids": {
+              "type": "array",
+              "uniqueItems": true,
+              "maxItems": 128,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "status": {
+          "enum": [
+            "open",
+            "monitoring",
+            "resolved",
+            "closed",
+            "superseded"
+          ]
+        },
+        "reproduction": {
+          "enum": [
+            "not-attempted",
+            "blocked",
+            "not-reproduced",
+            "reproduced",
+            "intermittent"
+          ]
+        },
+        "root_cause": {
+          "enum": [
+            "unknown",
+            "suspected",
+            "confirmed"
+          ]
+        },
+        "remediation": {
+          "enum": [
+            "not-authorized",
+            "not-planned",
+            "planned",
+            "in-progress",
+            "implemented",
+            "reverted",
+            "not-applicable"
+          ]
+        },
+        "validation": {
+          "enum": [
+            "not-run",
+            "partial",
+            "passed",
+            "failed",
+            "blocked"
+          ]
+        },
+        "hypothesis_counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "open",
+            "supported",
+            "confirmed",
+            "eliminated"
+          ],
+          "properties": {
+            "open": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "supported": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "confirmed": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "eliminated": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "sensitivity": {
+          "const": "public"
+        },
+        "redactions": {
+          "enum": [
+            "none",
+            "present"
+          ]
+        },
+        "publication": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "scope",
+            "reference"
+          ],
+          "properties": {
+            "status": {
+              "const": "approved"
+            },
+            "scope": {
+              "const": "allowlisted-metadata"
+            },
+            "reference": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        },
+        "conformance": {
+          "enum": [
+            "valid",
+            "invalid",
+            "unknown",
+            "unavailable",
+            "unsupported"
+          ]
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "related": {
+          "type": "array",
+          "maxItems": 128,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "relation",
+              "target"
+            ],
+            "properties": {
+              "relation": {
+                "enum": [
+                  "issue",
+                  "pull-request",
+                  "commit",
+                  "adr",
+                  "incident",
+                  "related-diagnosis",
+                  "supersedes",
+                  "superseded-by"
+                ]
+              },
+              "target": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        }
+      }
+    },
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "repository",
+        "represented_commit",
+        "observed_at",
+        "valid_until",
+        "source_url",
+        "producer",
+        "collection",
+        "applicability",
+        "records",
+        "observation_freshness"
+      ],
+      "properties": {
+        "schema": {
+          "const": "egohygiene.observatory.diagnosis-observations/v1"
+        },
+        "repository": {
+          "type": "string",
+          "minLength": 1
+        },
+        "represented_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "valid_until": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "producer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "collection": {
+          "enum": [
+            "observed",
+            "observed-empty",
+            "partial",
+            "unavailable",
+            "withheld",
+            "unsupported",
+            "not-applicable",
+            "unknown"
+          ]
+        },
+        "applicability": {
+          "enum": [
+            "optional",
+            "recommended",
+            "required",
+            "not-applicable",
+            "unknown",
+            "blocked"
+          ]
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/record"
+          }
+        },
+        "observation_freshness": {
+          "enum": [
+            "fresh",
+            "stale"
+          ]
+        }
+      }
+    }
+  }
+}
