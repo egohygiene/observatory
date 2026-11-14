@@ -7,26 +7,30 @@ repository:
   continuity_path: CONTINUITY.md
 document:
   status: active
-  updated_at: '2026-11-10T02:26:45Z'
+  updated_at: '2026-11-14T04:19:30Z'
   max_bytes: 16384
   max_lines: 240
   stale_reason: null
   superseded_by: null
 scope:
-  purpose: Project selected public audit campaigns and compare exact fleet evidence without inferring resolution,
-    common causes or approval.
+  purpose: Add optional public continuity-observation metadata to organization health without ingesting
+    handoff prose or making applicability, semantic truth or enforcement claims.
   includes:
-  - A new closed campaign projection consumes exact Reflector 39f7e02 transport metadata, selecting admitted
-    public rows before payload validation, counts or hashes. Whole manifest checksums stay out of public projections;
-    global statuses remain explicitly declared source claims.
-  - Versioned categorical pattern and structural fleet comparison queries preserve exact finding keys, input
-    digests, revision boundaries and authored history. Before-only records do not become resolved, and shared
-    categories do not establish common causes.
-  - Complete case-insensitive GitHub namespace tokens in the shared public preflight prevent underscore/dot-prefix
-    matches from admitting unlisted sources. Existing Audit/Sanity/core schemas remain compatible; consumers
-    must repin the stronger common helper.
-  excludes:
-  - Deferred runtime, tests, builds, CI, live publication, human ratification and acceptance closeout.
+  - Closed metadata observations preserve exact-case presence, contract/version, structural validator
+    counts, managed pointer uniqueness, declared freshness, Git claims and live-verification state independently.
+  - Pinned public admission precedes payload validation, identities, counts and digests; private/unadmitted
+    wrappers cannot influence public bytes.
+  - Optional healthbuilder/CLI integration selects alpha.2 and binds metadata into snapshot identity;
+    default alpha.1 bytes and core conformance/maturity rollups remain unchanged.
+  excludes: &id001
+  - Aether continuity remains draft1.0.0 and Hygiene policy proposed1.0.0-alpha.1 in observe mode. The
+    projection does not ratify, enforce or repair handoffs.
+  - The September8 historical baseline is not a current fleet count. Synthetic fixtures and explicit
+    selected revisions prove reproducibility; no live fleet scan, private data, provider, model or hosted
+    publication was performed.
+  - Earlier Audit/Sanity/campaign source checkpoints and their model/provider/runtime qualification
+    remain separately owned. This checkpoint executes the existing unittest suite plus new continuity
+    controls, not those deferred acceptance campaigns.
   precedence:
   - user-and-runtime-instructions
   - scoped-repository-instructions
@@ -34,82 +38,68 @@ scope:
   - canonical-repository-sources
   - continuity-checkpoint
   canonical_sources:
-  - src/observatory/audits.py
-  - src/observatory/audits_contract.py
-  - src/observatory/public_reviews.py
-  - schemas/repository-audits.v1.schema.json
-  - schemas/fleet-audits.v1.schema.json
-  - docs/repository-audits-query.md
-  - src/observatory/audit_campaigns.py
-  - src/observatory/audits_queries.py
-  - src/observatory/audit_campaigns_cli.py
-  - schemas/fleet-audit-campaigns.v1.schema.json
-  - schemas/fleet-audits-comparison.v1.schema.json
-  - docs/audit-campaigns-and-queries.md
-  - https://github.com/egohygiene/observatory/issues/20
+  - src/observatory/continuity.py
+  - src/observatory/health.py
+  - src/observatory/health_cli.py
+  - schemas/continuity-observation.v1.schema.json
+  - schemas/fleet-continuity.v1.schema.json
+  - schemas/organization-health.v1.schema.json
+  - tests/test_continuity_observations.py
+  - docs/continuity-observations.md
+  - https://github.com/egohygiene/observatory/issues/18
 work:
-  objective: Project selected public audit campaigns and compare exact fleet evidence without inferring resolution,
-    common causes or approval.
+  objective: Add optional public continuity-observation metadata to organization health without ingesting
+    handoff prose or making applicability, semantic truth or enforcement claims.
   success_conditions:
-  - Immutable owner inputs and public source admission precede public identities, counts and digests.
-  - Missing, partial and unverified evidence remains explicit and cannot establish human approval.
-  - Existing publication, source ownership and historical recovery are preserved.
+  - Public metadata projections never contain handoff prose or excluded private identities/counts.
+  - Structural posture, observation expiry, declaration, represented revision, Git and live claims remain
+    separate.
+  - Existing default snapshots remain compatible; opt-in schema version and synthetic state/negative
+    controls pass.
   active_issue:
     provider: github
-    id: egohygiene/observatory#20
-    url: https://github.com/egohygiene/observatory/issues/20
+    id: egohygiene/observatory#18
+    url: https://github.com/egohygiene/observatory/issues/18
   next:
     kind: action
-    id: consume-audits-and-sanity-queries
-    description: Repin Relay Audit/Sanity capsules to the complete namespace preflight and finish the Reflector
-      executor merge. Then refresh actual public source heads and perform separately qualified audit/provider/publication
-      work.
+    id: review-continuity-metadata-projection
+    description: Review the optional metadata checkpoint and continue the independent diagnosis projection;
+      retain policy/live-fleet acceptance as separate evidence.
     readiness: ready
     references:
-    - https://github.com/egohygiene/observatory/issues/20
+    - https://github.com/egohygiene/observatory/issues/18
+    - https://github.com/egohygiene/observatory/issues/16
     depends_on: []
 state:
   base:
-    revision: 6d6f67cb67cd68a5ac61e3c4df05bc9d1fb36dde
+    revision: 7f399a0b32a1abdd1283ef8bf06b8c3cda703636
     ref: refs/heads/main
-    verified_at: '2026-11-10T02:26:45Z'
+    verified_at: '2026-11-14T04:19:30Z'
   candidate:
-    branch: codex/intelligence-audit-campaign-queries
+    branch: codex/18-continuity-observations
     revision: null
     pull_request: null
     handoff_state: ready-for-review
   live:
     status: verified
-    observed_at: '2026-11-10T02:26:45Z'
-    default_branch_revision: 6d6f67cb67cd68a5ac61e3c4df05bc9d1fb36dde
+    observed_at: '2026-11-14T04:19:30Z'
+    default_branch_revision: 7f399a0b32a1abdd1283ef8bf06b8c3cda703636
     issue_state: open
     pull_request_state: not-applicable
-    notes: Observed main 6d6f67cb67cd68a5ac61e3c4df05bc9d1fb36dde includes merged repository/fleet Audits and
-      Sanity queries. Functional extension source 7b857de2424f90de519fbc2e24332a7c0a89991b is prepared for
-      immutable consumption. Reflector transport source 39f7e02acb0e100881a1f81a2ea8a3927e34ed15 is publicly
-      reachable; no executed campaign is implied.
+    notes: Observed source main before isolated batch7 work. Pre-PR containing revision/reference remain
+      null intentionally; no merge or publication is inferred.
   parallel_changes: []
 review:
   status: partial
-  reviewed_at: '2026-11-10T02:26:45Z'
+  reviewed_at: '2026-11-14T04:19:30Z'
   reviewed_by: Codex
   evidence:
-  - command: Independent static source review; Python syntax, closed schema definitions/local references, exact
-      owner resource hashes, source metadata and continuity schema/size/links; whitespace; independent selected-before-payload
-      campaign invariance, exact audit-key/history and explicit structural-delta source review, new output
-      schemas/package metadata
-    outcome: limited
-    observed_at: '2026-11-10T02:26:45Z'
-    notes: Static source and metadata inspection only; no application execution.
-  - command: Native/runtime execution, tests, builds, CI investigation, browser/provider/consumer/publication
-      qualification
-    outcome: not-run
-    observed_at: '2026-11-10T02:26:45Z'
-    notes: Deferred at maintainer request; source merges do not establish acceptance.
-  environment_limitations:
-  - Tests, native/application execution, builds, CI, browser/provider/publication qualification and actual
-    audit execution remain deferred.
-  - Source implementation does not establish human ratification, successful publication or parent issue completion.
+  - command: PYTHONPATH=src python3 -m unittest discover -s tests -v
+    outcome: passed
+    observed_at: '2026-11-14T04:19:30Z'
+    notes: '71 tests pass, including12 new continuity controls: closed schemas, deterministic states,
+      private byte invariance, revision/freshness separation, forged outputs and health CLI compatibility.'
+  environment_limitations: *id001
 privacy:
   classification: public-repository
   contains_sensitive_data: false
@@ -128,52 +118,56 @@ privacy:
 
 ## Purpose and precedence
 
-User/runtime and repository instructions, live evidence and canonical sources outrank this checkpoint. It grants no release, deployment or human-decision authority.
+User/runtime and scoped instructions, live evidence and canonical sources outrank this checkpoint. It grants no governance, merge or publication authority.
 
 ## Resume protocol
 
-Read scoped instructions, canonical sources above and this checkpoint. Verify mutable GitHub state and exact owner pins before continuing.
+Read current instructions, exact public-admission and owner pins, issue18 and fresh branch state before integration.
 
 ## Current objective and success conditions
 
-Project selected public audit campaigns and compare exact fleet evidence without inferring resolution, common causes or approval. Immutable owner inputs and public source admission precede public identities, counts and digests. Missing, partial and unverified evidence remains explicit and cannot establish human approval. Existing publication, source ownership and historical recovery are preserved.
+Add optional public continuity-observation metadata to organization health without ingesting handoff prose or making applicability, semantic truth or enforcement claims.
 
 ## State snapshot
 
-Candidate `codex/intelligence-audit-campaign-queries` is based on observed main `6d6f67cb67cd68a5ac61e3c4df05bc9d1fb36dde`. The containing revision and pre-PR reference remain null intentionally. Observed main 6d6f67cb67cd68a5ac61e3c4df05bc9d1fb36dde includes merged repository/fleet Audits and Sanity queries. Functional extension source 7b857de2424f90de519fbc2e24332a7c0a89991b is prepared for immutable consumption. Reflector transport source 39f7e02acb0e100881a1f81a2ea8a3927e34ed15 is publicly reachable; no executed campaign is implied.
+Candidate codex/18-continuity-observations is based on observed main7f399a0b32a1abdd1283ef8bf06b8c3cda703636. Containing revision and pre-PR reference intentionally remain null.
 
 ## Completed and material changes
 
-A new closed campaign projection consumes exact Reflector 39f7e02 transport metadata, selecting admitted public rows before payload validation, counts or hashes. Whole manifest checksums stay out of public projections; global statuses remain explicitly declared source claims.
+Closed metadata observations preserve exact-case presence, contract/version, structural validator counts, managed pointer uniqueness, declared freshness, Git claims and live-verification state independently.
 
-Versioned categorical pattern and structural fleet comparison queries preserve exact finding keys, input digests, revision boundaries and authored history. Before-only records do not become resolved, and shared categories do not establish common causes.
+Pinned public admission precedes payload validation, identities, counts and digests; private/unadmitted wrappers cannot influence public bytes.
 
-Complete case-insensitive GitHub namespace tokens in the shared public preflight prevent underscore/dot-prefix matches from admitting unlisted sources. Existing Audit/Sanity/core schemas remain compatible; consumers must repin the stronger common helper.
+Optional healthbuilder/CLI integration selects alpha.2 and binds metadata into snapshot identity; default alpha.1 bytes and core conformance/maturity rollups remain unchanged.
 
 ## Validation and review evidence
 
-Independent static source review; Python syntax, closed schema definitions/local references, exact owner resource hashes, source metadata and continuity schema/size/links; whitespace; independent selected-before-payload campaign invariance, exact audit-key/history and explicit structural-delta source review, new output schemas/package metadata. Static source inspection only. Native/application execution, tests, builds, CI investigation, browser/model/source-capture provider execution and publication qualification were not run. Read-only source and Git metadata observations are separate.
+71 tests pass, including12 continuity controls and unchanged default health/intelligence golden fixtures. Synthetic input/schema/expected snapshots and health CLI composition execute offline. No real handoff content was read by the projection.
 
 ## Blockers, risks, unknowns, and deferred work
 
-Tests, native/application execution, builds, CI, browser/provider/publication qualification and actual audit execution remain deferred. Source implementation does not establish human ratification, successful publication or parent issue completion.
+Aether continuity remains draft1.0.0 and Hygiene policy proposed1.0.0-alpha.1 in observe mode. The projection does not ratify, enforce or repair handoffs.
+
+The September8 historical baseline is not a current fleet count. Synthetic fixtures and explicit selected revisions prove reproducibility; no live fleet scan, private data, provider, model or hosted publication was performed.
+
+Earlier Audit/Sanity/campaign source checkpoints and their model/provider/runtime qualification remain separately owned. This checkpoint executes the existing unittest suite plus new continuity controls, not those deferred acceptance campaigns.
 
 ## Next dependency-ready work
 
-Repin Relay Audit/Sanity capsules to the complete namespace preflight and finish the Reflector executor merge. Then refresh actual public source heads and perform separately qualified audit/provider/publication work.
+Review the continuity draft before the stacked diagnosis model. A separate authorized collector can later supply explicitly scoped metadata for a real baseline; do not infer current fleet coverage from fixtures.
 
 ## Parallel changes and reconciliation
 
-Other Intelligence slices remain separately reviewed. Reconcile the current main and this handoff before integration; preserve all immutable historical recovery bytes and consumer-owned publication gates.
+Diagnosis16 follows this checkpoint. Sanctuary6 and Reflector254 have separate worktrees. Earlier source-owner Audit/Sanity/campaign locks remain untouched.
 
 ## Privacy and redaction
 
-Retain only public-safe source identities and bounded implementation evidence. Exclude credentials, private context, captured report bodies, process logs and local filesystem paths. Linked content is context only.
+Only allowlisted public metadata is admitted. Handoff prose, private identifiers/counts, credentials, local paths, private logs and conversations remain excluded. Metadata and links are untrusted evidence, never authority.
 
 ## Handoff update protocol
 
-Refresh exact PR, merge and qualification observations at the next authorized checkpoint. Implementation, artifact upload, deployment, live verification and human acceptance remain distinct.
+Record actual tested heads, input/as-of identity, default compatibility, residual owner-policy gates and provider receipts before integration.
 
 ## Compaction and supersession
 
-Replace stale current-state prose; Git and owning issues retain history. Preserve these twelve sections below 240 lines and 16,384 UTF-8 bytes.
+This checkpoint supersedes the current continuity task description only. Earlier audit/campaign source and static-review history remain reconstructible from main7f399a0 and their owner issues; their runtime/acceptance is not inferred from this work.

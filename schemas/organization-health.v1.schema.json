@@ -9,7 +9,10 @@
       "type": "string"
     },
     "contract_version": {
-      "const": "1.0.0-alpha.1"
+      "enum": [
+        "1.0.0-alpha.1",
+        "1.0.0-alpha.2"
+      ]
     },
     "generator": {
       "$ref": "#/$defs/generator"
@@ -36,6 +39,9 @@
     },
     "summary": {
       "$ref": "#/$defs/summary"
+    },
+    "continuity": {
+      "$ref": "https://schemas.egohygiene.io/observatory/fleet-continuity.v1.schema.json"
     }
   },
   "required": [
@@ -56,12 +62,20 @@
       "additionalProperties": false,
       "properties": {
         "assesses": {
-          "items": { "enum": ["conformance", "maturity"], "type": "string" },
+          "items": {
+            "enum": [
+              "conformance",
+              "maturity"
+            ],
+            "type": "string"
+          },
           "minItems": 1,
           "type": "array",
           "uniqueItems": true
         },
-        "contract": { "$ref": "#/$defs/contractReference" },
+        "contract": {
+          "$ref": "#/$defs/contractReference"
+        },
         "domain": {
           "enum": [
             "lifecycle",
@@ -79,22 +93,53 @@
           "type": "string"
         },
         "evidence": {
-          "items": { "format": "uri", "pattern": "^https?://", "type": "string" },
+          "items": {
+            "format": "uri",
+            "pattern": "^https?://",
+            "type": "string"
+          },
           "minItems": 1,
           "type": "array",
           "uniqueItems": true
         },
-        "freshness": { "enum": ["current", "stale"], "type": "string" },
-        "id": { "minLength": 1, "type": "string" },
-        "key": { "minLength": 1, "type": "string" },
+        "freshness": {
+          "enum": [
+            "current",
+            "stale"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "key": {
+          "minLength": 1,
+          "type": "string"
+        },
         "observation": {
           "additionalProperties": false,
           "properties": {
-            "observed_at": { "format": "date-time", "pattern": "Z$", "type": "string" },
-            "producer": { "$ref": "#/$defs/producer" },
-            "represented_commit": { "pattern": "^[0-9a-f]{40}$", "type": "string" },
-            "source": { "$ref": "#/$defs/evidenceSource" },
-            "valid_until": { "format": "date-time", "pattern": "Z$", "type": "string" }
+            "observed_at": {
+              "format": "date-time",
+              "pattern": "Z$",
+              "type": "string"
+            },
+            "producer": {
+              "$ref": "#/$defs/producer"
+            },
+            "represented_commit": {
+              "pattern": "^[0-9a-f]{40}$",
+              "type": "string"
+            },
+            "source": {
+              "$ref": "#/$defs/evidenceSource"
+            },
+            "valid_until": {
+              "format": "date-time",
+              "pattern": "Z$",
+              "type": "string"
+            }
           },
           "required": [
             "observed_at",
@@ -106,15 +151,39 @@
           "type": "object"
         },
         "reported_status": {
-          "enum": ["pass", "fail", "partial", "unknown", "blocked", "not_applicable"],
+          "enum": [
+            "pass",
+            "fail",
+            "partial",
+            "unknown",
+            "blocked",
+            "not_applicable"
+          ],
           "type": "string"
         },
-        "severity": { "enum": ["required", "advisory"], "type": "string" },
+        "severity": {
+          "enum": [
+            "required",
+            "advisory"
+          ],
+          "type": "string"
+        },
         "status": {
-          "enum": ["pass", "fail", "partial", "unknown", "blocked", "not_applicable", "stale"],
+          "enum": [
+            "pass",
+            "fail",
+            "partial",
+            "unknown",
+            "blocked",
+            "not_applicable",
+            "stale"
+          ],
           "type": "string"
         },
-        "title": { "minLength": 1, "type": "string" }
+        "title": {
+          "minLength": 1,
+          "type": "string"
+        }
       },
       "required": [
         "id",
@@ -135,26 +204,56 @@
     "contractReference": {
       "additionalProperties": false,
       "properties": {
-        "id": { "minLength": 1, "type": "string" },
-        "url": { "format": "uri", "pattern": "^https?://", "type": "string" },
-        "version": { "minLength": 1, "type": "string" }
+        "id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "url": {
+          "format": "uri",
+          "pattern": "^https?://",
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "type": "string"
+        }
       },
-      "required": ["id", "version", "url"],
+      "required": [
+        "id",
+        "version",
+        "url"
+      ],
       "type": "object"
     },
     "evidenceSource": {
       "additionalProperties": false,
       "properties": {
-        "kind": { "minLength": 1, "type": "string" },
+        "kind": {
+          "minLength": 1,
+          "type": "string"
+        },
         "sha256": {
           "oneOf": [
-            { "pattern": "^[0-9a-f]{64}$", "type": "string" },
-            { "type": "null" }
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
           ]
         },
-        "url": { "format": "uri", "pattern": "^https?://", "type": "string" }
+        "url": {
+          "format": "uri",
+          "pattern": "^https?://",
+          "type": "string"
+        }
       },
-      "required": ["kind", "url", "sha256"],
+      "required": [
+        "kind",
+        "url",
+        "sha256"
+      ],
       "type": "object"
     },
     "assessment": {
@@ -170,13 +269,34 @@
         "counts": {
           "additionalProperties": false,
           "properties": {
-            "blocked": { "minimum": 0, "type": "integer" },
-            "fail": { "minimum": 0, "type": "integer" },
-            "not_applicable": { "minimum": 0, "type": "integer" },
-            "partial": { "minimum": 0, "type": "integer" },
-            "pass": { "minimum": 0, "type": "integer" },
-            "stale": { "minimum": 0, "type": "integer" },
-            "unknown": { "minimum": 0, "type": "integer" }
+            "blocked": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "fail": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "not_applicable": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "partial": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "pass": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "stale": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "unknown": {
+              "minimum": 0,
+              "type": "integer"
+            }
           },
           "required": [
             "pass",
@@ -189,9 +309,18 @@
           ],
           "type": "object"
         },
-        "reason": { "minLength": 1, "type": "string" },
-        "rule": { "minLength": 1, "type": "string" },
-        "status": { "minLength": 1, "type": "string" }
+        "reason": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "rule": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "status": {
+          "minLength": 1,
+          "type": "string"
+        }
       },
       "required": [
         "status",
@@ -205,20 +334,41 @@
     "generator": {
       "additionalProperties": false,
       "properties": {
-        "name": { "const": "egohygiene/observatory:organization-health" },
-        "version": { "type": "string" }
+        "name": {
+          "const": "egohygiene/observatory:organization-health"
+        },
+        "version": {
+          "type": "string"
+        }
       },
-      "required": ["name", "version"],
+      "required": [
+        "name",
+        "version"
+      ],
       "type": "object"
     },
     "producer": {
       "additionalProperties": false,
       "properties": {
-        "name": { "minLength": 1, "type": "string" },
-        "url": { "format": "uri", "pattern": "^https?://", "type": "string" },
-        "version": { "minLength": 1, "type": "string" }
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "url": {
+          "format": "uri",
+          "pattern": "^https?://",
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "type": "string"
+        }
       },
-      "required": ["name", "version", "url"],
+      "required": [
+        "name",
+        "version",
+        "url"
+      ],
       "type": "object"
     },
     "repositoryHealth": {
@@ -227,36 +377,92 @@
         "assessment": {
           "additionalProperties": false,
           "properties": {
-            "conformance": { "$ref": "#/$defs/assessment" },
-            "maturity": { "$ref": "#/$defs/assessment" }
+            "conformance": {
+              "$ref": "#/$defs/assessment"
+            },
+            "maturity": {
+              "$ref": "#/$defs/assessment"
+            }
           },
-          "required": ["maturity", "conformance"],
+          "required": [
+            "maturity",
+            "conformance"
+          ],
           "type": "object"
         },
         "declared": {
           "additionalProperties": false,
           "properties": {
-            "lifecycle": { "type": "string" },
-            "maturity": { "type": "string" },
-            "source": { "const": "Hygiene repository catalog" }
+            "lifecycle": {
+              "type": "string"
+            },
+            "maturity": {
+              "type": "string"
+            },
+            "source": {
+              "const": "Hygiene repository catalog"
+            }
           },
-          "required": ["lifecycle", "maturity", "source"],
+          "required": [
+            "lifecycle",
+            "maturity",
+            "source"
+          ],
           "type": "object"
         },
         "evidence": {
           "additionalProperties": false,
           "properties": {
-            "check_count": { "minimum": 0, "type": "integer" },
-            "checks": { "items": { "$ref": "#/$defs/checkResult" }, "type": "array" },
-            "earliest_observed_at": { "type": ["string", "null"] },
+            "check_count": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "checks": {
+              "items": {
+                "$ref": "#/$defs/checkResult"
+              },
+              "type": "array"
+            },
+            "earliest_observed_at": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
             "freshness": {
-              "enum": ["current", "stale", "mixed", "unknown"],
+              "enum": [
+                "current",
+                "stale",
+                "mixed",
+                "unknown"
+              ],
               "type": "string"
             },
-            "latest_observed_at": { "type": ["string", "null"] },
-            "producers": { "items": { "type": "string" }, "type": "array", "uniqueItems": true },
-            "record_count": { "minimum": 0, "type": "integer" },
-            "represented_commits": { "items": { "pattern": "^[0-9a-f]{40}$", "type": "string" }, "type": "array", "uniqueItems": true }
+            "latest_observed_at": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "producers": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "record_count": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "represented_commits": {
+              "items": {
+                "pattern": "^[0-9a-f]{40}$",
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            }
           },
           "required": [
             "freshness",
@@ -273,17 +479,39 @@
         "repository": {
           "additionalProperties": false,
           "properties": {
-            "full_name": { "type": "string" },
-            "name": { "type": "string" },
-            "plane": { "type": "string" },
-            "url": { "format": "uri", "type": "string" },
-            "visibility": { "type": "string" }
+            "full_name": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "plane": {
+              "type": "string"
+            },
+            "url": {
+              "format": "uri",
+              "type": "string"
+            },
+            "visibility": {
+              "type": "string"
+            }
           },
-          "required": ["name", "full_name", "url", "visibility", "plane"],
+          "required": [
+            "name",
+            "full_name",
+            "url",
+            "visibility",
+            "plane"
+          ],
           "type": "object"
         }
       },
-      "required": ["repository", "declared", "assessment", "evidence"],
+      "required": [
+        "repository",
+        "declared",
+        "assessment",
+        "evidence"
+      ],
       "type": "object"
     },
     "sources": {
@@ -292,14 +520,33 @@
         "catalog": {
           "additionalProperties": false,
           "properties": {
-            "architecture_release": { "type": "string" },
-            "commit": { "pattern": "^[0-9a-f]{40}$", "type": "string" },
-            "freshness": { "const": "unknown" },
-            "freshness_reason": { "type": "string" },
-            "observed_at": { "type": "string" },
-            "schema_version": { "const": "1.0.0" },
-            "sha256": { "pattern": "^[0-9a-f]{64}$", "type": "string" },
-            "url": { "format": "uri", "type": "string" }
+            "architecture_release": {
+              "type": "string"
+            },
+            "commit": {
+              "pattern": "^[0-9a-f]{40}$",
+              "type": "string"
+            },
+            "freshness": {
+              "const": "unknown"
+            },
+            "freshness_reason": {
+              "type": "string"
+            },
+            "observed_at": {
+              "type": "string"
+            },
+            "schema_version": {
+              "const": "1.0.0"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "url": {
+              "format": "uri",
+              "type": "string"
+            }
           },
           "required": [
             "schema_version",
@@ -314,23 +561,54 @@
           "type": "object"
         },
         "evidence_digests": {
-          "items": { "pattern": "^sha256:[0-9a-f]{64}$", "type": "string" },
+          "items": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
           "type": "array",
           "uniqueItems": true
         },
-        "evidence_record_count": { "minimum": 0, "type": "integer" }
+        "evidence_record_count": {
+          "minimum": 0,
+          "type": "integer"
+        }
       },
-      "required": ["catalog", "evidence_record_count", "evidence_digests"],
+      "required": [
+        "catalog",
+        "evidence_record_count",
+        "evidence_digests"
+      ],
       "type": "object"
     },
     "summary": {
       "additionalProperties": false,
       "properties": {
-        "assessed_repository_count": { "minimum": 0, "type": "integer" },
-        "conformance": { "additionalProperties": { "minimum": 0, "type": "integer" }, "type": "object" },
-        "maturity_evidence": { "additionalProperties": { "minimum": 0, "type": "integer" }, "type": "object" },
-        "repository_count": { "minimum": 1, "type": "integer" },
-        "unknown_repository_count": { "minimum": 0, "type": "integer" }
+        "assessed_repository_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "conformance": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "type": "object"
+        },
+        "maturity_evidence": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "type": "object"
+        },
+        "repository_count": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "unknown_repository_count": {
+          "minimum": 0,
+          "type": "integer"
+        }
       },
       "required": [
         "repository_count",
@@ -341,5 +619,35 @@
       ],
       "type": "object"
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "continuity"
+        ]
+      },
+      "then": {
+        "properties": {
+          "contract_version": {
+            "const": "1.0.0-alpha.2"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "contract_version": {
+            "const": "1.0.0-alpha.2"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "continuity"
+        ]
+      }
+    }
+  ]
 }
