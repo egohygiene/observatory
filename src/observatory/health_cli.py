@@ -57,6 +57,8 @@ def _parser() -> argparse.ArgumentParser:
         help="explicit RFC 3339 UTC evaluation time used for deterministic freshness",
     )
     build.add_argument("--output", required=True, type=Path)
+    build.add_argument("--continuity-targets", type=Path, help="Explicit public repository/revision selector array")
+    build.add_argument("--continuity-evidence", type=Path, action="append", default=[], help="Optional closed metadata wrapper array; never handoff prose")
 
     adapt = subparsers.add_parser(
         "adapt-egolint",
@@ -92,6 +94,18 @@ def _write_text(path: Path, content: str) -> None:
 
 def _run(args: argparse.Namespace) -> int:
     if args.command == "build":
+        continuity = None
+        if args.continuity_targets is not None or args.continuity_evidence:
+            if args.continuity_targets is None:
+                raise ValueError("Continuity metadata requires explicit public targets")
+            from . import public_reviews as shared
+            targets = shared.parse(shared.base._read(args.continuity_targets))
+            wrappers = []
+            for path in args.continuity_evidence:
+                value = shared.parse(shared.base._read(path))
+                shared.require(isinstance(value, list))
+                wrappers.extend(value)
+            continuity = {"repositories": targets, "observations": wrappers}
         catalog = load_catalog(args.catalog)
         evidence = [load_evidence(path) for path in args.evidence]
         snapshot = build_organization_health(
@@ -101,6 +115,7 @@ def _run(args: argparse.Namespace) -> int:
             catalog_url=args.catalog_url,
             catalog_commit=args.catalog_commit,
             catalog_sha256=file_sha256(args.catalog),
+            continuity=continuity,
         )
         write_json(args.output / "organization-health.json", snapshot)
         _write_text(args.output / "organization-health.md", markdown_text(snapshot))
@@ -138,6 +153,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         return _run(_parser().parse_args(argv))
     except ContractError as error:
         sys.stderr.write(f"observatory-health: {error}\n")
+        return 2
+    except (ValueError, TypeError, KeyError, OSError, UnicodeError, RecursionError):
+        sys.stderr.write("observatory-health: optional public metadata selection is incompatible\n")
         return 2
 
 

@@ -1,0 +1,822 @@
+{
+  "admission": {
+    "artifact_path": "catalog/public-repositories.json",
+    "artifact_sha256": "af9c7186ded0bb57b18741eaa5905314b96d6adb03736946c868e0fc4aa50b26",
+    "helper_sha256": "fd3bb2099f2b9040502f19a8e582e4c4100653bd6cf2ea640cc36338dcfc4273",
+    "observed_at": "2026-11-09T14:06:57Z",
+    "owner": "egohygiene/hygiene",
+    "revision": "49639c1845cdfd08fbd5a768261a8b3cf515f80f",
+    "schema": "egohygiene.relay.public-catalog-admission/v1",
+    "schema_sha256": "eeb88b6a99de987500b946bd71c987e1fb7d0bd7350f466885c11ac7603c96d8",
+    "selected_sha256": "6ec17126d18dd282a13869015317e149da0a3a697cfcaff9bdca97ade52df5bd"
+  },
+  "as_of": "2026-11-14T04:00:00Z",
+  "contract_version": "1.0.0-alpha.1",
+  "digest": "037f8361db59b8ebb840814cfd328058e2738f465d77336d612a503eafa8302a",
+  "owner_contract": {
+    "contract": "aether.repository-continuity/v1",
+    "lifecycle": "draft",
+    "path": "catalog/schemas/aether.repository-continuity.v1.schema.json",
+    "repository": "egohygiene/aether",
+    "revision": "6f230affe30719f222c354c522db5c247559e47f",
+    "sha256": "a725e004fe0db2bf96a968c6e3f300d37ecf8b00b9a0923be5c5f4c529655916",
+    "version": "1.0.0"
+  },
+  "policy": {
+    "mode": "observe",
+    "path": "catalog/repository-continuity-policy.json",
+    "repository": "egohygiene/hygiene",
+    "revision": "a05b14f8b9e2772124f879f818e09a911e996ad8",
+    "sha256": "2f694682df641f9c9741d79c7d23bca2ae5bd0d1e3aa6ca00cb31db17e0e2e2c",
+    "status": "proposed",
+    "version": "1.0.0-alpha.1"
+  },
+  "repositories": [
+    {
+      "collection": "unavailable",
+      "latest": null,
+      "observation_freshness": "unknown",
+      "observations": [],
+      "posture": "unverifiable",
+      "repository": {
+        "full_name": "egohygiene/aether",
+        "repository_id": 1315637692,
+        "source_url": "https://github.com/egohygiene/aether",
+        "visibility": "public"
+      },
+      "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "collection": "supplied",
+      "latest": {
+        "applicability": {
+          "exception_reference": null,
+          "status": "applicable"
+        },
+        "declared": {
+          "base_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "reviewed_at": null,
+          "status": "active",
+          "updated_at": "2026-11-14T02:00:00Z"
+        },
+        "file": {
+          "contract": "aether.repository-continuity/v1",
+          "exact_case": null,
+          "presence": "unknown",
+          "version": "1.0.0"
+        },
+        "git": {
+          "file_commit": null,
+          "file_commit_at": null,
+          "status": "unverified"
+        },
+        "live": {
+          "status": "unverified",
+          "verified_at": null
+        },
+        "observation_freshness": "fresh",
+        "observed_at": "2026-11-14T03:00:00Z",
+        "pointer": {
+          "managed_block_count": null,
+          "presence": "unknown"
+        },
+        "producer": {
+          "id": "synthetic-metadata-collector",
+          "version": "1.0.0"
+        },
+        "repository": "egohygiene/hygiene",
+        "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "schema": "egohygiene.observatory.continuity-observation/v1",
+        "source_url": "https://github.com/egohygiene/hygiene/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/CONTINUITY.md",
+        "structure": {
+          "error_count": null,
+          "status": "unavailable",
+          "validator": null,
+          "warning_count": null
+        },
+        "valid_until": "2026-11-15T03:00:00Z"
+      },
+      "observation_freshness": "fresh",
+      "observations": [
+        {
+          "applicability": {
+            "exception_reference": null,
+            "status": "applicable"
+          },
+          "declared": {
+            "base_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "reviewed_at": null,
+            "status": "active",
+            "updated_at": "2026-11-14T02:00:00Z"
+          },
+          "file": {
+            "contract": "aether.repository-continuity/v1",
+            "exact_case": null,
+            "presence": "unknown",
+            "version": "1.0.0"
+          },
+          "git": {
+            "file_commit": null,
+            "file_commit_at": null,
+            "status": "unverified"
+          },
+          "live": {
+            "status": "unverified",
+            "verified_at": null
+          },
+          "observation_freshness": "fresh",
+          "observed_at": "2026-11-14T03:00:00Z",
+          "pointer": {
+            "managed_block_count": null,
+            "presence": "unknown"
+          },
+          "producer": {
+            "id": "synthetic-metadata-collector",
+            "version": "1.0.0"
+          },
+          "repository": "egohygiene/hygiene",
+          "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "schema": "egohygiene.observatory.continuity-observation/v1",
+          "source_url": "https://github.com/egohygiene/hygiene/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/CONTINUITY.md",
+          "structure": {
+            "error_count": null,
+            "status": "unavailable",
+            "validator": null,
+            "warning_count": null
+          },
+          "valid_until": "2026-11-15T03:00:00Z"
+        }
+      ],
+      "posture": "unverifiable",
+      "repository": {
+        "full_name": "egohygiene/hygiene",
+        "repository_id": 1315637988,
+        "source_url": "https://github.com/egohygiene/hygiene",
+        "visibility": "public"
+      },
+      "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "collection": "supplied",
+      "latest": {
+        "applicability": {
+          "exception_reference": null,
+          "status": "applicable"
+        },
+        "declared": {
+          "base_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "reviewed_at": null,
+          "status": "active",
+          "updated_at": "2026-11-14T02:00:00Z"
+        },
+        "file": {
+          "contract": "aether.repository-continuity/v1",
+          "exact_case": true,
+          "presence": "present",
+          "version": "1.0.0"
+        },
+        "git": {
+          "file_commit": null,
+          "file_commit_at": null,
+          "status": "unverified"
+        },
+        "live": {
+          "status": "unverified",
+          "verified_at": null
+        },
+        "observation_freshness": "fresh",
+        "observed_at": "2026-11-14T03:00:00Z",
+        "pointer": {
+          "managed_block_count": 1,
+          "presence": "present"
+        },
+        "producer": {
+          "id": "synthetic-metadata-collector",
+          "version": "1.0.0"
+        },
+        "repository": "egohygiene/identity",
+        "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "schema": "egohygiene.observatory.continuity-observation/v1",
+        "source_url": "https://github.com/egohygiene/identity/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/CONTINUITY.md",
+        "structure": {
+          "error_count": 2,
+          "status": "invalid",
+          "validator": "synthetic-existing-validator",
+          "warning_count": 0
+        },
+        "valid_until": "2026-11-15T03:00:00Z"
+      },
+      "observation_freshness": "fresh",
+      "observations": [
+        {
+          "applicability": {
+            "exception_reference": null,
+            "status": "applicable"
+          },
+          "declared": {
+            "base_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "reviewed_at": null,
+            "status": "active",
+            "updated_at": "2026-11-14T02:00:00Z"
+          },
+          "file": {
+            "contract": "aether.repository-continuity/v1",
+            "exact_case": true,
+            "presence": "present",
+            "version": "1.0.0"
+          },
+          "git": {
+            "file_commit": null,
+            "file_commit_at": null,
+            "status": "unverified"
+          },
+          "live": {
+            "status": "unverified",
+            "verified_at": null
+          },
+          "observation_freshness": "fresh",
+          "observed_at": "2026-11-14T03:00:00Z",
+          "pointer": {
+            "managed_block_count": 1,
+            "presence": "present"
+          },
+          "producer": {
+            "id": "synthetic-metadata-collector",
+            "version": "1.0.0"
+          },
+          "repository": "egohygiene/identity",
+          "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "schema": "egohygiene.observatory.continuity-observation/v1",
+          "source_url": "https://github.com/egohygiene/identity/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/CONTINUITY.md",
+          "structure": {
+            "error_count": 2,
+            "status": "invalid",
+            "validator": "synthetic-existing-validator",
+            "warning_count": 0
+          },
+          "valid_until": "2026-11-15T03:00:00Z"
+        }
+      ],
+      "posture": "invalid",
+      "repository": {
+        "full_name": "egohygiene/identity",
+        "repository_id": 1315637826,
+        "source_url": "https://github.com/egohygiene/identity",
+        "visibility": "public"
+      },
+      "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "collection": "supplied",
+      "latest": {
+        "applicability": {
+          "exception_reference": null,
+          "status": "applicable"
+        },
+        "declared": {
+          "base_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "reviewed_at": null,
+          "status": "active",
+          "updated_at": "2026-11-14T02:00:00Z"
+        },
+        "file": {
+          "contract": null,
+          "exact_case": null,
+          "presence": "absent",
+          "version": null
+        },
+        "git": {
+          "file_commit": null,
+          "file_commit_at": null,
+          "status": "unverified"
+        },
+        "live": {
+          "status": "unverified",
+          "verified_at": null
+        },
+        "observation_freshness": "fresh",
+        "observed_at": "2026-11-14T03:00:00Z",
+        "pointer": {
+          "managed_block_count": 0,
+          "presence": "absent"
+        },
+        "producer": {
+          "id": "synthetic-metadata-collector",
+          "version": "1.0.0"
+        },
+        "repository": "egohygiene/mantle",
+        "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "schema": "egohygiene.observatory.continuity-observation/v1",
+        "source_url": "https://github.com/egohygiene/mantle/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/CONTINUITY.md",
+        "structure": {
+          "error_count": null,
+          "status": "not-run",
+          "validator": null,
+          "warning_count": null
+        },
+        "valid_until": "2026-11-15T03:00:00Z"
+      },
+      "observation_freshness": "fresh",
+      "observations": [
+        {
+          "applicability": {
+            "exception_reference": null,
+            "status": "applicable"
+          },
+          "declared": {
+            "base_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "reviewed_at": null,
+            "status": "active",
+            "updated_at": "2026-11-14T02:00:00Z"
+          },
+          "file": {
+            "contract": null,
+            "exact_case": null,
+            "presence": "absent",
+            "version": null
+          },
+          "git": {
+            "file_commit": null,
+            "file_commit_at": null,
+            "status": "unverified"
+          },
+          "live": {
+            "status": "unverified",
+            "verified_at": null
+          },
+          "observation_freshness": "fresh",
+          "observed_at": "2026-11-14T03:00:00Z",
+          "pointer": {
+            "managed_block_count": 0,
+            "presence": "absent"
+          },
+          "producer": {
+            "id": "synthetic-metadata-collector",
+            "version": "1.0.0"
+          },
+          "repository": "egohygiene/mantle",
+          "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "schema": "egohygiene.observatory.continuity-observation/v1",
+          "source_url": "https://github.com/egohygiene/mantle/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/CONTINUITY.md",
+          "structure": {
+            "error_count": null,
+            "status": "not-run",
+            "validator": null,
+            "warning_count": null
+          },
+          "valid_until": "2026-11-15T03:00:00Z"
+        }
+      ],
+      "posture": "absent",
+      "repository": {
+        "full_name": "egohygiene/mantle",
+        "repository_id": 1320127077,
+        "source_url": "https://github.com/egohygiene/mantle",
+        "visibility": "public"
+      },
+      "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "collection": "supplied",
+      "latest": {
+        "applicability": {
+          "exception_reference": null,
+          "status": "applicable"
+        },
+        "declared": {
+          "base_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "reviewed_at": null,
+          "status": "active",
+          "updated_at": "2026-11-14T02:00:00Z"
+        },
+        "file": {
+          "contract": "aether.repository-continuity/v1",
+          "exact_case": true,
+          "presence": "present",
+          "version": "1.0.0"
+        },
+        "git": {
+          "file_commit": null,
+          "file_commit_at": null,
+          "status": "unverified"
+        },
+        "live": {
+          "status": "unverified",
+          "verified_at": null
+        },
+        "observation_freshness": "fresh",
+        "observed_at": "2026-11-14T03:00:00Z",
+        "pointer": {
+          "managed_block_count": 1,
+          "presence": "present"
+        },
+        "producer": {
+          "id": "synthetic-metadata-collector",
+          "version": "1.0.0"
+        },
+        "repository": "egohygiene/observatory",
+        "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "schema": "egohygiene.observatory.continuity-observation/v1",
+        "source_url": "https://github.com/egohygiene/observatory/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/CONTINUITY.md",
+        "structure": {
+          "error_count": 0,
+          "status": "valid",
+          "validator": "synthetic-existing-validator",
+          "warning_count": 0
+        },
+        "valid_until": "2026-11-15T03:00:00Z"
+      },
+      "observation_freshness": "fresh",
+      "observations": [
+        {
+          "applicability": {
+            "exception_reference": null,
+            "status": "applicable"
+          },
+          "declared": {
+            "base_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "reviewed_at": null,
+            "status": "active",
+            "updated_at": "2026-11-14T02:00:00Z"
+          },
+          "file": {
+            "contract": "aether.repository-continuity/v1",
+            "exact_case": true,
+            "presence": "present",
+            "version": "1.0.0"
+          },
+          "git": {
+            "file_commit": null,
+            "file_commit_at": null,
+            "status": "unverified"
+          },
+          "live": {
+            "status": "unverified",
+            "verified_at": null
+          },
+          "observation_freshness": "fresh",
+          "observed_at": "2026-11-14T03:00:00Z",
+          "pointer": {
+            "managed_block_count": 1,
+            "presence": "present"
+          },
+          "producer": {
+            "id": "synthetic-metadata-collector",
+            "version": "1.0.0"
+          },
+          "repository": "egohygiene/observatory",
+          "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "schema": "egohygiene.observatory.continuity-observation/v1",
+          "source_url": "https://github.com/egohygiene/observatory/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/CONTINUITY.md",
+          "structure": {
+            "error_count": 0,
+            "status": "valid",
+            "validator": "synthetic-existing-validator",
+            "warning_count": 0
+          },
+          "valid_until": "2026-11-15T03:00:00Z"
+        }
+      ],
+      "posture": "valid",
+      "repository": {
+        "full_name": "egohygiene/observatory",
+        "repository_id": 1325309565,
+        "source_url": "https://github.com/egohygiene/observatory",
+        "visibility": "public"
+      },
+      "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "collection": "supplied",
+      "latest": {
+        "applicability": {
+          "exception_reference": null,
+          "status": "applicable"
+        },
+        "declared": {
+          "base_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "reviewed_at": null,
+          "status": "active",
+          "updated_at": "2026-11-14T02:00:00Z"
+        },
+        "file": {
+          "contract": "aether.repository-continuity/v1",
+          "exact_case": true,
+          "presence": "present",
+          "version": "2.0.0"
+        },
+        "git": {
+          "file_commit": null,
+          "file_commit_at": null,
+          "status": "unverified"
+        },
+        "live": {
+          "status": "unverified",
+          "verified_at": null
+        },
+        "observation_freshness": "fresh",
+        "observed_at": "2026-11-14T03:00:00Z",
+        "pointer": {
+          "managed_block_count": 1,
+          "presence": "present"
+        },
+        "producer": {
+          "id": "synthetic-metadata-collector",
+          "version": "1.0.0"
+        },
+        "repository": "egohygiene/pace",
+        "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "schema": "egohygiene.observatory.continuity-observation/v1",
+        "source_url": "https://github.com/egohygiene/pace/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/CONTINUITY.md",
+        "structure": {
+          "error_count": 0,
+          "status": "valid",
+          "validator": "synthetic-existing-validator",
+          "warning_count": 0
+        },
+        "valid_until": "2026-11-15T03:00:00Z"
+      },
+      "observation_freshness": "fresh",
+      "observations": [
+        {
+          "applicability": {
+            "exception_reference": null,
+            "status": "applicable"
+          },
+          "declared": {
+            "base_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "reviewed_at": null,
+            "status": "active",
+            "updated_at": "2026-11-14T02:00:00Z"
+          },
+          "file": {
+            "contract": "aether.repository-continuity/v1",
+            "exact_case": true,
+            "presence": "present",
+            "version": "2.0.0"
+          },
+          "git": {
+            "file_commit": null,
+            "file_commit_at": null,
+            "status": "unverified"
+          },
+          "live": {
+            "status": "unverified",
+            "verified_at": null
+          },
+          "observation_freshness": "fresh",
+          "observed_at": "2026-11-14T03:00:00Z",
+          "pointer": {
+            "managed_block_count": 1,
+            "presence": "present"
+          },
+          "producer": {
+            "id": "synthetic-metadata-collector",
+            "version": "1.0.0"
+          },
+          "repository": "egohygiene/pace",
+          "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "schema": "egohygiene.observatory.continuity-observation/v1",
+          "source_url": "https://github.com/egohygiene/pace/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/CONTINUITY.md",
+          "structure": {
+            "error_count": 0,
+            "status": "valid",
+            "validator": "synthetic-existing-validator",
+            "warning_count": 0
+          },
+          "valid_until": "2026-11-15T03:00:00Z"
+        }
+      ],
+      "posture": "unsupported",
+      "repository": {
+        "full_name": "egohygiene/pace",
+        "repository_id": 1315637735,
+        "source_url": "https://github.com/egohygiene/pace",
+        "visibility": "public"
+      },
+      "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "collection": "supplied",
+      "latest": {
+        "applicability": {
+          "exception_reference": null,
+          "status": "applicable"
+        },
+        "declared": {
+          "base_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "reviewed_at": null,
+          "status": "stale",
+          "updated_at": "2026-11-14T02:00:00Z"
+        },
+        "file": {
+          "contract": "aether.repository-continuity/v1",
+          "exact_case": true,
+          "presence": "present",
+          "version": "1.0.0"
+        },
+        "git": {
+          "file_commit": null,
+          "file_commit_at": null,
+          "status": "unverified"
+        },
+        "live": {
+          "status": "unverified",
+          "verified_at": null
+        },
+        "observation_freshness": "fresh",
+        "observed_at": "2026-11-14T03:00:00Z",
+        "pointer": {
+          "managed_block_count": 1,
+          "presence": "present"
+        },
+        "producer": {
+          "id": "synthetic-metadata-collector",
+          "version": "1.0.0"
+        },
+        "repository": "egohygiene/realm",
+        "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "schema": "egohygiene.observatory.continuity-observation/v1",
+        "source_url": "https://github.com/egohygiene/realm/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/CONTINUITY.md",
+        "structure": {
+          "error_count": 0,
+          "status": "valid",
+          "validator": "synthetic-existing-validator",
+          "warning_count": 0
+        },
+        "valid_until": "2026-11-15T03:00:00Z"
+      },
+      "observation_freshness": "fresh",
+      "observations": [
+        {
+          "applicability": {
+            "exception_reference": null,
+            "status": "applicable"
+          },
+          "declared": {
+            "base_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "reviewed_at": null,
+            "status": "stale",
+            "updated_at": "2026-11-14T02:00:00Z"
+          },
+          "file": {
+            "contract": "aether.repository-continuity/v1",
+            "exact_case": true,
+            "presence": "present",
+            "version": "1.0.0"
+          },
+          "git": {
+            "file_commit": null,
+            "file_commit_at": null,
+            "status": "unverified"
+          },
+          "live": {
+            "status": "unverified",
+            "verified_at": null
+          },
+          "observation_freshness": "fresh",
+          "observed_at": "2026-11-14T03:00:00Z",
+          "pointer": {
+            "managed_block_count": 1,
+            "presence": "present"
+          },
+          "producer": {
+            "id": "synthetic-metadata-collector",
+            "version": "1.0.0"
+          },
+          "repository": "egohygiene/realm",
+          "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "schema": "egohygiene.observatory.continuity-observation/v1",
+          "source_url": "https://github.com/egohygiene/realm/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/CONTINUITY.md",
+          "structure": {
+            "error_count": 0,
+            "status": "valid",
+            "validator": "synthetic-existing-validator",
+            "warning_count": 0
+          },
+          "valid_until": "2026-11-15T03:00:00Z"
+        }
+      ],
+      "posture": "stale-declared",
+      "repository": {
+        "full_name": "egohygiene/realm",
+        "repository_id": 1315637781,
+        "source_url": "https://github.com/egohygiene/realm",
+        "visibility": "public"
+      },
+      "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "collection": "supplied",
+      "latest": {
+        "applicability": {
+          "exception_reference": "https://github.com/egohygiene/observatory/issues/18",
+          "status": "exempt"
+        },
+        "declared": {
+          "base_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "reviewed_at": null,
+          "status": "active",
+          "updated_at": "2026-11-14T02:00:00Z"
+        },
+        "file": {
+          "contract": "aether.repository-continuity/v1",
+          "exact_case": true,
+          "presence": "present",
+          "version": "1.0.0"
+        },
+        "git": {
+          "file_commit": null,
+          "file_commit_at": null,
+          "status": "unverified"
+        },
+        "live": {
+          "status": "unverified",
+          "verified_at": null
+        },
+        "observation_freshness": "fresh",
+        "observed_at": "2026-11-14T03:00:00Z",
+        "pointer": {
+          "managed_block_count": 1,
+          "presence": "present"
+        },
+        "producer": {
+          "id": "synthetic-metadata-collector",
+          "version": "1.0.0"
+        },
+        "repository": "egohygiene/relay",
+        "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "schema": "egohygiene.observatory.continuity-observation/v1",
+        "source_url": "https://github.com/egohygiene/relay/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/CONTINUITY.md",
+        "structure": {
+          "error_count": 0,
+          "status": "valid",
+          "validator": "synthetic-existing-validator",
+          "warning_count": 0
+        },
+        "valid_until": "2026-11-15T03:00:00Z"
+      },
+      "observation_freshness": "fresh",
+      "observations": [
+        {
+          "applicability": {
+            "exception_reference": "https://github.com/egohygiene/observatory/issues/18",
+            "status": "exempt"
+          },
+          "declared": {
+            "base_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "reviewed_at": null,
+            "status": "active",
+            "updated_at": "2026-11-14T02:00:00Z"
+          },
+          "file": {
+            "contract": "aether.repository-continuity/v1",
+            "exact_case": true,
+            "presence": "present",
+            "version": "1.0.0"
+          },
+          "git": {
+            "file_commit": null,
+            "file_commit_at": null,
+            "status": "unverified"
+          },
+          "live": {
+            "status": "unverified",
+            "verified_at": null
+          },
+          "observation_freshness": "fresh",
+          "observed_at": "2026-11-14T03:00:00Z",
+          "pointer": {
+            "managed_block_count": 1,
+            "presence": "present"
+          },
+          "producer": {
+            "id": "synthetic-metadata-collector",
+            "version": "1.0.0"
+          },
+          "repository": "egohygiene/relay",
+          "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "schema": "egohygiene.observatory.continuity-observation/v1",
+          "source_url": "https://github.com/egohygiene/relay/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/CONTINUITY.md",
+          "structure": {
+            "error_count": 0,
+            "status": "valid",
+            "validator": "synthetic-existing-validator",
+            "warning_count": 0
+          },
+          "valid_until": "2026-11-15T03:00:00Z"
+        }
+      ],
+      "posture": "exempt",
+      "repository": {
+        "full_name": "egohygiene/relay",
+        "repository_id": 1321918958,
+        "source_url": "https://github.com/egohygiene/relay",
+        "visibility": "public"
+      },
+      "represented_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ],
+  "schema": "egohygiene.observatory.fleet-continuity/v1",
+  "visibility": "public"
+}

@@ -646,6 +646,7 @@ def build_organization_health(
     catalog_url: str,
     catalog_commit: str,
     catalog_sha256: str,
+    continuity: Mapping[str, Any] | None = None,
 ) -> JsonObject:
     """Build one deterministic fleet health snapshot."""
 
@@ -698,14 +699,22 @@ def build_organization_health(
         "commit": _require_commit(catalog_commit, "catalog_commit"),
         "sha256": _require_sha256(catalog_sha256, "catalog_sha256"),
     }
-    identity = digest(
-        {
+    identity_inputs = {
             "as_of": as_of_text,
             "catalog": source,
             "evidence": normalized_evidence,
         }
-    )
-    return {
+    continuity_view = None
+    if continuity is not None:
+        from .continuity import build_continuity_view
+        if not isinstance(continuity, Mapping) or set(continuity) != {"repositories", "observations"}:
+            raise ContractError("Continuity metadata selection is incompatible")
+        continuity_view = build_continuity_view(continuity["observations"], repositories=continuity["repositories"], as_of=as_of_text)
+        if any(item["repository"]["full_name"] not in catalog_repositories for item in continuity_view["repositories"]):
+            raise ContractError("Continuity selection is outside the health catalog")
+        identity_inputs["continuity"] = continuity_view["digest"]
+    identity = digest(identity_inputs)
+    snapshot = {
         "schema": HEALTH_SCHEMA,
         "contract_version": CONTRACT_VERSION,
         "snapshot_id": f"organization-health:{identity}",
@@ -730,6 +739,10 @@ def build_organization_health(
         },
         "repositories": repositories,
     }
+    if continuity_view is not None:
+        snapshot["contract_version"] = "1.0.0-alpha.2"
+        snapshot["continuity"] = continuity_view
+    return snapshot
 
 
 def markdown_text(snapshot: Mapping[str, Any]) -> str:

@@ -68,3 +68,6 @@ __version__ = "0.1.0"
 from .conformance import build_repository_conformance
 
 __all__.append("build_repository_conformance")
+
+from .continuity import build_continuity_view
+__all__.append("build_continuity_view")
